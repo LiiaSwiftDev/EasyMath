@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct EasyMathApp: App {
+    
+    // Stores app state
+    @State var model = MainViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+            // Pass model to all child views
+                .environment(model)
         }
     }
 }
