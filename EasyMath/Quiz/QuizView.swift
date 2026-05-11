@@ -16,7 +16,7 @@ struct QuizView: View {
                 .ignoresSafeArea()
             VStack(spacing: 0) {
                 
-                // Task number
+                // Question progress
                 HStack {
                     Spacer()
                     
@@ -27,16 +27,16 @@ struct QuizView: View {
                 .padding(.horizontal, 35)
                 .padding(.bottom, 40)
                 
-                // Task board
+                // Math task board
                 TaskBoard()
-                    .padding(.bottom, 25)
                 
+                // Instruction text
                 Text("Choose the correct answer")
                     .foregroundStyle(Color.gray)
                     .font(.system(size: 20, weight: .semibold, design: .rounded))
-                    .padding(.bottom, 20)
+                    .padding(.vertical, 20)
                 
-                // Four answer options
+                // Answer options
                 LazyVGrid(columns:
                             [GridItem(.fixed(95), spacing: 68),
                              GridItem(.fixed(95), spacing: 68)], spacing: 28) {
@@ -46,8 +46,9 @@ struct QuizView: View {
                 }.padding(.bottom, 40)
                 
                 // Next button
-                NextButton()
+                NextButton(text: "Done", showImage: false)
                     .padding(.bottom, 50)
+                    .padding(.horizontal, 40)
                 
             }
         }

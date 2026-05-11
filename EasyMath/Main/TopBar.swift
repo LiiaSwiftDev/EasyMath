@@ -9,7 +9,14 @@ import SwiftUI
 
 struct TopBar: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        // Top bar with profile and score
+        HStack(spacing: 0) {
+            ProfileCard()
+            
+            Spacer()
+            
+            ScoreBadge()
+        }
     }
 }
 

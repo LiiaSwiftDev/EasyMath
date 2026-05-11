@@ -43,7 +43,10 @@ struct TaskBoard: View {
                     .frame(height: 1)
             }.padding(.vertical, 52)
             
-            // Example to solve
+            // Feedback banner
+            AnswerBanner()
+            
+            // Math problem
             Text("5 x 3 = ?")
                 .foregroundStyle(Color.black)
                 .font(.system(.largeTitle, design: .rounded, weight: .semibold))
@@ -56,8 +59,9 @@ struct TaskBoard: View {
                 .offset(x: -70, y: -130)
                 .rotationEffect(.degrees(-13))
             
-        }.frame( height: 270)
-            .padding(.horizontal, 40)
+        }
+        .frame( height: 270)
+        .padding(.horizontal, 40)
     }
 }
 

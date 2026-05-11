@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct NextButton: View {
+    
+    var text: String
+    var showImage: Bool
+    
     var body: some View {
         // Next/Done button
         Button {
             // TODO
         } label: {
             ZStack {
-                // Button background gradient
+                // Background
                 RoundedRectangle(cornerRadius: 15)
                     .frame(height: 50)
                     .foregroundStyle(RadialGradient(
@@ -34,17 +38,25 @@ struct NextButton: View {
                             .frame(height: 51)
                     })
                     .shadow(color: Color(red: 238/255, green: 119/255, blue: 4/255), radius: 2, y: 6)
-                    .padding(.horizontal, 40)
                 
-                // Button text
-                Text("Done")
-                    .foregroundStyle(Color.white)
-                    .font(.system(.title2, design: .rounded, weight: .bold))
+                HStack {
+                    if showImage {
+                        Image(systemName: "arrow.clockwise")
+                            .foregroundStyle(Color.white)
+                            .font(.system(.title2, design: .rounded, weight: .bold))
+                            .padding(.trailing, 2)
+                    }
+                    
+                    // Label
+                    Text(text)
+                        .foregroundStyle(Color.white)
+                        .font(.system(.title2, design: .rounded, weight: .bold))
+                }
             }
         }
     }
 }
 
 #Preview {
-    NextButton()
+    NextButton(text: "Done", showImage: true)
 }

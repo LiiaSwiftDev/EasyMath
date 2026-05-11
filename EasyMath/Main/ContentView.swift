@@ -19,15 +19,8 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                
                 // Top bar with profile and score
-                HStack(spacing: 0) {
-                    ProfileCard()
-                    
-                    Spacer()
-                    
-                    ScoreBadge()
-                }
+                TopBar()
                 
                 // Title
                 Text("Pick a category!")

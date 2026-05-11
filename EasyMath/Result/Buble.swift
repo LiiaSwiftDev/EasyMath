@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct Buble: View {
+    
+    var width: CGFloat
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("buble")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: width)
     }
 }
 
 #Preview {
-    Buble()
+    Buble(width: 24)
 }

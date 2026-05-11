@@ -12,6 +12,12 @@
 		180B032A2F9921E8006A5B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180B03242F9921E8006A5B3E /* Assets.xcassets */; };
 		180B032C2F9933DF006A5B3E /* QuizCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B032B2F9933DF006A5B3E /* QuizCard.swift */; };
 		180B032E2F993B31006A5B3E /* ButtonStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B032D2F993B31006A5B3E /* ButtonStart.swift */; };
+		181237D52FB1086400BC7AB0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181237D42FB1086400BC7AB0 /* ResultView.swift */; };
+		181237D72FB111EC00BC7AB0 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181237D62FB111EC00BC7AB0 /* HomeButton.swift */; };
+		181237D92FB146D500BC7AB0 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181237D82FB146D500BC7AB0 /* TopBar.swift */; };
+		181237DB2FB14A1300BC7AB0 /* FeedbackBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181237DA2FB14A1300BC7AB0 /* FeedbackBanner.swift */; };
+		181237DD2FB1858E00BC7AB0 /* Buble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181237DC2FB1858E00BC7AB0 /* Buble.swift */; };
+		181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */; };
 		1831D64E2FA179510033AE89 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D64D2FA179510033AE89 /* MainViewModel.swift */; };
 		1831D6502FA17BB90033AE89 /* MathSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D64F2FA17BB90033AE89 /* MathSign.swift */; };
 		1831D6522FA1ACE90033AE89 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D6512FA1ACE90033AE89 /* ProfileCard.swift */; };
@@ -30,6 +36,12 @@
 		180B03262F9921E8006A5B3E /* EasyMathApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyMathApp.swift; sourceTree = "<group>"; };
 		180B032B2F9933DF006A5B3E /* QuizCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCard.swift; sourceTree = "<group>"; };
 		180B032D2F993B31006A5B3E /* ButtonStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStart.swift; sourceTree = "<group>"; };
+		181237D42FB1086400BC7AB0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		181237D62FB111EC00BC7AB0 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		181237D82FB146D500BC7AB0 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		181237DA2FB14A1300BC7AB0 /* FeedbackBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackBanner.swift; sourceTree = "<group>"; };
+		181237DC2FB1858E00BC7AB0 /* Buble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buble.swift; sourceTree = "<group>"; };
+		181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerBanner.swift; sourceTree = "<group>"; };
 		1831D64D2FA179510033AE89 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1831D64F2FA17BB90033AE89 /* MathSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSign.swift; sourceTree = "<group>"; };
 		1831D6512FA1ACE90033AE89 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
@@ -74,10 +86,22 @@
 				180B03242F9921E8006A5B3E /* Assets.xcassets */,
 				180B03262F9921E8006A5B3E /* EasyMathApp.swift */,
 				1853B85F2F9AEC4A009503DE /* Main */,
+				1857A7072FAD0D9900557813 /* Quiz */,
+				181237D32FB1083E00BC7AB0 /* Result */,
 				1853B85C2F9AD2CE009503DE /* Model */,
 				1831D64C2FA1791F0033AE89 /* ViewModel */,
 			);
 			path = EasyMath;
+			sourceTree = "<group>";
+		};
+		181237D32FB1083E00BC7AB0 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				181237D42FB1086400BC7AB0 /* ResultView.swift */,
+				181237D62FB111EC00BC7AB0 /* HomeButton.swift */,
+				181237DC2FB1858E00BC7AB0 /* Buble.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 		1831D64C2FA1791F0033AE89 /* ViewModel */ = {
@@ -105,7 +129,7 @@
 				1831D64F2FA17BB90033AE89 /* MathSign.swift */,
 				1831D6512FA1ACE90033AE89 /* ProfileCard.swift */,
 				186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */,
-				1857A7072FAD0D9900557813 /* Quiz */,
+				181237D82FB146D500BC7AB0 /* TopBar.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -117,6 +141,8 @@
 				1857A70A2FAD1E1800557813 /* TaskBoard.swift */,
 				1857A70C2FAD22BB00557813 /* AnswerButton.swift */,
 				1857A70E2FAD68B100557813 /* NextButton.swift */,
+				181237DA2FB14A1300BC7AB0 /* FeedbackBanner.swift */,
+				181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -197,15 +223,21 @@
 				180B03282F9921E8006A5B3E /* ContentView.swift in Sources */,
 				180B03292F9921E8006A5B3E /* EasyMathApp.swift in Sources */,
 				1831D6502FA17BB90033AE89 /* MathSign.swift in Sources */,
+				181237DB2FB14A1300BC7AB0 /* FeedbackBanner.swift in Sources */,
 				1853B85E2F9AD38B009503DE /* QuizCardModel.swift in Sources */,
+				181237D52FB1086400BC7AB0 /* ResultView.swift in Sources */,
 				1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */,
 				1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */,
+				181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */,
 				186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */,
 				180B032E2F993B31006A5B3E /* ButtonStart.swift in Sources */,
 				180B032C2F9933DF006A5B3E /* QuizCard.swift in Sources */,
+				181237DD2FB1858E00BC7AB0 /* Buble.swift in Sources */,
 				1857A7092FAD0DAE00557813 /* QuizView.swift in Sources */,
 				1831D64E2FA179510033AE89 /* MainViewModel.swift in Sources */,
+				181237D72FB111EC00BC7AB0 /* HomeButton.swift in Sources */,
 				1831D6522FA1ACE90033AE89 /* ProfileCard.swift in Sources */,
+				181237D92FB146D500BC7AB0 /* TopBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
