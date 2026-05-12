@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AnswerBanner: View {
+    
+    @Environment(QuizViewModel.self) private var quizModel
+    
     var body: some View {
         // Banner with correct answer
         ZStack {
@@ -49,7 +52,7 @@ struct AnswerBanner: View {
                                 .foregroundStyle(Color(red: 152/255, green: 152/255, blue: 152/255))
                         }
                     
-                    Text("15")
+                    Text(quizModel.correctAnswer)
                         .font(.system(.title2, design: .rounded, weight: .semibold))
                 }
             }

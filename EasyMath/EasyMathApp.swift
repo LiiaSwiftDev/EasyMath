@@ -12,12 +12,14 @@ struct EasyMathApp: App {
     
     // Stores app state
     @State var model = MainViewModel()
+    @State var quizModel = QuizViewModel()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
             // Pass model to all child views
                 .environment(model)
+                .environment(quizModel)
         }
     }
 }

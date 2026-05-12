@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct QuizView: View {
+    
+    @Environment(QuizViewModel.self) private var quizModel
+    
     var body: some View {
         ZStack {
             
@@ -40,8 +43,8 @@ struct QuizView: View {
                 LazyVGrid(columns:
                             [GridItem(.fixed(95), spacing: 68),
                              GridItem(.fixed(95), spacing: 68)], spacing: 28) {
-                    ForEach(1...4, id: \.self) { one in
-                        AnswerButton()
+                    ForEach(quizModel.quizOptions, id: \.self) { option in
+                        AnswerButton(answer: option)
                     }
                 }.padding(.bottom, 40)
                 
@@ -51,6 +54,9 @@ struct QuizView: View {
                     .padding(.horizontal, 40)
                 
             }
+        }
+        .onAppear {
+            quizModel.multiplyExample()
         }
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AnswerButton: View {
+    
+    var answer: String
+    
     var body: some View {
         // Answer option button
         Button {
@@ -25,7 +28,8 @@ struct AnswerButton: View {
                     }
                     .shadow(radius: 4, y: 4)
                 
-                Text("15")
+                // Answer option
+                Text(answer)
                     .font(.system(.largeTitle, design: .rounded, weight: .semibold))
                     .foregroundStyle(Color.black)
             }
@@ -34,5 +38,5 @@ struct AnswerButton: View {
 }
 
 #Preview {
-    AnswerButton()
+    AnswerButton(answer: "15")
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TaskBoard: View {
+    
+    @Environment(QuizViewModel.self) private var quizModel
+    
     var body: some View {
         ZStack {
             // Board background
@@ -47,7 +50,7 @@ struct TaskBoard: View {
             AnswerBanner()
             
             // Math problem
-            Text("5 x 3 = ?")
+            Text(quizModel.example)
                 .foregroundStyle(Color.black)
                 .font(.system(.largeTitle, design: .rounded, weight: .semibold))
             
