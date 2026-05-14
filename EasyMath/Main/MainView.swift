@@ -34,14 +34,10 @@ struct MainView: View {
                     ScrollView(showsIndicators: false) {
                         LazyVGrid(columns: [GridItem(spacing: 20), GridItem(spacing: 20)], spacing: 20) {
                             ForEach(model.cards) { card in
-                                Button {
-                                    // TODO
+                                NavigationLink {
+                                    QuizView(numberOfCard: card)
                                 } label: {
-                                    NavigationLink {
-                                        QuizView()
-                                    } label: {
-                                        QuizCard(card: card)
-                                    }
+                                    QuizCard(card: card)
                                 }
                             }.padding(.trailing, 14)
                             

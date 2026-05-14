@@ -46,8 +46,11 @@ struct TaskBoard: View {
                     .frame(height: 1)
             }.padding(.vertical, 52)
             
-            // Feedback banner
-            AnswerBanner()
+            // If user choose wrong answer
+            if quizModel.answerIsCorrect == false {
+                // Feedback banner
+                AnswerBanner()
+            }
             
             // Math problem
             Text(quizModel.example)
