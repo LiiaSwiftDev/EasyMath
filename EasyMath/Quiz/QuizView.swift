@@ -9,12 +9,16 @@ import SwiftUI
 
 struct QuizView: View {
     
+    
     @Environment(QuizViewModel.self) private var quizModel
     
     // Quiz card selected by user
     var numberOfCard: QuizCardModel
     
     var body: some View {
+        
+        @Bindable var quizModel = quizModel
+        
         ZStack {
             
             // Background color
@@ -26,7 +30,7 @@ struct QuizView: View {
                 HStack {
                     Spacer()
                     
-                    Text("1/10")
+                    Text("\(quizModel.progressIndicator)/10")
                         .foregroundStyle(Color.gray)
                         .font(.system(.largeTitle, design: .rounded, weight: .semibold))
                 }
@@ -62,25 +66,20 @@ struct QuizView: View {
                 NextButton(text: "Done", showImage: false)
                     .padding(.bottom, 70)
                     .padding(.horizontal, 40)
-                
             }
         }
+        .navigationDestination(isPresented: $quizModel.showResult, destination: {
+            // 7 шаг
+            ResultView()
+        })
         .onAppear {
-            
-            switch numberOfCard.signs {
-            case .multiply:
-                quizModel.multiplyExample()
-            case .add:
-                quizModel.additionExample()
-            case .subtrack:
-                quizModel.subtractExample()
-            case .divide:
-                quizModel.divideExample()
-            }
+            quizModel.quizExample(sign: numberOfCard.signs)
+            quizModel.currentSign = numberOfCard.signs
         }
         .onDisappear {
-            quizModel.reset()
+            quizModel.progressIndicator = 1
         }
+
     }
 }
 

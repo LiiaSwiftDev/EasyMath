@@ -10,8 +10,9 @@ import SwiftUI
 struct MainView: View {
     
     @Environment(MainViewModel.self) var model
-    
+
     var body: some View {
+
         NavigationStack {
             ZStack {
                 
@@ -39,6 +40,7 @@ struct MainView: View {
                                 } label: {
                                     QuizCard(card: card)
                                 }
+                                
                             }.padding(.trailing, 14)
                             
                         }
@@ -83,6 +85,7 @@ struct MainView: View {
                 model.animationTask = nil
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
 }

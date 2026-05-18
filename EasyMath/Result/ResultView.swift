@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
+    
     var body: some View {
         ZStack {
             // Background color
@@ -74,10 +75,10 @@ struct ResultView: View {
                 
             }
             .padding(.horizontal, 20)
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
+  #Preview {
+  ResultView()
+  }
 
-#Preview {
-    ResultView()
-}

@@ -19,10 +19,19 @@ struct NextButton: View {
         
         // Next/Done button
         Button {
-            
-            // check if answer is correct and give feedback
-            quizModel.checkAnswer()
-            
+            if quizModel.showBanner {
+                guard quizModel.progressIndicator < 3 else {
+                    return quizModel.showResult = true
+                }
+                
+                quizModel.quizExample(sign: quizModel.currentSign)
+                quizModel.progressIndicator += 1
+            }
+            else {
+                // check if answer is correct and give feedback
+                quizModel.checkAnswer()
+            }
+ 
         } label: {
             ZStack {
                 if quizModel.selectedAnswer == nil {

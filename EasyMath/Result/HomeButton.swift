@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeButton: View {
+
     var body: some View {
         // Home button
         Button {

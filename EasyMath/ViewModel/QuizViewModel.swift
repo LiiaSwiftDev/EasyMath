@@ -33,6 +33,14 @@ class QuizViewModel {
     // Show correсt/incorrect banner
     var showBanner = false
     
+    // Quiz card selected by user
+    var currentSign: QuizCardModel.Signs = .add
+    
+    // 1/10
+    var progressIndicator = 1
+    
+    var showResult = false
+    
     
     func multiplyExample() {
         a = Int.random(in: 1...10)
@@ -164,6 +172,25 @@ class QuizViewModel {
         selectedAnswer = nil
         showBanner = false
         answerIsCorrect = true
+    }
+    func quizExample(sign: QuizCardModel.Signs) {
+        // сбрасывает предыдущий пример
+        reset()
+        
+        switch sign {
+        case .multiply:
+            multiplyExample()
+        case .add:
+            additionExample()
+        case .subtrack:
+            subtractExample()
+        case .divide:
+            divideExample()
+        }
+    }
+    
+    func goHome() {
+        showResult = false
     }
      
 }
