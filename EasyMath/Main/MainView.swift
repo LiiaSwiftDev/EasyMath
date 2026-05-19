@@ -10,10 +10,14 @@ import SwiftUI
 struct MainView: View {
     
     @Environment(MainViewModel.self) var model
-
+    
+    // Stores the navigation path. Each number = a screen to open.
+    @State private var path: [Int] = []
+    
     var body: some View {
-
-        NavigationStack {
+        
+        // NavigationStack watches path. When path changes, a new screen opens.
+        NavigationStack(path: $path) {
             ZStack {
                 
                 // Background color
@@ -35,12 +39,15 @@ struct MainView: View {
                     ScrollView(showsIndicators: false) {
                         LazyVGrid(columns: [GridItem(spacing: 20), GridItem(spacing: 20)], spacing: 20) {
                             ForEach(model.cards) { card in
-                                NavigationLink {
-                                    QuizView(numberOfCard: card)
+                                Button {
+                                    // Add 1 to path to open QuizView.
+                                    path.append(1)
+                                    
+                                    // Save selected quiz card.
+                                    model.selectedCard = card
                                 } label: {
                                     QuizCard(card: card)
                                 }
-                                
                             }.padding(.trailing, 14)
                             
                         }
@@ -75,6 +82,17 @@ struct MainView: View {
                     }
                 }
             }
+            // Decide which screen to show. For each value in path.
+            .navigationDestination(for: Int.self, destination: { value in
+                switch value {
+                case 1:
+                    QuizView(path: $path)
+                case 2:
+                    ResultView(path: $path)
+                default:
+                    EmptyView()
+                }
+            })
             .onAppear {
                 // Start typing animation
                 model.typingAnimationLoop()

@@ -39,9 +39,6 @@ class QuizViewModel {
     // 1/10
     var progressIndicator = 1
     
-    var showResult = false
-    
-    
     func multiplyExample() {
         a = Int.random(in: 1...10)
         b = Int.random(in: 1...10)
@@ -187,10 +184,6 @@ class QuizViewModel {
         case .divide:
             divideExample()
         }
-    }
-    
-    func goHome() {
-        showResult = false
     }
      
 }

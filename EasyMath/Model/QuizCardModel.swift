@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 // Data model for quiz card UI
-struct QuizCardModel: Identifiable {
+struct QuizCardModel: Identifiable, Hashable {
     
     let id = UUID()
     

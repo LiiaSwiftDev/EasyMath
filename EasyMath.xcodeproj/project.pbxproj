@@ -28,6 +28,7 @@
 		1857A70F2FAD68B100557813 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70E2FAD68B100557813 /* NextButton.swift */; };
 		186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */; };
 		188317D82FB2780B0004A9B2 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188317D72FB2780B0004A9B2 /* QuizViewModel.swift */; };
+		188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318202FBCD6470004A9B2 /* StartOverButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		1857A70E2FAD68B100557813 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
 		188317D72FB2780B0004A9B2 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		188318202FBCD6470004A9B2 /* StartOverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOverButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				181237D42FB1086400BC7AB0 /* ResultView.swift */,
 				181237D62FB111EC00BC7AB0 /* HomeButton.swift */,
 				181237DC2FB1858E00BC7AB0 /* Buble.swift */,
+				188318202FBCD6470004A9B2 /* StartOverButton.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */,
 				1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */,
 				181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */,
+				188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */,
 				186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */,
 				180B032E2F993B31006A5B3E /* ButtonStart.swift in Sources */,
 				180B032C2F9933DF006A5B3E /* QuizCard.swift in Sources */,

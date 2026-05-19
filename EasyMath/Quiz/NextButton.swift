@@ -11,9 +11,8 @@ struct NextButton: View {
     
     @Environment(QuizViewModel.self) private var quizModel
     
-    var text: String
-    // Show SF symbol
-    var showImage: Bool
+    // Connection to the navigation path from MainView.
+    @Binding var path: [Int]
     
     var body: some View {
         
@@ -21,17 +20,20 @@ struct NextButton: View {
         Button {
             if quizModel.showBanner {
                 guard quizModel.progressIndicator < 3 else {
-                    return quizModel.showResult = true
+                    
+                    // Open ResultView after the last question.
+                    return path.append(2)
                 }
                 
                 quizModel.quizExample(sign: quizModel.currentSign)
                 quizModel.progressIndicator += 1
+                
             }
             else {
                 // check if answer is correct and give feedback
                 quizModel.checkAnswer()
             }
- 
+            
         } label: {
             ZStack {
                 if quizModel.selectedAnswer == nil {
@@ -65,15 +67,8 @@ struct NextButton: View {
                 }
                 
                 HStack {
-                    if showImage {
-                        Image(systemName: "arrow.clockwise")
-                            .foregroundStyle(Color.white)
-                            .font(.system(.title2, design: .rounded, weight: .bold))
-                            .padding(.trailing, 2)
-                    }
-                    
                     // Label
-                    Text(quizModel.showBanner ? "Next" : text)
+                    Text(quizModel.showBanner ? "Next" : "Done")
                         .foregroundStyle(quizModel.selectedAnswer != nil ? Color.white : Color(red: 177/255, green: 177/255, blue: 177/255))
                         .font(.system(.title2, design: .rounded, weight: .bold))
                 }
@@ -84,6 +79,4 @@ struct NextButton: View {
     }
 }
 
-#Preview {
-    NextButton(text: "Done", showImage: true)
-}
+

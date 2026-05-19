@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ResultView: View {
     
+    // Connection to the navigation path from MainView.
+    @Binding var path: [Int]
+    
     var body: some View {
         ZStack {
             // Background color
@@ -48,12 +51,12 @@ struct ResultView: View {
                 }
                 
                 // Restart button
-                NextButton(text: "Start Over", showImage: true)
+                StartOverButton()
                     .padding(.top, 82)
                     .padding(.horizontal, 20)
                 
                 // Home button
-                HomeButton()
+                HomeButton(path: $path)
                     .padding(.horizontal, 20)
                     .padding(.top, 26)
                     .padding(.bottom, 50)
@@ -78,7 +81,4 @@ struct ResultView: View {
         }.navigationBarBackButtonHidden(true)
     }
 }
-  #Preview {
-  ResultView()
-  }
 

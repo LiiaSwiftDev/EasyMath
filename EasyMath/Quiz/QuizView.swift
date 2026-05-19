@@ -9,11 +9,11 @@ import SwiftUI
 
 struct QuizView: View {
     
-    
+    @Environment(MainViewModel.self) private var model
     @Environment(QuizViewModel.self) private var quizModel
     
-    // Quiz card selected by user
-    var numberOfCard: QuizCardModel
+    // Connection to the navigation path from MainView.
+    @Binding var path: [Int]
     
     var body: some View {
         
@@ -63,40 +63,21 @@ struct QuizView: View {
                 }.padding(.bottom, 40)
                 
                 // Next button
-                NextButton(text: "Done", showImage: false)
+                NextButton(path: $path)
                     .padding(.bottom, 70)
                     .padding(.horizontal, 40)
             }
         }
-        .navigationDestination(isPresented: $quizModel.showResult, destination: {
-            // 7 шаг
-            ResultView()
-        })
         .onAppear {
-            quizModel.quizExample(sign: numberOfCard.signs)
-            quizModel.currentSign = numberOfCard.signs
+            // Generate a math example using the selected operation.
+            quizModel.quizExample(sign: model.selectedCard!.signs)
+            
+            // Save the current math sign
+            quizModel.currentSign = model.selectedCard!.signs
         }
         .onDisappear {
             quizModel.progressIndicator = 1
         }
-
     }
 }
 
-#Preview {
-    QuizView(numberOfCard: QuizCardModel(
-        bg: Color(red: 97/255, green: 116/255, blue: 177/255),
-        shadowBg: Color(red: 125/255, green: 144/255, blue: 189/255),
-        footer: Color(red: 81/255, green: 98/255, blue: 155/255),
-        text: "Divide",
-        number1: "9",
-        number2: "3",
-        circleColor: Color(red: 54/255, green: 69/255, blue: 111/255),
-        image: "fish",
-        imagePlace: "reef",
-        padding: 90,
-        shadowButton: Color(red: 58/255, green: 71/255, blue: 106/255),
-        scaleAnimal: 39.0,
-        scalePlace: 54.0,
-        signs: .divide))
-}

@@ -24,6 +24,8 @@ class MainViewModel {
     // Task for controlling typing animation
     var animationTask: Task<Void, Never>?
     
+    var selectedCard: QuizCardModel?
+    
     // Quiz cards data
     var cards: [QuizCardModel] = [
         QuizCardModel(

@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct HomeButton: View {
-
+    
+    // Connection to the navigation path from MainView.
+    @Binding var path: [Int]
+    
     var body: some View {
         // Home button
         Button {
-            // TODO
+            // Clears the navigation path and returns to the main screen.
+            path.removeAll()
+            
         } label: {
             ZStack {
                 // Background
@@ -38,6 +43,4 @@ struct HomeButton: View {
     }
 }
 
-#Preview {
-    HomeButton()
-}
+
