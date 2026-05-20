@@ -23,6 +23,7 @@ class QuizViewModel {
     
     // Answer options for quiz
     var quizOptions: [String] = []
+    var quizExamples: [String] = []
     
     // Answer selected by user
     var selectedAnswer: String?
@@ -39,116 +40,144 @@ class QuizViewModel {
     // 1/10
     var progressIndicator = 1
     
+    var correctAnswerCount = 0
+    
+    // Stores unique examples that were already generated
+    var usedExamples = Set<String>()
+    
     func multiplyExample() {
-        a = Int.random(in: 1...10)
-        b = Int.random(in: 1...10)
+        repeat {
+            a = Int.random(in: 1...10)
+            b = Int.random(in: 1...10)
+            
+            // Generate multiplication example
+            example = "\(a) x \(b) = ?"
+            
+            // Calculate correct answer
+            correctAnswer = "\(a * b)"
+            
+            // Check if the generated example already exists. If it does, generate a new one
+        } while usedExamples.contains(example)
         
-        // пример
-        example = "\(a) x \(b) = ?"
-        // ответ
-        correctAnswer = "\(a * b)"
+        usedExamples.insert(example)
         
-        // хранит уникальные значений
+        // Stores unique answer options
         var answers = Set<String>()
         
-        // добавляем 1 вариант - правильный ответ
+        
+        // Add correct answer as the first option
         answers.insert(correctAnswer)
         
-        // Пока количество ответов меньше 4 — выполняй код
+        // Generating 3 wrong answers
         while answers.count < 4 {
             let wrong = "\(max(0, a * b + Int.random(in: -10...10)))"
             
-            // добавляем варианты ответа к answers
             answers.insert(wrong)
         }
         
-        // Array(answers) - превразаем его в массив чтобы появился стабильный порядок
+        // Converts them into arrays and shuffles them
         quizOptions = Array(answers).shuffled()
         
     }
     
     func additionExample() {
-        a = Int.random(in: 1...20)
-        b = Int.random(in: 1...20)
+        repeat {
+            a = Int.random(in: 1...20)
+            b = Int.random(in: 1...20)
+            
+            // Generate addition example
+            example = "\(a) + \(b) = ?"
+            
+            // Calculate correct answer
+            correctAnswer = "\(a + b)"
+            
+            // Check if the generated example already exists. If it does, generate a new one
+        } while usedExamples.contains(example)
         
-        // пример
-        example = "\(a) + \(b) = ?"
-        // ответ
-        correctAnswer = "\(a + b)"
+        usedExamples.insert(example)
         
-        // хранит уникальные значений
+        // Stores unique answer options
         var answers = Set<String>()
         
-        // добавляем 1 вариант - правильный ответ
+        // Add correct answer as the first option
         answers.insert(correctAnswer)
         
-        // Пока количество ответов меньше 4 — выполняй код
+        // Generating 3 wrong answers
         while answers.count < 4 {
             let wrong = "\(max(0, a + b + Int.random(in: -10...10)))"
             
-            // добавляем варианты ответа к answers
             answers.insert(wrong)
         }
         
-        // Array(answers) - превразаем его в массив чтобы появился стабильный порядок
+        // Converts them into arrays and shuffles them
         quizOptions = Array(answers).shuffled()
         
     }
     
     func subtractExample() {
-        a = Int.random(in: 1...20)
-        b = Int.random(in: 1...a)
+        repeat {
+            a = Int.random(in: 1...20)
+            b = Int.random(in: 1...a)
+            
+            // Generate subtraction example
+            example = "\(a) - \(b) = ?"
+            
+            // Calculate correct answer
+            correctAnswer = "\(a - b)"
+            
+            // Check if the generated example already exists. If it does, generate a new one
+        } while usedExamples.contains(example)
         
+        usedExamples.insert(example)
         
-        // пример
-        example = "\(a) - \(b) = ?"
-        // ответ
-        correctAnswer = "\(a - b)"
-        
-        // хранит уникальные значений
+        // Stores unique answer options
         var answers = Set<String>()
         
-        // добавляем 1 вариант - правильный ответ
+        // Add correct answer as the first option
         answers.insert(correctAnswer)
         
-        // Пока количество ответов меньше 4 — выполняй код
+        // Generating 3 wrong answers
         while answers.count < 4 {
             let wrong = "\(max(0, a - b + Int.random(in: -5...5)))"
             
-            // добавляем варианты ответа к answers
             answers.insert(wrong)
         }
         
-        // Array(answers) - превразаем его в массив чтобы появился стабильный порядок
+        // Converts them into arrays and shuffles them
         quizOptions = Array(answers).shuffled()
         
     }
     
     func divideExample() {
-        b = Int.random(in: 1...10)
-        a = b * Int.random(in: 1...10)
+        repeat {
+            b = Int.random(in: 1...10)
+            a = b * Int.random(in: 1...10)
+            
+            // Generate division example
+            example = "\(a) : \(b) = ?"
+            
+            // Calculate correct answer
+            correctAnswer = "\(a / b)"
+            
+            // Check if the generated example already exists. If it does, generate a new one
+        } while usedExamples.contains(example)
         
+        usedExamples.insert(example)
         
-        // пример
-        example = "\(a) : \(b) = ?"
-        // ответ
-        correctAnswer = "\(a / b)"
-        
-        // хранит уникальные значений
+        // Stores unique answer options
         var answers = Set<String>()
         
-        // добавляем 1 вариант - правильный ответ
+        // Add correct answer as the first option
         answers.insert(correctAnswer)
         
-        // Пока количество ответов меньше 4 — выполняй код
+        // Generating 3 wrong answers
         while answers.count < 4 {
             let wrong = "\(max(0, a / b + Int.random(in: -5...5)))"
             
-            // добавляем варианты ответа к answers
             answers.insert(wrong)
         }
         
-        // Array(answers) - превразаем его в массив чтобы появился стабильный порядок
+        // Converts them into arrays and shuffles them
         quizOptions = Array(answers).shuffled()
         
     }
@@ -158,6 +187,7 @@ class QuizViewModel {
         
         if selectedAnswer == correctAnswer {
             answerIsCorrect = true
+            correctAnswerCount += 1
         }
         else {
             answerIsCorrect = false
@@ -185,5 +215,5 @@ class QuizViewModel {
             divideExample()
         }
     }
-     
+    
 }

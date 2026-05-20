@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct EasyMathApp: App {
@@ -13,6 +14,7 @@ struct EasyMathApp: App {
     // Stores app state
     @State var model = MainViewModel()
     @State var quizModel = QuizViewModel()
+    @State var resultModel = ResultViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -20,6 +22,8 @@ struct EasyMathApp: App {
             // Pass model to all child views
                 .environment(model)
                 .environment(quizModel)
+                .environment(resultModel)
+                .modelContainer(for: Score.self)
         }
     }
 }

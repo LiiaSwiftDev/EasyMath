@@ -6,8 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ResultView: View {
+    
+    @Environment(\.modelContext) private var context
+    @Environment(QuizViewModel.self) private var quizModel
+    @Environment(ResultViewModel.self) private var resultModel
+    
+    @Query var scores: [Score]
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
@@ -27,14 +34,14 @@ struct ResultView: View {
                 TopBar()
                 
                 // Result illustration
-                Image("lion-smile")
+                Image(resultModel.resultImage(score: quizModel.correctAnswerCount))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 300)
                     .padding(.top, 90)
                 
                 // Result message
-                Text("Good job!")
+                Text(resultModel.text)
                     .font(.system(.title2, design: .rounded, weight: .bold))
                     .foregroundStyle(Color.black)
                     .padding(.bottom, 10)
@@ -45,9 +52,10 @@ struct ResultView: View {
                         .frame(width: 96, height: 42)
                         .foregroundStyle(Color(red: 252/255, green: 237/255, blue: 216/255))
                     
-                    Text("9/10")
+                    Text("\(quizModel.correctAnswerCount)/10")
                         .foregroundStyle(Color.black)
                         .font(.system(.title, design: .rounded, weight: .bold))
+                        .kerning(2)
                 }
                 
                 // Restart button
@@ -78,7 +86,20 @@ struct ResultView: View {
                 
             }
             .padding(.horizontal, 20)
-        }.navigationBarBackButtonHidden(true)
+        }
+        .navigationBarBackButtonHidden(true)
+        .onDisappear {
+            quizModel.correctAnswerCount = 0
+        }
+        .onAppear {
+            resultModel.feedbackText(correct: quizModel.correctAnswerCount)
+            if path.contains(2) {
+                Task {
+                    // Update or create user score in SwiftData
+                    await resultModel.increaseScore(scores: scores, correctAnswer: quizModel.correctAnswerCount, context: context)
+                }
+            }
+        }
     }
 }
 

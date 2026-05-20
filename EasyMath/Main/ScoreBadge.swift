@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ScoreBadge: View {
+    
+    @Query var score: [Score]
+    
     var body: some View {
         ZStack {
             // Background capsule
@@ -27,9 +31,9 @@ struct ScoreBadge: View {
                 Spacer()
                 
                 // Score value
-                Text("43")
+                Text("\(score.first?.score ?? 0)")
                     .foregroundStyle(Color.white)
-                    .font(Font.system(size: 18, design: .rounded))
+                    .font(Font.system(size: 20, design: .rounded))
                     .bold()
                     .frame(alignment: .center)
                     .padding(.trailing, 20)

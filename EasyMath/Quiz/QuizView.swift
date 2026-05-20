@@ -77,6 +77,12 @@ struct QuizView: View {
         }
         .onDisappear {
             quizModel.progressIndicator = 1
+            quizModel.usedExamples.removeAll()
+            
+            // Reset score only if user exits the quiz before reaching ResultView.
+            if !path.contains(2) {
+                quizModel.correctAnswerCount = 0
+            }
         }
     }
 }

@@ -29,6 +29,8 @@
 		186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */; };
 		188317D82FB2780B0004A9B2 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188317D72FB2780B0004A9B2 /* QuizViewModel.swift */; };
 		188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318202FBCD6470004A9B2 /* StartOverButton.swift */; };
+		188318232FBCE34A0004A9B2 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318222FBCE34A0004A9B2 /* Score.swift */; };
+		188318252FBD375F0004A9B2 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318242FBD375F0004A9B2 /* ResultViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
 		188317D72FB2780B0004A9B2 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		188318202FBCD6470004A9B2 /* StartOverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOverButton.swift; sourceTree = "<group>"; };
+		188318222FBCE34A0004A9B2 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		188318242FBD375F0004A9B2 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			children = (
 				1831D64D2FA179510033AE89 /* MainViewModel.swift */,
 				188317D72FB2780B0004A9B2 /* QuizViewModel.swift */,
+				188318242FBD375F0004A9B2 /* ResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				1853B85D2F9AD38B009503DE /* QuizCardModel.swift */,
+				188318222FBCE34A0004A9B2 /* Score.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 				181237DB2FB14A1300BC7AB0 /* FeedbackBanner.swift in Sources */,
 				1853B85E2F9AD38B009503DE /* QuizCardModel.swift in Sources */,
 				181237D52FB1086400BC7AB0 /* ResultView.swift in Sources */,
+				188318252FBD375F0004A9B2 /* ResultViewModel.swift in Sources */,
 				1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */,
 				1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */,
 				181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */,
@@ -245,6 +252,7 @@
 				1831D64E2FA179510033AE89 /* MainViewModel.swift in Sources */,
 				181237D72FB111EC00BC7AB0 /* HomeButton.swift in Sources */,
 				1831D6522FA1ACE90033AE89 /* ProfileCard.swift in Sources */,
+				188318232FBCE34A0004A9B2 /* Score.swift in Sources */,
 				181237D92FB146D500BC7AB0 /* TopBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
