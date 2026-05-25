@@ -26,7 +26,7 @@ struct MainView: View {
                 
                 VStack(spacing: 0) {
                     // Top bar with profile and score
-                    TopBar()
+                    TopBar(path: $path)
                     
                     // Title
                     Text("Pick a category!")
@@ -89,6 +89,8 @@ struct MainView: View {
                     QuizView(path: $path)
                 case 2:
                     ResultView(path: $path)
+                case 3:
+                    ProfileView(path: $path)
                 default:
                     EmptyView()
                 }

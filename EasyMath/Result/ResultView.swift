@@ -31,7 +31,7 @@ struct ResultView: View {
             
             VStack(spacing: 0) {
                 // Top bar with profile and score
-                TopBar()
+                TopBar(path: $path)
                 
                 // Result illustration
                 Image(resultModel.resultImage(score: quizModel.correctAnswerCount))

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileCard: View {
+struct ProfileBadge: View {
     var body: some View {
         ZStack {
             // Background capsule
@@ -47,5 +47,5 @@ struct ProfileCard: View {
 }
 
 #Preview {
-    ProfileCard()
+    ProfileBadge()
 }

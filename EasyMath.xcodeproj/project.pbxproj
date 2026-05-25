@@ -20,13 +20,15 @@
 		181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */; };
 		1831D64E2FA179510033AE89 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D64D2FA179510033AE89 /* MainViewModel.swift */; };
 		1831D6502FA17BB90033AE89 /* MathSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D64F2FA17BB90033AE89 /* MathSign.swift */; };
-		1831D6522FA1ACE90033AE89 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D6512FA1ACE90033AE89 /* ProfileCard.swift */; };
+		1831D6522FA1ACE90033AE89 /* ProfileBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D6512FA1ACE90033AE89 /* ProfileBadge.swift */; };
 		1853B85E2F9AD38B009503DE /* QuizCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1853B85D2F9AD38B009503DE /* QuizCardModel.swift */; };
 		1857A7092FAD0DAE00557813 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A7082FAD0DAE00557813 /* QuizView.swift */; };
 		1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70A2FAD1E1800557813 /* TaskBoard.swift */; };
 		1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70C2FAD22BB00557813 /* AnswerButton.swift */; };
 		1857A70F2FAD68B100557813 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70E2FAD68B100557813 /* NextButton.swift */; };
 		186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */; };
+		187ECEDF2FBE521F0084E8F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */; };
+		187ECEE12FBE54190084E8F6 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEE02FBE54190084E8F6 /* ProfileCard.swift */; };
 		188317D82FB2780B0004A9B2 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188317D72FB2780B0004A9B2 /* QuizViewModel.swift */; };
 		188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318202FBCD6470004A9B2 /* StartOverButton.swift */; };
 		188318232FBCE34A0004A9B2 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318222FBCE34A0004A9B2 /* Score.swift */; };
@@ -48,13 +50,15 @@
 		181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerBanner.swift; sourceTree = "<group>"; };
 		1831D64D2FA179510033AE89 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1831D64F2FA17BB90033AE89 /* MathSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSign.swift; sourceTree = "<group>"; };
-		1831D6512FA1ACE90033AE89 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
+		1831D6512FA1ACE90033AE89 /* ProfileBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBadge.swift; sourceTree = "<group>"; };
 		1853B85D2F9AD38B009503DE /* QuizCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardModel.swift; sourceTree = "<group>"; };
 		1857A7082FAD0DAE00557813 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		1857A70A2FAD1E1800557813 /* TaskBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBoard.swift; sourceTree = "<group>"; };
 		1857A70C2FAD22BB00557813 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		1857A70E2FAD68B100557813 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
+		187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		187ECEE02FBE54190084E8F6 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		188317D72FB2780B0004A9B2 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		188318202FBCD6470004A9B2 /* StartOverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOverButton.swift; sourceTree = "<group>"; };
 		188318222FBCE34A0004A9B2 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				180B03242F9921E8006A5B3E /* Assets.xcassets */,
 				180B03262F9921E8006A5B3E /* EasyMathApp.swift */,
 				1853B85F2F9AEC4A009503DE /* Main */,
+				1880DBAF2FC5055A00315A1E /* Profile */,
 				1857A7072FAD0D9900557813 /* Quiz */,
 				181237D32FB1083E00BC7AB0 /* Result */,
 				1853B85C2F9AD2CE009503DE /* Model */,
@@ -139,7 +144,6 @@
 				180B032B2F9933DF006A5B3E /* QuizCard.swift */,
 				180B032D2F993B31006A5B3E /* ButtonStart.swift */,
 				1831D64F2FA17BB90033AE89 /* MathSign.swift */,
-				1831D6512FA1ACE90033AE89 /* ProfileCard.swift */,
 				186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */,
 				181237D82FB146D500BC7AB0 /* TopBar.swift */,
 			);
@@ -157,6 +161,16 @@
 				181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */,
 			);
 			path = Quiz;
+			sourceTree = "<group>";
+		};
+		1880DBAF2FC5055A00315A1E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */,
+				1831D6512FA1ACE90033AE89 /* ProfileBadge.swift */,
+				187ECEE02FBE54190084E8F6 /* ProfileCard.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,17 +255,19 @@
 				181237D52FB1086400BC7AB0 /* ResultView.swift in Sources */,
 				188318252FBD375F0004A9B2 /* ResultViewModel.swift in Sources */,
 				1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */,
+				187ECEE12FBE54190084E8F6 /* ProfileCard.swift in Sources */,
 				1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */,
 				181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */,
 				188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */,
 				186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */,
 				180B032E2F993B31006A5B3E /* ButtonStart.swift in Sources */,
 				180B032C2F9933DF006A5B3E /* QuizCard.swift in Sources */,
+				187ECEDF2FBE521F0084E8F6 /* ProfileView.swift in Sources */,
 				181237DD2FB1858E00BC7AB0 /* Buble.swift in Sources */,
 				1857A7092FAD0DAE00557813 /* QuizView.swift in Sources */,
 				1831D64E2FA179510033AE89 /* MainViewModel.swift in Sources */,
 				181237D72FB111EC00BC7AB0 /* HomeButton.swift in Sources */,
-				1831D6522FA1ACE90033AE89 /* ProfileCard.swift in Sources */,
+				1831D6522FA1ACE90033AE89 /* ProfileBadge.swift in Sources */,
 				188318232FBCE34A0004A9B2 /* Score.swift in Sources */,
 				181237D92FB146D500BC7AB0 /* TopBar.swift in Sources */,
 			);

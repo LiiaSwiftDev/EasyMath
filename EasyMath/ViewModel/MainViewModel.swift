@@ -26,6 +26,9 @@ class MainViewModel {
     
     var selectedCard: QuizCardModel?
     
+    // User's name in Profile View
+    var name = ""
+    
     // Quiz cards data
     var cards: [QuizCardModel] = [
         QuizCardModel(

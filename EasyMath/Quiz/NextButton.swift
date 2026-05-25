@@ -19,7 +19,7 @@ struct NextButton: View {
         // Next/Done button
         Button {
             if quizModel.showBanner {
-                guard quizModel.progressIndicator < 10 else {
+                guard quizModel.progressIndicator < 2 else {
                     
                     // Open ResultView after the last question.
                     return path.append(2)
