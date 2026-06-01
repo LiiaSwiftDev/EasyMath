@@ -6,42 +6,53 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProfileBadge: View {
+    
+    @Query private var profiles: [Profile]
+    
     var body: some View {
         ZStack {
             // Background capsule
             Capsule()
-                .frame(width: 120, height: 30)
+                .frame(width: 140, height: 30)
                 .foregroundStyle(Color(red: 219/255, green: 76/255, blue: 77/255))
                 .shadow(radius: 4, y: 4)
-            
-            // Username
-            Text("Mike")
-                .foregroundStyle(Color.white)
-                .font(Font.system(size: 18, design: .rounded))
-                .bold()
-                .padding(.leading, 45)
-            
-            // Avatar background circle
-            Circle()
-                .foregroundStyle(Color.orange)
+            HStack {
+                ZStack {
+                    // Avatar background circle
+                    Circle()
+                        .foregroundStyle(Color(red: 255/255, green: 225/255, blue: 178/255))
+                    
+                    // Profile image
+                    Image(profiles.first?.image ?? "")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: profiles.first?.image == "girl4" ? 48 : 52)
+                        .padding(.top, 15)
+                }
                 .frame(height: 66)
+                .clipShape(Circle())
                 .overlay {
                     Circle()
-                        .stroke(lineWidth: 1)
+                        .stroke(lineWidth: 3)
                         .frame(height: 67)
                         .foregroundStyle(Color.white)
                 }
-                .padding(.trailing, 80)
-            
-            // Profile image
-            Image("boy")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 51)
-                .padding(.trailing, 80)
-                .padding(.bottom, 2)
+                
+                Spacer(minLength: 0)
+                
+                // Username
+                Text(profiles.first?.name ?? "")
+                    .foregroundStyle(Color.white)
+                    .font(Font.system(size: 18, design: .rounded))
+                    .bold()
+                    .padding(.trailing)
+                
+                Spacer(minLength: 0)
+            }
+            .frame(width: 160)
         }
     }
 }

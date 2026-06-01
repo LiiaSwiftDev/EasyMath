@@ -29,6 +29,13 @@ class MainViewModel {
     // User's name in Profile View
     var name = ""
     
+    // Profile avatar images
+    var images1Row = ["boy1", "girl1", "boy2", "girl2"]
+    var images2Row = ["girl3", "boy3", "girl4", "boy4"]
+    
+    // Currently selected avatar image
+    var selectedImage: String?
+    
     // Quiz cards data
     var cards: [QuizCardModel] = [
         QuizCardModel(
@@ -141,5 +148,16 @@ class MainViewModel {
                 try? await Task.sleep(nanoseconds: 5_000_000_000)
             }
         }
+    }
+    
+    // Convert score to short format
+    func compactNumber(score: Int) -> String {
+        
+        if score > 1000 {
+            return "\(score / 1000)k"
+        } else {
+            return String(score)
+        }
+        
     }
 }

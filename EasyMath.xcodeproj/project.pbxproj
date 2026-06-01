@@ -29,6 +29,8 @@
 		186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */; };
 		187ECEDF2FBE521F0084E8F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */; };
 		187ECEE12FBE54190084E8F6 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEE02FBE54190084E8F6 /* ProfileCard.swift */; };
+		1880DBB12FC6074F00315A1E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880DBB02FC6074F00315A1E /* Profile.swift */; };
+		1880DBB42FC7A85400315A1E /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880DBB32FC7A85400315A1E /* TextHelper.swift */; };
 		188317D82FB2780B0004A9B2 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188317D72FB2780B0004A9B2 /* QuizViewModel.swift */; };
 		188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318202FBCD6470004A9B2 /* StartOverButton.swift */; };
 		188318232FBCE34A0004A9B2 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318222FBCE34A0004A9B2 /* Score.swift */; };
@@ -59,6 +61,8 @@
 		186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
 		187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		187ECEE02FBE54190084E8F6 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
+		1880DBB02FC6074F00315A1E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		1880DBB32FC7A85400315A1E /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
 		188317D72FB2780B0004A9B2 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		188318202FBCD6470004A9B2 /* StartOverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOverButton.swift; sourceTree = "<group>"; };
 		188318222FBCE34A0004A9B2 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				1857A7072FAD0D9900557813 /* Quiz */,
 				181237D32FB1083E00BC7AB0 /* Result */,
 				1853B85C2F9AD2CE009503DE /* Model */,
+				1880DBB22FC7A82400315A1E /* Helpers */,
 				1831D64C2FA1791F0033AE89 /* ViewModel */,
 			);
 			path = EasyMath;
@@ -133,6 +138,7 @@
 			children = (
 				1853B85D2F9AD38B009503DE /* QuizCardModel.swift */,
 				188318222FBCE34A0004A9B2 /* Score.swift */,
+				1880DBB02FC6074F00315A1E /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,10 +173,18 @@
 			isa = PBXGroup;
 			children = (
 				187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */,
-				1831D6512FA1ACE90033AE89 /* ProfileBadge.swift */,
 				187ECEE02FBE54190084E8F6 /* ProfileCard.swift */,
+				1831D6512FA1ACE90033AE89 /* ProfileBadge.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		1880DBB22FC7A82400315A1E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1880DBB32FC7A85400315A1E /* TextHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +262,8 @@
 				1857A70F2FAD68B100557813 /* NextButton.swift in Sources */,
 				180B03282F9921E8006A5B3E /* MainView.swift in Sources */,
 				180B03292F9921E8006A5B3E /* EasyMathApp.swift in Sources */,
+				1880DBB12FC6074F00315A1E /* Profile.swift in Sources */,
+				1880DBB42FC7A85400315A1E /* TextHelper.swift in Sources */,
 				188317D82FB2780B0004A9B2 /* QuizViewModel.swift in Sources */,
 				1831D6502FA17BB90033AE89 /* MathSign.swift in Sources */,
 				181237DB2FB14A1300BC7AB0 /* FeedbackBanner.swift in Sources */,

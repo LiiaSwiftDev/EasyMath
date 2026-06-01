@@ -23,7 +23,7 @@ struct EasyMathApp: App {
                 .environment(model)
                 .environment(quizModel)
                 .environment(resultModel)
-                .modelContainer(for: Score.self)
+                .modelContainer(for: [Score.self, Profile.self])
         }
     }
 }
