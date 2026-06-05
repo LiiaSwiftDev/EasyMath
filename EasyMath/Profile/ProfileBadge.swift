@@ -26,7 +26,7 @@ struct ProfileBadge: View {
                         .foregroundStyle(Color(red: 255/255, green: 225/255, blue: 178/255))
                     
                     // Profile image
-                    Image(profiles.first?.image ?? "")
+                    Image(profiles.first?.image ?? "boy4")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: profiles.first?.image == "girl4" ? 48 : 52)
@@ -44,7 +44,7 @@ struct ProfileBadge: View {
                 Spacer(minLength: 0)
                 
                 // Username
-                Text(profiles.first?.name ?? "")
+                Text(profiles.first?.name ?? "Name")
                     .foregroundStyle(Color.white)
                     .font(Font.system(size: 18, design: .rounded))
                     .bold()

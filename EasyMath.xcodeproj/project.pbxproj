@@ -27,6 +27,13 @@
 		1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70C2FAD22BB00557813 /* AnswerButton.swift */; };
 		1857A70F2FAD68B100557813 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70E2FAD68B100557813 /* NextButton.swift */; };
 		186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */; };
+		186CB2072FCE559D00E6777B /* Onboarding1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB2062FCE559D00E6777B /* Onboarding1.swift */; };
+		186CB2092FCE55A500E6777B /* Onboarding2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB2082FCE55A500E6777B /* Onboarding2.swift */; };
+		186CB20B2FCE55AF00E6777B /* Onboarding3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB20A2FCE55AF00E6777B /* Onboarding3.swift */; };
+		186CB21D2FD1329C00E6777B /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB21C2FD1329C00E6777B /* Avatar.swift */; };
+		187106D52FD1E1B2005BC5A6 /* Next.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187106D42FD1E1B2005BC5A6 /* Next.swift */; };
+		187106D72FD1E1BC005BC5A6 /* Skip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187106D62FD1E1BC005BC5A6 /* Skip.swift */; };
+		187107132FD24727005BC5A6 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107122FD24727005BC5A6 /* Onboarding.swift */; };
 		187ECEDF2FBE521F0084E8F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */; };
 		187ECEE12FBE54190084E8F6 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEE02FBE54190084E8F6 /* ProfileCard.swift */; };
 		1880DBB12FC6074F00315A1E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880DBB02FC6074F00315A1E /* Profile.swift */; };
@@ -59,6 +66,13 @@
 		1857A70C2FAD22BB00557813 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		1857A70E2FAD68B100557813 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
+		186CB2062FCE559D00E6777B /* Onboarding1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1.swift; sourceTree = "<group>"; };
+		186CB2082FCE55A500E6777B /* Onboarding2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2.swift; sourceTree = "<group>"; };
+		186CB20A2FCE55AF00E6777B /* Onboarding3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3.swift; sourceTree = "<group>"; };
+		186CB21C2FD1329C00E6777B /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		187106D42FD1E1B2005BC5A6 /* Next.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Next.swift; sourceTree = "<group>"; };
+		187106D62FD1E1BC005BC5A6 /* Skip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skip.swift; sourceTree = "<group>"; };
+		187107122FD24727005BC5A6 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		187ECEE02FBE54190084E8F6 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		1880DBB02FC6074F00315A1E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -101,6 +115,7 @@
 			children = (
 				180B03242F9921E8006A5B3E /* Assets.xcassets */,
 				180B03262F9921E8006A5B3E /* EasyMathApp.swift */,
+				186CB2052FCE558900E6777B /* Onboarding */,
 				1853B85F2F9AEC4A009503DE /* Main */,
 				1880DBAF2FC5055A00315A1E /* Profile */,
 				1857A7072FAD0D9900557813 /* Quiz */,
@@ -167,6 +182,20 @@
 				181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */,
 			);
 			path = Quiz;
+			sourceTree = "<group>";
+		};
+		186CB2052FCE558900E6777B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				187107122FD24727005BC5A6 /* Onboarding.swift */,
+				186CB2062FCE559D00E6777B /* Onboarding1.swift */,
+				186CB2082FCE55A500E6777B /* Onboarding2.swift */,
+				186CB20A2FCE55AF00E6777B /* Onboarding3.swift */,
+				186CB21C2FD1329C00E6777B /* Avatar.swift */,
+				187106D42FD1E1B2005BC5A6 /* Next.swift */,
+				187106D62FD1E1BC005BC5A6 /* Skip.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		1880DBAF2FC5055A00315A1E /* Profile */ = {
@@ -259,22 +288,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				186CB2072FCE559D00E6777B /* Onboarding1.swift in Sources */,
 				1857A70F2FAD68B100557813 /* NextButton.swift in Sources */,
+				187106D72FD1E1BC005BC5A6 /* Skip.swift in Sources */,
 				180B03282F9921E8006A5B3E /* MainView.swift in Sources */,
 				180B03292F9921E8006A5B3E /* EasyMathApp.swift in Sources */,
+				187106D52FD1E1B2005BC5A6 /* Next.swift in Sources */,
 				1880DBB12FC6074F00315A1E /* Profile.swift in Sources */,
 				1880DBB42FC7A85400315A1E /* TextHelper.swift in Sources */,
+				186CB21D2FD1329C00E6777B /* Avatar.swift in Sources */,
 				188317D82FB2780B0004A9B2 /* QuizViewModel.swift in Sources */,
 				1831D6502FA17BB90033AE89 /* MathSign.swift in Sources */,
 				181237DB2FB14A1300BC7AB0 /* FeedbackBanner.swift in Sources */,
 				1853B85E2F9AD38B009503DE /* QuizCardModel.swift in Sources */,
 				181237D52FB1086400BC7AB0 /* ResultView.swift in Sources */,
 				188318252FBD375F0004A9B2 /* ResultViewModel.swift in Sources */,
+				186CB20B2FCE55AF00E6777B /* Onboarding3.swift in Sources */,
 				1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */,
 				187ECEE12FBE54190084E8F6 /* ProfileCard.swift in Sources */,
 				1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */,
+				186CB2092FCE55A500E6777B /* Onboarding2.swift in Sources */,
 				181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */,
 				188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */,
+				187107132FD24727005BC5A6 /* Onboarding.swift in Sources */,
 				186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */,
 				180B032E2F993B31006A5B3E /* ButtonStart.swift in Sources */,
 				180B032C2F9933DF006A5B3E /* QuizCard.swift in Sources */,
