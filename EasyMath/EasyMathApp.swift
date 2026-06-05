@@ -16,6 +16,11 @@ struct EasyMathApp: App {
     @State var quizModel = QuizViewModel()
     @State var resultModel = ResultViewModel()
     
+    @State var onboardingModel = OnboardingModel()
+    
+    // Controls onboarding presentation
+    @State var needsOnboarding = true
+    
     var body: some Scene {
         WindowGroup {
             MainView()
@@ -24,6 +29,14 @@ struct EasyMathApp: App {
                 .environment(quizModel)
                 .environment(resultModel)
                 .modelContainer(for: [Score.self, Profile.self])
+                .fullScreenCover(isPresented: $needsOnboarding) {
+                    // on dismiss
+                    needsOnboarding = false
+                } content: {
+                    OnboardingView()
+                        .environment(onboardingModel)
+                }
+
         }
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Onboarding1: View {
+    
+    var actionButton: () -> Void
+    
     var body: some View {
         ZStack {
             
@@ -44,23 +47,29 @@ struct Onboarding1: View {
                         .frame(width: 317, height: 317)
                     
                     // Start button
-                    ZStack {
-                        Capsule()
-                            .frame(width: 200, height: 45)
-                            .foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
-                            .overlay {
-                                Capsule()
-                                    .stroke(lineWidth: 1)
-                                    .foregroundStyle(Color(red: 206/255, green: 43/255, blue: 105/255))
-                            }
+                    Button {
                         
-                        // Button text
-                        Text("Let's Go!")
-                            .foregroundStyle(Color.white)
-                            .font(.title3)
+                        actionButton()
                         
-                    }.padding(.top, 120)
-                    
+                    } label: {
+                        
+                        ZStack {
+                            Capsule()
+                                .frame(width: 200, height: 45)
+                                .foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
+                                .overlay {
+                                    Capsule()
+                                        .stroke(lineWidth: 1)
+                                        .foregroundStyle(Color(red: 206/255, green: 43/255, blue: 105/255))
+                                }
+                            
+                            // Button text
+                            Text("Let's Go!")
+                                .foregroundStyle(Color.white)
+                                .font(.title3)
+                            
+                        }.padding(.top, 120)
+                    }
                 }.frame(maxWidth: .infinity, alignment: .center)
             }
         }
@@ -68,5 +77,7 @@ struct Onboarding1: View {
 }
 
 #Preview {
-    Onboarding1()
+    Onboarding1(actionButton: {
+        // nothing
+    })
 }

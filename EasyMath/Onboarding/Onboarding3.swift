@@ -9,20 +9,10 @@ import SwiftUI
 
 struct Onboarding3: View {
     
-    // Avatar images
-    var images = ["girl1", "girl4", "boy4", "girl3", "boy2", "boy3", "boy1", "girl2"]
+    @Environment(OnboardingModel.self) var onboardingModel
     
-    // Background colors for avatars
-    var colors = [
-        Color(red: 201/255, green: 217/255, blue: 255/255),
-        Color(red: 255/255, green: 203/255, blue: 151/255),
-        Color(red: 201/255, green: 220/255, blue: 162/255),
-        Color(red: 201/255, green: 217/255, blue: 255/255),
-        Color(red: 181/255, green: 213/255, blue: 158/255),
-        Color(red: 255/255, green: 195/255, blue: 176/255),
-        Color(red: 255/255, green: 202/255, blue: 195/255),
-        Color(red: 249/255, green: 237/255, blue: 175/255),
-    ]
+    var nextButton: () -> Void
+    var skipButton: () -> Void
     
     @State var selected: Int?
     
@@ -50,10 +40,10 @@ struct Onboarding3: View {
                 
                 // Avatar grid
                 LazyVGrid(columns: [GridItem(), GridItem()], spacing: 32) {
-                    ForEach(images.indices, id: \.self) { index in
+                    ForEach(onboardingModel.images.indices, id: \.self) { index in
                         
-                        Avatar(imageName: images[index], color: colors[index],
-                               height: avatarHeight(index: index), stroke: selected == index, onTap: {
+                        Avatar(imageName: onboardingModel.images[index], color: onboardingModel.colors[index],
+                               height: onboardingModel.avatarHeight(index: index), stroke: selected == index, onTap: {
                             
                             // Select avatar
                             selected = index
@@ -67,28 +57,26 @@ struct Onboarding3: View {
                 HStack(spacing: 34) {
                     
                     // Skip onboarding
-                    Skip()
+                    Skip(onTap: {
+                        skipButton()
+                    })
                     
                     // Finish onboarding and open app
-                    Next()
+                    Next(onTap: {
+                        nextButton()
+                    })
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
             }
             .padding(.horizontal, 20)
         }
     }
-    
-    func avatarHeight(index: Int) -> CGFloat {
-        
-        if index == 1 {
-            return 88
-        } else {
-            return 95
-        }
-        
-    }
 }
 
 #Preview {
-    Onboarding3()
+    Onboarding3(nextButton: {
+        // nothing
+    }, skipButton: {
+        // nothing
+    })
 }

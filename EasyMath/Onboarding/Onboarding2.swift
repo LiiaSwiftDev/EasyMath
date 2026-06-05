@@ -9,9 +9,15 @@ import SwiftUI
 
 struct Onboarding2: View {
     
-    @State var name = ""
+    @Environment(OnboardingModel.self) var onboardingModel
+    
+    var nextButton: () -> Void
+    var skipButton: () -> Void
     
     var body: some View {
+        
+        @Bindable var onboardingModel = onboardingModel
+        
         ZStack {
             
             // Background color
@@ -47,23 +53,37 @@ struct Onboarding2: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 248, height: 248)
                     
+                    
+                    TextField("name", text: $onboardingModel.name)
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.vertical, 40)
+                    
                     // Bottom navigation buttons
                     HStack(spacing: 34) {
                         
                         // Skip onboarding
-                        Skip()
+                        Skip(onTap: {
+                            skipButton()
+                        })
                         
                         // Go to next screen
-                        Next()
+                        Next(onTap: {
+                            nextButton()
+                        })
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
                     
                 }.frame(maxWidth: .infinity, alignment: .center)
             }
+            .padding(.horizontal, 20)
         }
     }
 }
 
 #Preview {
-    Onboarding2()
+    Onboarding2(nextButton: {
+        // nothing
+    }, skipButton: {
+        // nothing
+    })
 }

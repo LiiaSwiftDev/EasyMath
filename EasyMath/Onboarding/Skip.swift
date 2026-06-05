@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct Skip: View {
+    
+    var onTap: () -> Void
+    
     var body: some View {
         // Skip button
         Button {
-            // TODO
+        
+            onTap()
             
         } label: {
             ZStack {
@@ -34,5 +38,7 @@ struct Skip: View {
 }
 
 #Preview {
-    Skip()
+    Skip(onTap: {
+        // nothing
+    })
 }

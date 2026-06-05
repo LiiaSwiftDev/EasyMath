@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct Next: View {
+    
+    var onTap: () -> Void
+    
     var body: some View {
         // Next Button
         Button {
-            // TODO
+            
+            onTap()
             
         } label: {
             ZStack {
@@ -35,5 +39,7 @@ struct Next: View {
 }
 
 #Preview {
-    Next()
+    Next(onTap: {
+        // nothing
+    })
 }
