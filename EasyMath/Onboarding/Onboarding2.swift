@@ -28,6 +28,7 @@ struct Onboarding2: View {
                 // Greeting text
                 Text("Hello!")
                     .font(.system(size: 18, weight: .bold, design: .rounded))
+                    .kerning(1)
                     .foregroundStyle(Color.black)
                     .padding(.bottom, 10)
                 
@@ -54,9 +55,14 @@ struct Onboarding2: View {
                         .frame(width: 248, height: 248)
                     
                     
-                    TextField("name", text: $onboardingModel.name)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(.vertical, 40)
+                    TextFieldName()
+                        .padding(.top, 34)
+                    
+                    Text("Up to 6 characters")
+                        .font(.body)
+                        .foregroundStyle(Color(red: 131/255, green: 131/255, blue: 131/255))
+                        .padding(.top, 20)
+                        .padding(.bottom, 160)
                     
                     // Bottom navigation buttons
                     HStack(spacing: 34) {
@@ -76,6 +82,10 @@ struct Onboarding2: View {
                 }.frame(maxWidth: .infinity, alignment: .center)
             }
             .padding(.horizontal, 20)
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            onboardingModel.outsideTap = true
         }
     }
 }

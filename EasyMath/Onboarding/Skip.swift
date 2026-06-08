@@ -24,12 +24,12 @@ struct Skip: View {
                     .foregroundStyle(Color(red: 251/255, green: 255/255, blue: 255/255))
                     .overlay {
                         Capsule()
-                            .stroke(lineWidth: 1)
-                            .foregroundStyle(Color(red: 223/255, green: 149/255, blue: 173/255))
+                            .stroke(.pink.opacity(0.5), lineWidth: 1)
+
                     }
                 
                 Text("Skip")
-                    .foregroundStyle(Color(red: 223/255, green: 149/255, blue: 173/255))
+                    .foregroundStyle(.pink.opacity(0.5))
                     .font(.title3)
                 
             }
