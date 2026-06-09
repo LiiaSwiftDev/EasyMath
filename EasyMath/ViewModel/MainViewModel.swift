@@ -29,6 +29,17 @@ class MainViewModel {
     // User's name in Profile View
     var name = ""
     
+    // Controls blinking cursor visibility
+    var showCursor = true
+    
+    // Indicates whether cursor is at the end of text
+    var isCursorAtEnd = false
+    
+    var outsideTap = false
+    
+    // Task used for cursor blinking animation
+    var animationCursorTask: Task<Void, Never>?
+    
     // Profile avatar images
     var images1Row = ["boy1", "girl1", "boy2", "girl2"]
     var images2Row = ["girl3", "boy3", "girl4", "boy4"]
@@ -159,5 +170,60 @@ class MainViewModel {
             return String(score)
         }
         
+    }
+    
+    // Updates whether cursor is at the end of the text
+    func updateIsCursorAtEnd() {
+        
+        if name.count > 5 {
+            isCursorAtEnd = true
+        }
+        else {
+            isCursorAtEnd = false
+        }
+    }
+    
+    // Cursor blinking animation
+    func animatoinСursor() {
+        
+        animationCursorTask?.cancel()
+        
+        animationCursorTask = Task {
+            
+            while !Task.isCancelled {
+                
+                try? await Task.sleep(nanoseconds: 500_000_000)
+                
+                await MainActor.run {
+                    
+                    showCursor.toggle()
+                    
+                }
+            }
+        }
+    }
+    
+    // Returns letter at given index (or empty string)
+    func character(at index: Int) -> String {
+        
+        guard index < name.count else { return "" }
+        
+        let array = Array(name)
+        
+        return String(array[index])
+    }
+    
+    // Limits input length
+    func limitChar(input: String, limit: Int) -> String {
+        
+        if input.count > limit {
+            
+            return String(input.prefix(limit))
+            
+        } else {
+            
+            return input
+            
+        }
     }
 }

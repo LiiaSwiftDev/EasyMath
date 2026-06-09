@@ -6,11 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct OnboardingView: View {
     
     @Environment(\.dismiss) var dismiss
     @Environment(OnboardingModel.self) var onboardingModel
+    @Environment(MainViewModel.self) private var model
+    
+    // SwiftData: create, update and persist Profile
+    @Environment(\.modelContext) var context
+    
+    // Fetch all saved profiles from SwiftData
+    @Query private var profiles: [Profile]
     
     var body: some View {
         
@@ -22,7 +30,7 @@ struct OnboardingView: View {
                 
                 Onboarding1(actionButton: {
                     
-                    // Navigate to the second onboarding screen
+                    // Move to next onboarding step
                     onboardingModel.goNext()
                     
                 })
@@ -30,7 +38,23 @@ struct OnboardingView: View {
                 
                 Onboarding2(nextButton: {
                     
-                    // Navigate to the second onboarding screen
+                    // Create or update profile with onboarding name
+                    let name = model.name.trimmingCharacters(in: .whitespacesAndNewlines)
+                    
+                    let profile = profiles.first ?? Profile()
+                    profile.name = name
+                    
+                    if profiles.first == nil {
+                        context.insert(profile)
+                    }
+                    
+                    do {
+                        try context.save()
+                    } catch {
+                        print("Save error Onboarding2:", error)
+                    }
+                    
+                    // Move to next onboarding step
                     onboardingModel.goNext()
                     
                 }, skipButton: {
@@ -43,7 +67,21 @@ struct OnboardingView: View {
                 
                 Onboarding3(nextButton: {
                     
-                    // Navigate to the final onboarding screen
+                    // Save selected onboarding avatar to profile
+                    let profile = profiles.first ?? Profile()
+                    profile.image = String(onboardingModel.images[onboardingModel.selected ?? 2])
+                    
+                    if profiles.first == nil {
+                        context.insert(profile)
+                    }
+                    
+                    do {
+                        try context.save()
+                    } catch {
+                        print("Save error Onboarding3:", error)
+                    }
+                    
+                    // Move to final onboarding screen
                     dismiss()
                     
                 }, skipButton: {
@@ -60,7 +98,7 @@ struct OnboardingView: View {
             // Page indicator for first onboarding
             VStack {
                 Spacer()
-
+                
                 HStack(spacing: 21) {
                     Circle()
                         .frame(width: 12)
@@ -69,7 +107,7 @@ struct OnboardingView: View {
                             ? Color(red: 241/255, green: 1/255, blue: 111/255)
                             : .clear
                         )
-
+                    
                     Circle()
                         .frame(width: 12)
                         .foregroundStyle(
@@ -77,7 +115,7 @@ struct OnboardingView: View {
                             ? Color(red: 249/255, green: 193/255, blue: 214/255)
                             : .clear
                         )
-
+                    
                     Circle()
                         .frame(width: 12)
                         .foregroundStyle(

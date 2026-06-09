@@ -29,19 +29,8 @@ class OnboardingModel {
     // Current onboarding page
     var selectedIndex = 0
     
-    // User input text
-    var name = ""
-    
-    // Controls blinking cursor visibility
-    var showCursor = true
-    
-    // Task used for cursor blinking animation
-    var animationTask: Task<Void, Never>?
-    
-    // Indicates whether cursor is at the end of text
-    var isCursorAtEnd = false
-    
-    var outsideTap = false
+    // Index of selected avatar
+    var selected: Int?
     
     init() {
         
@@ -62,64 +51,6 @@ class OnboardingModel {
         withAnimation {
             selectedIndex += 1
         }
-    }
-    
-    // Updates whether cursor is at the end of the text
-    func updateIsCursorAtEnd() {
-        
-        if name.count > 5 {
-            isCursorAtEnd = true
-        }
-        else {
-            isCursorAtEnd = false
-        }
-    }
-    
-    // Cursor blinking animation
-    func animatoinСursor() {
-        
-        animationTask?.cancel()
-        
-        animationTask = Task {
-            
-            while !Task.isCancelled {
-                
-                try? await Task.sleep(nanoseconds: 500_000_000)
-                
-                await MainActor.run {
-                    
-                    showCursor.toggle()
-                    
-                }
-                
-            }
-        }
-        
-    }
-    
-    // Returns letter at given index (or empty string)
-    func character(at index: Int) -> String {
-        
-        guard index < name.count else { return "" }
-        
-        let array = Array(name)
-        
-        return String(array[index])
-    }
-    
-    // Limits input length
-    func limitChar(input: String, limit: Int) -> String {
-        
-        if input.count > limit {
-            
-            return String(input.prefix(limit))
-            
-        } else {
-            
-            return input
-            
-        }
-        
     }
     
 }

@@ -10,6 +10,9 @@ import SwiftData
 
 struct ProfileBadge: View {
     
+    @Environment(MainViewModel.self) var model
+    @Environment(\.modelContext) var context
+    
     @Query private var profiles: [Profile]
     
     var body: some View {

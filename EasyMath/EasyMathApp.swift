@@ -19,7 +19,7 @@ struct EasyMathApp: App {
     @State var onboardingModel = OnboardingModel()
     
     // Controls onboarding presentation
-    @State var needsOnboarding = true
+    @AppStorage("onboarding") var needsOnboarding = true
     
     var body: some Scene {
         WindowGroup {
@@ -35,8 +35,9 @@ struct EasyMathApp: App {
                 } content: {
                     OnboardingView()
                         .environment(onboardingModel)
+                        .environment(model)
+                        .modelContainer(for: [Score.self, Profile.self])
                 }
-
         }
     }
 }

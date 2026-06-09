@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct TextFieldName: View {
-
-    @Environment(OnboardingModel.self) var onboardingModel
+    
+    @Environment(MainViewModel.self) private var model
     
     // Focus state for TextField (active/inactive)
     @FocusState var textfieldFocused: Bool
-
+    
     // Cursor position (max 5 because limit is 6 chars)
     var cursorIndex: Int {
-        min(onboardingModel.name.count, 5)
+        min(model.name.count, 5)
     }
     
     var body: some View {
         
-        @Bindable var onboardingModel = onboardingModel
+        @Bindable var model = model
         
         ZStack {
             
             // Invisible TextField
-            TextField("", text: $onboardingModel.name)
+            TextField("", text: $model.name)
                 .focused($textfieldFocused)
                 .foregroundColor(.clear)
                 .accentColor(.clear)
@@ -34,16 +34,16 @@ struct TextFieldName: View {
                 .textContentType(.oneTimeCode)
                 .autocorrectionDisabled(true)
                 .textInputAutocapitalization(.never)
-                .onChange(of: onboardingModel.name) { oldValue, newValue in
+                .onChange(of: model.name) { oldValue, newValue in
                     
                     // Limit input length
-                    onboardingModel.name = onboardingModel.limitChar(input: onboardingModel.name, limit: 6)
+                    model.name = model.limitChar(input: model.name, limit: 6)
                     
                     // Update cursor position state
-                    onboardingModel.updateIsCursorAtEnd()
+                    model.updateIsCursorAtEnd()
                 }
-                .onChange(of: onboardingModel.outsideTap) {
-                    onboardingModel.outsideTap = false
+                .onChange(of: model.outsideTap) {
+                    model.outsideTap = false
                     textfieldFocused = false
                 }
             
@@ -53,18 +53,18 @@ struct TextFieldName: View {
                     VStack(spacing: 4) {
                         ZStack {
                             
-                            Text(onboardingModel.character(at: index))
+                            Text(model.character(at: index))
                                 .font(.title2)
                                 .frame(width: 24, height: 28, alignment: .bottom)
                             
                             // Custom blinking cursor
                             if textfieldFocused &&
                                 index == cursorIndex &&
-                                onboardingModel.showCursor {
+                                model.showCursor {
                                 
                                 Rectangle()
                                     .frame(width: 2, height: 24)
-                                    .offset(x: onboardingModel.isCursorAtEnd ? 7 : -7, y: 0)
+                                    .offset(x: model.isCursorAtEnd ? 7 : -7, y: 0)
                             }
                             
                         }
@@ -79,7 +79,7 @@ struct TextFieldName: View {
             }
             .allowsHitTesting(false)
         }
-        .frame(height: 60)
+        .frame(width: 274, height: 64)
         .overlay {
             
             // Border around custom TextField
@@ -89,10 +89,10 @@ struct TextFieldName: View {
             
         }
         .onAppear {
-            onboardingModel.animatoinСursor()
+            model.animatoinСursor()
         }
         .onDisappear {
-            onboardingModel.animationTask?.cancel()
+            model.animationCursorTask?.cancel()
         }
     }
 }

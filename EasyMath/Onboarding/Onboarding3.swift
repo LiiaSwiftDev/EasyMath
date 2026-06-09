@@ -14,8 +14,6 @@ struct Onboarding3: View {
     var nextButton: () -> Void
     var skipButton: () -> Void
     
-    @State var selected: Int?
-    
     var body: some View {
         
         ZStack {
@@ -43,10 +41,10 @@ struct Onboarding3: View {
                     ForEach(onboardingModel.images.indices, id: \.self) { index in
                         
                         Avatar(imageName: onboardingModel.images[index], color: onboardingModel.colors[index],
-                               height: onboardingModel.avatarHeight(index: index), stroke: selected == index, onTap: {
+                               height: onboardingModel.avatarHeight(index: index), stroke: onboardingModel.selected == index, onTap: {
                             
                             // Select avatar
-                            selected = index
+                            onboardingModel.selected = index
                         })
                     }
                 }

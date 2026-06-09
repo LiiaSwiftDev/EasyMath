@@ -10,6 +10,7 @@ import SwiftUI
 struct Onboarding2: View {
     
     @Environment(OnboardingModel.self) var onboardingModel
+    @Environment(MainViewModel.self) private var model
     
     var nextButton: () -> Void
     var skipButton: () -> Void
@@ -85,7 +86,7 @@ struct Onboarding2: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
-            onboardingModel.outsideTap = true
+            model.outsideTap = true
         }
     }
 }

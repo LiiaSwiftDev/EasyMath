@@ -19,8 +19,7 @@ struct ProfileView: View {
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
-    @FocusState private var isFocused: Bool
- 
+    
     var body: some View {
         
         @Bindable var model = model
@@ -78,7 +77,11 @@ struct ProfileView: View {
                                 context.insert(newProfile)
                             }
                             
-                            try? context.save()
+                            do {
+                                try context.save()
+                            } catch {
+                                print("Save error:", error)
+                            }
                             
                             dismiss()
                         }
@@ -117,57 +120,20 @@ struct ProfileView: View {
                         .padding(.top, 10)
                     }.frame(maxWidth: .infinity, alignment: .center)
                     
-                    HStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        
                         // Name section title
                         Text("Name")
                             .foregroundStyle(Color.black)
                             .font(Font.system(size: 18, weight: .bold, design: .rounded))
-                            .padding(.leading, 12)
+                            .padding(.leading, 10)
                         
-                        Spacer()
+                        // Name input field
+                        TextFieldName()
                         
-                        if isFocused {
-                            Text("\(model.name.count)/6")
-                                .foregroundStyle(Color.gray)
-                                .font(Font.system(size: 18, weight: .bold, design: .rounded))
-                                .animation(.easeInOut(duration: 0.2), value: isFocused)
-                                .padding(.trailing, 12)
-                        }
-                        
-                    }.padding(.top, 25)
-                    
-                    // Name input field
-                    TextField("Enter your name", text: $model.name)
-                        .font(.system(.title3, design: .rounded))
-                        .padding()
-                        .background(
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .foregroundStyle(Color.white)
-                                
-                                if model.name.count == 6 && isFocused == true {
-                                    HStack {
-                                        Spacer()
-                                        
-                                        Image(systemName: "checkmark.circle.fill")
-                                            .foregroundStyle(Color(red: 128/255, green: 220/255, blue: 129/255))
-                                            .font(.title)
-                                            .animation(.easeInOut(duration: 0.2), value: isFocused)
-                                            .padding(.trailing, 10)
-                                    }
-                                }
-                            }
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(isFocused ? Color(red: 128/255, green: 220/255, blue: 129/255) : .gray.opacity(0.2), lineWidth: 2)
-                        )
-                        .focused($isFocused)
-                        .animation(.easeInOut(duration: 0.2), value: isFocused)
-                        .onChange(of: model.name) { oldValue, newValue in
-                            model.name = TextHelper.limitChars(input: model.name, limit: 6)
-                        }
-                        .padding(.horizontal, 2)
+                    }
+                    .padding(.top, 25)
+                    .padding(.bottom, 15)
                     
                     GeometryReader { proxy in
                         
@@ -205,15 +171,13 @@ struct ProfileView: View {
                                 
                             }
                         }.frame(maxWidth: .infinity)
-                        
                     }.padding(.top, 20)
                     
                     Spacer()
                     
                 }
-                
-            }.padding(.horizontal, 20)
-            
+            }
+            .padding(.horizontal, 20)
         }
         .onAppear(perform: {
             if let profile = profiles.first {
@@ -224,7 +188,7 @@ struct ProfileView: View {
         .navigationBarBackButtonHidden(true)
         .contentShape(Rectangle())
         .onTapGesture {
-            isFocused = false
+            model.outsideTap = true
         }
     }
 }
