@@ -25,13 +25,9 @@ struct ProfileView: View {
         @Bindable var model = model
         
         ZStack {
-            // Background gradient
-            LinearGradient(colors: [
-                Color(red: 253/255, green: 249/255, blue: 246/255),
-                Color(red: 255/255, green: 243/255, blue: 220/255)],
-                           startPoint: .top,
-                           endPoint: .bottom)
-            .ignoresSafeArea()
+            // Background color
+            Color(red: 251/255, green: 255/255, blue: 255/255)
+                .ignoresSafeArea()
             
             VStack(alignment: .leading, spacing: 10) {
                 
@@ -61,17 +57,20 @@ struct ProfileView: View {
                         // Save profile button
                         Button("Save") {
                             
+                            let name = model.name
+                                .trimmingCharacters(in: .whitespacesAndNewlines)
+                            let finalName = name.isEmpty ? "Name" : name
+                            
                             // Update existing profile
                             if let profile = profiles.first {
-                                // временный тут, позже убрать в onboarding
-                                profile.name = model.name
+                                profile.name = finalName
                                     .trimmingCharacters(in: .whitespacesAndNewlines)
                                 profile.image = model.selectedImage ?? profile.image
                             }
                             else {
                                 // Create new profile
                                 let newProfile = Profile()
-                                newProfile.name = model.name
+                                newProfile.name = finalName
                                     .trimmingCharacters(in: .whitespacesAndNewlines)
                                 newProfile.image = model.selectedImage ?? "test1"
                                 context.insert(newProfile)
@@ -87,7 +86,7 @@ struct ProfileView: View {
                         }
                         .font(.system(.title2, design: .rounded, weight: .bold))
                         
-                    }.foregroundStyle(Color(red: 66/255, green: 190/255, blue: 78/255))
+                    }.foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
                 }
                 .padding(.top, 10)
                 .padding(.bottom, 25)
@@ -100,27 +99,27 @@ struct ProfileView: View {
                             // Circle background
                             Circle()
                                 .foregroundStyle(LinearGradient(colors: [
-                                    Color(red: 197/255, green: 238/255, blue: 195/255),
-                                    Color(red: 235/255, green: 246/255, blue: 212/255)],
+                                    Color(red: 201/255, green: 217/255, blue: 255/255),
+                                    Color(red: 222/255, green: 232/255, blue: 254/255)],
                                                                 startPoint: .bottomLeading,
                                                                 endPoint: .topTrailing))
-                                .frame(width: 250, height: 250)
+                                .frame(width: 240, height: 240)
                             
                             // Character image
                             Image(model.selectedImage ?? "boy4")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: model.selectedImage == "girl4" ? 210 : 220)
+                                .frame(height: model.selectedImage == "girl4" ? 200 : 210)
                                 .offset(y: model.selectedImage == "girl4" ? 30 : 20)
                                 .animation(.easeInOut(duration: 0.2), value: model.selectedImage)
                             
                         }
-                        .frame(width: 250, height: 250)
+                        .frame(width: 240, height: 240)
                         .clipShape(Circle())
                         .padding(.top, 10)
                     }.frame(maxWidth: .infinity, alignment: .center)
                     
-                    VStack(alignment: .leading, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 15) {
                         
                         // Name section title
                         Text("Name")
@@ -132,7 +131,7 @@ struct ProfileView: View {
                         TextFieldName()
                         
                     }
-                    .padding(.top, 25)
+                    .padding(.top, 30)
                     .padding(.bottom, 15)
                     
                     GeometryReader { proxy in
@@ -148,12 +147,17 @@ struct ProfileView: View {
                             HStack(spacing: 10) {
                                 
                                 // Profile avatar cards
-                                ForEach(model.images1Row, id: \.self) { image in
-                                    ProfileCard(image: image, width: itemWidth, selected: model.selectedImage == image, onTap: {
-                                        
-                                        model.selectedImage = image
-                                        
-                                    })
+                                ForEach(0..<4, id: \.self) { index in
+                                    ProfileCard(
+                                        image: model.images1Row[index],
+                                        width: itemWidth,
+                                        background: model.color1Row[index],
+                                        selected: model.selectedImage == model.images1Row[index],
+                                        onTap: {
+                                            
+                                            model.selectedImage = model.images1Row[index]
+                                            
+                                        })
                                 }
                                 
                             }
@@ -161,14 +165,18 @@ struct ProfileView: View {
                             HStack(spacing: 10) {
                                 
                                 // Profile avatar cards
-                                ForEach(model.images2Row, id: \.self) { image in
-                                    ProfileCard(image: image, width: itemWidth, selected: model.selectedImage == image, onTap: {
-                                        
-                                        model.selectedImage = image
-                                        
-                                    })
+                                // model.images2Row
+                                ForEach(0..<4, id: \.self) { index in
+                                    ProfileCard(
+                                        image: model.images2Row[index],
+                                        width: itemWidth, background: model.color2Row[index],
+                                        selected: model.selectedImage == model.images2Row[index],
+                                        onTap: {
+                                            
+                                            model.selectedImage = model.images2Row[index]
+                                            
+                                        })
                                 }
-                                
                             }
                         }.frame(maxWidth: .infinity)
                     }.padding(.top, 20)
@@ -180,8 +188,14 @@ struct ProfileView: View {
             .padding(.horizontal, 20)
         }
         .onAppear(perform: {
+            
             if let profile = profiles.first {
-                model.name = profile.name
+                if profiles.first!.name != "Name" {
+                    model.name = profile.name
+                } else {
+                    model.name = ""
+                }
+                
                 model.selectedImage = profile.image
             }
         })

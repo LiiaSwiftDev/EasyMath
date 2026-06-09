@@ -73,7 +73,7 @@ struct TextFieldName: View {
                         // Underline for each character slot
                         Rectangle()
                             .frame(width: 20, height: 1)
-                            .foregroundStyle(Color.pink.opacity(0.5))
+                            .foregroundStyle(.pink.opacity(0.5))
                     }
                 }
             }
@@ -84,12 +84,12 @@ struct TextFieldName: View {
             
             // Border around custom TextField
             RoundedRectangle(cornerRadius: 16)
-                .stroke(.pink.opacity(0.5))
+                .stroke(.pink.opacity(0.5), lineWidth: 1)
                 .frame(width: 274, height: 64)
             
         }
         .onAppear {
-            model.animatoinСursor()
+            model.animationСursor()
         }
         .onDisappear {
             model.animationCursorTask?.cancel()

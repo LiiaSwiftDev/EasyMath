@@ -38,14 +38,22 @@ struct OnboardingView: View {
                 
                 Onboarding2(nextButton: {
                     
+                    let name = model.name
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                    let finalName = name.isEmpty ? "Name" : name
+                    
                     // Create or update profile with onboarding name
-                    let name = model.name.trimmingCharacters(in: .whitespacesAndNewlines)
-                    
-                    let profile = profiles.first ?? Profile()
-                    profile.name = name
-                    
-                    if profiles.first == nil {
-                        context.insert(profile)
+                    if profiles.first != nil {
+                        let profile = profiles.first!
+                        profile.name = finalName
+                            .trimmingCharacters(in: .whitespacesAndNewlines)
+                    }
+                    else {
+                        // Create new profile
+                        let newProfile = Profile()
+                        newProfile.name = finalName
+                            .trimmingCharacters(in: .whitespacesAndNewlines)
+                        context.insert(newProfile)
                     }
                     
                     do {

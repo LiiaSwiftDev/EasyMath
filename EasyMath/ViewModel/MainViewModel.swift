@@ -27,7 +27,7 @@ class MainViewModel {
     var selectedCard: QuizCardModel?
     
     // User's name in Profile View
-    var name = ""
+    var name: String = ""
     
     // Controls blinking cursor visibility
     var showCursor = true
@@ -43,6 +43,20 @@ class MainViewModel {
     // Profile avatar images
     var images1Row = ["boy1", "girl1", "boy2", "girl2"]
     var images2Row = ["girl3", "boy3", "girl4", "boy4"]
+    
+    // Profile avatar background color
+    var color1Row = [
+        Color(red: 255/255, green: 202/255, blue: 195/255),
+        Color(red: 223/255, green: 221/255, blue: 248/255),
+        Color(red: 181/255, green: 213/255, blue: 158/255),
+        Color(red: 249/255, green: 237/255, blue: 175/255)
+    ]
+    var color2Row = [
+        Color(red: 201/255, green: 217/255, blue: 255/255),
+        Color(red: 255/255, green: 195/255, blue: 176/255),
+        Color(red: 255/255, green: 203/255, blue: 151/255),
+        Color(red: 201/255, green: 220/255, blue: 162/255)
+    ]
     
     // Currently selected avatar image
     var selectedImage: String?
@@ -184,7 +198,7 @@ class MainViewModel {
     }
     
     // Cursor blinking animation
-    func animatoinСursor() {
+    func animationСursor() {
         
         animationCursorTask?.cancel()
         

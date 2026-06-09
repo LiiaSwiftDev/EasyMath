@@ -11,6 +11,7 @@ struct ProfileCard: View {
     
     var image: String
     var width: CGFloat
+    var background: Color
     
     var selected: Bool
     let onTap: () -> Void
@@ -33,7 +34,7 @@ struct ProfileCard: View {
             
             return ZStack {
                 Ellipse()
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(background)
                 
                 Image(image)
                     .resizable()
@@ -46,7 +47,7 @@ struct ProfileCard: View {
             // Stroke around the card.
             .overlay {
                 Ellipse()
-                    .stroke(selected ? Color(red: 128/255, green: 220/255, blue: 129/255) : .gray.opacity(0.2), lineWidth: 2)
+                    .stroke(selected ? Color(red: 241/255, green: 1/255, blue: 111/255) : .clear, lineWidth: 2)
                     .frame(width: safeWidth - 2, height: height - 2)
                 
                 
@@ -58,7 +59,7 @@ struct ProfileCard: View {
 }
 
 #Preview {
-    ProfileCard(image: "boy2", width: 80, selected: true, onTap: {
+    ProfileCard(image: "boy2", width: 80, background: .blue, selected: true, onTap: {
         // nothing
     })
 }
