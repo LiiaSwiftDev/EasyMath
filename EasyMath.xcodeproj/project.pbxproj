@@ -36,6 +36,9 @@
 		187107132FD24727005BC5A6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107122FD24727005BC5A6 /* OnboardingView.swift */; };
 		187107152FD335FF005BC5A6 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107142FD335FF005BC5A6 /* OnboardingModel.swift */; };
 		1871072A2FD65084005BC5A6 /* TextFieldName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107292FD65084005BC5A6 /* TextFieldName.swift */; };
+		1871073C2FDB7833005BC5A6 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073B2FDB7833005BC5A6 /* Checkmark.swift */; };
+		1871073E2FDB7872005BC5A6 /* CheckmarkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */; };
+		187107402FDB7904005BC5A6 /* FireworkBurst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073F2FDB7904005BC5A6 /* FireworkBurst.swift */; };
 		187ECEDF2FBE521F0084E8F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */; };
 		187ECEE12FBE54190084E8F6 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEE02FBE54190084E8F6 /* ProfileCard.swift */; };
 		1880DBB12FC6074F00315A1E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880DBB02FC6074F00315A1E /* Profile.swift */; };
@@ -77,6 +80,9 @@
 		187107122FD24727005BC5A6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		187107142FD335FF005BC5A6 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		187107292FD65084005BC5A6 /* TextFieldName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldName.swift; sourceTree = "<group>"; };
+		1871073B2FDB7833005BC5A6 /* Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
+		1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkItem.swift; sourceTree = "<group>"; };
+		1871073F2FDB7904005BC5A6 /* FireworkBurst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkBurst.swift; sourceTree = "<group>"; };
 		187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		187ECEE02FBE54190084E8F6 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		1880DBB02FC6074F00315A1E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 				1853B85D2F9AD38B009503DE /* QuizCardModel.swift */,
 				188318222FBCE34A0004A9B2 /* Score.swift */,
 				1880DBB02FC6074F00315A1E /* Profile.swift */,
+				1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				1857A70E2FAD68B100557813 /* NextButton.swift */,
 				181237DA2FB14A1300BC7AB0 /* FeedbackBanner.swift */,
 				181237DE2FB190B900BC7AB0 /* AnswerBanner.swift */,
+				1871073A2FDB7810005BC5A6 /* Animation */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -202,6 +210,15 @@
 				187107292FD65084005BC5A6 /* TextFieldName.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1871073A2FDB7810005BC5A6 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				1871073B2FDB7833005BC5A6 /* Checkmark.swift */,
+				1871073F2FDB7904005BC5A6 /* FireworkBurst.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		1880DBAF2FC5055A00315A1E /* Profile */ = {
@@ -296,6 +313,7 @@
 			files = (
 				186CB2072FCE559D00E6777B /* Onboarding1.swift in Sources */,
 				1857A70F2FAD68B100557813 /* NextButton.swift in Sources */,
+				1871073C2FDB7833005BC5A6 /* Checkmark.swift in Sources */,
 				187106D72FD1E1BC005BC5A6 /* Skip.swift in Sources */,
 				180B03282F9921E8006A5B3E /* MainView.swift in Sources */,
 				180B03292F9921E8006A5B3E /* EasyMathApp.swift in Sources */,
@@ -323,8 +341,10 @@
 				180B032E2F993B31006A5B3E /* ButtonStart.swift in Sources */,
 				180B032C2F9933DF006A5B3E /* QuizCard.swift in Sources */,
 				187ECEDF2FBE521F0084E8F6 /* ProfileView.swift in Sources */,
+				187107402FDB7904005BC5A6 /* FireworkBurst.swift in Sources */,
 				181237DD2FB1858E00BC7AB0 /* Buble.swift in Sources */,
 				1857A7092FAD0DAE00557813 /* QuizView.swift in Sources */,
+				1871073E2FDB7872005BC5A6 /* CheckmarkItem.swift in Sources */,
 				1831D64E2FA179510033AE89 /* MainViewModel.swift in Sources */,
 				181237D72FB111EC00BC7AB0 /* HomeButton.swift in Sources */,
 				1831D6522FA1ACE90033AE89 /* ProfileBadge.swift in Sources */,
@@ -462,6 +482,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S53HGH48M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -469,6 +490,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,6 +515,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S53HGH48M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -500,6 +523,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

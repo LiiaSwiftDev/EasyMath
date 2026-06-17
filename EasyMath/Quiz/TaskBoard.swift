@@ -52,10 +52,42 @@ struct TaskBoard: View {
                 AnswerBanner()
             }
             
-            // Math problem
-            Text(quizModel.example)
-                .foregroundStyle(Color.black)
-                .font(.system(.largeTitle, design: .rounded, weight: .semibold))
+            ZStack {
+                // Math problem
+                Text(quizModel.example)
+                    .foregroundStyle(Color.black)
+                    .font(.system(.largeTitle, design: .rounded, weight: .semibold))
+                    .scaleEffect(quizModel.scaleExample)
+                
+                ForEach(Array(quizModel.checkmarks.enumerated()), id: \.offset) { index, mark in
+                    Checkmark(checkmarkItem: mark)
+                        .offset(
+                            x: CGFloat(quizModel.showCheckmarks ? quizModel.position[index].x : 0),
+                            y: CGFloat(quizModel.showCheckmarks ? quizModel.position[index].y : 0))
+                        .scaleEffect(quizModel.scale)
+                    // Applies to offset + scale animation
+                        .animation(
+                            .easeOut(duration: 0.3)
+                            .delay(Double.random(in: 0...0.25)),
+                            value: quizModel.showCheckmarks
+                        )
+                        .opacity(quizModel.showCheckmarks ? 1 : 0)
+                    // Applies to opacity animation
+                        .animation(.easeOut(duration: 0.1), value: quizModel.showCheckmarks)
+                    
+                }.opacity(quizModel.opacityCheckmark)
+                
+                // Fireworks animation
+                if quizModel.trigger {
+                    FireworkBurst()
+                        .onAppear {
+                            // Auto reset after animation
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                                quizModel.trigger = false
+                            }
+                        }
+                }
+            }
             
             // Decorative lion image
             Image("lion")
@@ -68,6 +100,28 @@ struct TaskBoard: View {
         }
         .frame( height: 270)
         .padding(.horizontal, 40)
+        .onChange(of: quizModel.showAnimation) { OldValue, NewValue in
+            
+            // Example scale pop animation
+            withAnimation(.easeIn(duration: 0.2)) {
+                quizModel.scaleExample = 0.7
+            }
+            
+            withAnimation(.easeOut(duration: 0.3).delay(0.12)) {
+                quizModel.scaleExample = 1.2
+            }
+            
+            withAnimation(.easeInOut(duration: 0.35).delay(0.17)) {
+                quizModel.scaleExample = 1
+            }
+            
+            // Сheckmark animation
+            quizModel.animation()
+            
+            // Firework animation
+            quizModel.trigger = true
+            
+        }
     }
 }
 

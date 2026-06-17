@@ -32,6 +32,15 @@ class OnboardingModel {
     // Index of selected avatar
     var selected: Int?
     
+    // Avatar circle size
+    var width: CGFloat = 114
+    
+    // Avatar scale animation
+    var scale: CGFloat = 1.0
+    
+    // Haptic feedback trigger
+    var tapped = false
+    
     init() {
         
     }
@@ -52,5 +61,4 @@ class OnboardingModel {
             selectedIndex += 1
         }
     }
-    
 }

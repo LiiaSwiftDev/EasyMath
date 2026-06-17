@@ -45,6 +45,45 @@ class QuizViewModel {
     // Stores unique examples that were already generated
     var usedExamples = Set<String>()
     
+    var showAnimation = false
+    
+    // Checkmark animation state
+    var opacityCheckmark: CGFloat = 0
+    var scale: CGFloat = 0
+    var showCheckmarks = false
+    
+    // Example scale animation
+    var scaleExample: CGFloat = 1
+    
+    // Controls firework animation trigger
+    var trigger = false
+    
+    // Checkmark items for animation
+    var checkmarks = [
+        CheckmarkItem(imageName: "checkmark1", imageHeight: 50),
+        CheckmarkItem(imageName: "checkmark1", imageHeight: 30),
+        CheckmarkItem(imageName: "checkmark2", imageHeight: 15),
+        CheckmarkItem(imageName: "checkmark1", imageHeight: 25),
+        CheckmarkItem(imageName: "checkmark3", imageHeight: 30),
+        CheckmarkItem(imageName: "checkmark3", imageHeight: 20),
+        CheckmarkItem(imageName: "checkmark2", imageHeight: 20),
+        CheckmarkItem(imageName: "checkmark3", imageHeight: 35),
+        CheckmarkItem(imageName: "checkmark2", imageHeight: 20)
+    ]
+    
+    // Positions for checkmark animation on the board
+    var position = [
+        (x: -20, y: 40),
+        (x: 50, y: 30),
+        (x: 20, y: 60),
+        (x: 25, y: -30),
+        (x: 90, y: -20),
+        (x: 110, y: 20),
+        (x: -90, y: 30),
+        (x: -90, y: -20),
+        (x: -30, y: -45)
+    ]
+    
     func multiplyExample() {
         repeat {
             a = Int.random(in: 1...10)
@@ -188,6 +227,7 @@ class QuizViewModel {
         if selectedAnswer == correctAnswer {
             answerIsCorrect = true
             correctAnswerCount += 1
+            showAnimation.toggle()
         }
         else {
             answerIsCorrect = false
@@ -200,8 +240,10 @@ class QuizViewModel {
         showBanner = false
         answerIsCorrect = true
     }
+    
     func quizExample(sign: QuizCardModel.Signs) {
-        // сбрасывает предыдущий пример
+        
+        // Reset previous example state
         reset()
         
         switch sign {
@@ -216,4 +258,23 @@ class QuizViewModel {
         }
     }
     
+    func animation() {
+        
+        withAnimation(.easeIn(duration: 0.2)) {
+            opacityCheckmark = 1
+            scale = 1.3
+            showCheckmarks = true
+        }
+        
+        withAnimation(.easeOut(duration: 0.2).delay(0.4)) {
+            scale = 1
+        }
+    }
+    
+    func resetCheckmarkState() {
+        withAnimation {
+            scale = 0
+            showCheckmarks = false
+        }
+    }
 }

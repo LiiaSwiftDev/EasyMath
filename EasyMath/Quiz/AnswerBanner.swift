@@ -53,6 +53,7 @@ struct AnswerBanner: View {
                         }
                     
                     Text(quizModel.correctAnswer)
+                        .foregroundStyle(Color.black)
                         .font(.system(.title2, design: .rounded, weight: .semibold))
                 }
             }

@@ -45,9 +45,13 @@ struct MainView: View {
                                     
                                     // Save selected quiz card.
                                     model.selectedCard = card
+                                      
                                 } label: {
                                     QuizCard(card: card)
                                 }
+                                // Haptic feedback
+                                .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: model.selectedCard)
+                                
                             }.padding(.trailing, 14)
                             
                         }
@@ -77,6 +81,7 @@ struct MainView: View {
                         
                         Text(model.displayedText)
                             .font(Font.system(size: 16, weight: .bold, design: .rounded))
+                            .foregroundStyle(Color.black)
                             .multilineTextAlignment(.center)
                             .offset(x: 70, y: 284)
                     }

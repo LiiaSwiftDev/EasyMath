@@ -86,7 +86,9 @@ struct ProfileView: View {
                         }
                         .font(.system(.title2, design: .rounded, weight: .bold))
                         
-                    }.foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
+                    }
+                    .foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
+                    .padding(.horizontal, 5)
                 }
                 .padding(.top, 10)
                 .padding(.bottom, 25)
@@ -136,15 +138,16 @@ struct ProfileView: View {
                     
                     GeometryReader { proxy in
                         
-                        let spacing: CGFloat = 10
+                        let spacing: CGFloat = 15
                         let count: CGFloat = 4
+                        let pad: CGFloat = 5
                         
-                        let availableWidth = proxy.size.width - ( 3 * spacing )
+                        let availableWidth = proxy.size.width - ( 3 * spacing ) - ( 2 * pad )
                         let itemWidth = ( availableWidth / count )
                         
                         VStack(spacing: 20) {
                             
-                            HStack(spacing: 10) {
+                            HStack(spacing: 15) {
                                 
                                 // Profile avatar cards
                                 ForEach(0..<4, id: \.self) { index in
@@ -159,10 +162,9 @@ struct ProfileView: View {
                                             
                                         })
                                 }
-                                
                             }
                             
-                            HStack(spacing: 10) {
+                            HStack(spacing: 15) {
                                 
                                 // Profile avatar cards
                                 // model.images2Row
@@ -178,14 +180,18 @@ struct ProfileView: View {
                                         })
                                 }
                             }
-                        }.frame(maxWidth: .infinity)
+                        }.padding(.horizontal, 5)
+                            .frame(maxWidth: .infinity)
+                        // Haptic feedback
+                            .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: model.selectedImage)
+                        
                     }.padding(.top, 20)
                     
                     Spacer()
                     
                 }
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 15)
         }
         .onAppear(perform: {
             

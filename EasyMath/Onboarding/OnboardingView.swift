@@ -35,6 +35,7 @@ struct OnboardingView: View {
                     
                 })
                 .tag(0)
+                .ignoresSafeArea()
                 
                 Onboarding2(nextButton: {
                     
@@ -72,6 +73,7 @@ struct OnboardingView: View {
                     
                 })
                 .tag(1)
+                .ignoresSafeArea()
                 
                 Onboarding3(nextButton: {
                     
@@ -99,6 +101,7 @@ struct OnboardingView: View {
                     
                 })
                 .tag(2)
+                .ignoresSafeArea()
                 
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
@@ -135,7 +138,7 @@ struct OnboardingView: View {
             }
             .opacity(onboardingModel.selectedIndex == 0 ? 1 : 0)
             .animation(.easeOut(duration: 0.15), value: onboardingModel.selectedIndex)
-            .padding(.bottom, 180)
+            .padding(.bottom, 210)
             
         }
         .ignoresSafeArea()

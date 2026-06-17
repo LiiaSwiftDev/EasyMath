@@ -9,11 +9,14 @@ import SwiftUI
 
 struct ProfileCard: View {
     
+    @Environment(MainViewModel.self) var model
+    
     var image: String
     var width: CGFloat
     var background: Color
-    
     var selected: Bool
+    
+    // Action when card is tapped
     let onTap: () -> Void
     
     var body: some View {
@@ -28,14 +31,32 @@ struct ProfileCard: View {
         
         Button {
             
+            // Shrink avatar
+            withAnimation(.easeIn(duration: 0.2)) {
+                model.scale = 0.85
+            }
+            
+            // Expand avatar
+            withAnimation(.easeOut(duration: 0.3).delay(0.12)) {
+                model.scale = 1.1
+            }
+            
+            // Return to normal size
+            withAnimation(.easeIn(duration: 0.35).delay(0.17)) {
+                model.scale = 1.0
+            }
+            
             onTap()
             
         } label: {
             
             return ZStack {
+                
+                // Card background
                 Ellipse()
                     .foregroundStyle(background)
                 
+                // Profile image
                 Image(image)
                     .resizable()
                     .scaledToFit()
@@ -44,7 +65,8 @@ struct ProfileCard: View {
             }
             // Overall card size.
             .frame(width: safeWidth, height: height)
-            // Stroke around the card.
+            
+            // Selection border
             .overlay {
                 Ellipse()
                     .stroke(selected ? Color(red: 241/255, green: 1/255, blue: 111/255) : .clear, lineWidth: 2)
@@ -52,9 +74,14 @@ struct ProfileCard: View {
                 
                 
             }
-            // Clip everything outside the ellipse shape.
+            // Clip everything outside the ellipse shape
             .clipShape(Ellipse())
+            
         }
+        .buttonStyle(.plain)
+        
+        // Tap animation
+        .scaleEffect(model.scale)
     }
 }
 

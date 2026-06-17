@@ -28,10 +28,13 @@ struct NextButton: View {
                 quizModel.quizExample(sign: quizModel.currentSign)
                 quizModel.progressIndicator += 1
                 
+                quizModel.resetCheckmarkState()
+                
             }
             else {
                 // check if answer is correct and give feedback
                 quizModel.checkAnswer()
+                
             }
             
         } label: {

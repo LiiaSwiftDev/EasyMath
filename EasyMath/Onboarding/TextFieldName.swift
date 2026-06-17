@@ -69,6 +69,7 @@ struct TextFieldName: View {
                             
                         }
                         .frame(width: 24, height: 28, alignment: .bottom)
+                        .foregroundStyle(Color.black)
                         
                         // Underline for each character slot
                         Rectangle()

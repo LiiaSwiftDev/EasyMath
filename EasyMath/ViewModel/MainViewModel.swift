@@ -61,6 +61,9 @@ class MainViewModel {
     // Currently selected avatar image
     var selectedImage: String?
     
+    // Animation scale for profile card
+    var scale: CGFloat = 1.0
+    
     // Quiz cards data
     var cards: [QuizCardModel] = [
         QuizCardModel(

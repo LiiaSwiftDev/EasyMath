@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuizView: View {
     
+    @Environment(\.dismiss) var dismiss
     @Environment(MainViewModel.self) private var model
     @Environment(QuizViewModel.self) private var quizModel
     
@@ -21,23 +22,32 @@ struct QuizView: View {
         
         ZStack {
             
-            // Background color
-            Color(red: 255/255, green: 243/255, blue: 220/255)
+            // Background
+            Color(red: 255/255, green: 243/255, blue: 220/255) 
                 .ignoresSafeArea()
             VStack(spacing: 0) {
                 
-                // Question progress
+                // Quiz progress
                 HStack {
+                    Button {
+                        dismiss()
+                        
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.title)
+                    }
+                    
                     Spacer()
                     
                     Text("\(quizModel.progressIndicator)/10")
-                        .foregroundStyle(Color.gray)
-                        .font(.system(.largeTitle, design: .rounded, weight: .semibold))
+                        .font(.system(.title, design: .rounded, weight: .semibold))
                 }
-                .padding(.horizontal, 35)
-                .padding(.bottom, 40)
+                .foregroundStyle(Color.gray)
+                .padding(.horizontal, 30)
+                .padding(.bottom, 60)
+                .padding(.top, 52)
                 
-                // Math task board
+                // Math board
                 TaskBoard()
                 
                 // Show correсt/incorrect banner
@@ -59,6 +69,9 @@ struct QuizView: View {
                                 quizModel.selectedAnswer = option
                             },
                             answer: option, selected: quizModel.selectedAnswer == option)
+                        
+                        // Haptic feedback
+                        .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: quizModel.selectedAnswer)
                     }
                 }.padding(.bottom, 40)
                 
@@ -68,6 +81,7 @@ struct QuizView: View {
                     .padding(.horizontal, 40)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             // Generate a math example using the selected operation.
             quizModel.quizExample(sign: model.selectedCard!.signs)
@@ -83,6 +97,8 @@ struct QuizView: View {
             if !path.contains(2) {
                 quizModel.correctAnswerCount = 0
             }
+            
+            quizModel.resetCheckmarkState()
         }
     }
 }
