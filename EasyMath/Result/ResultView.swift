@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import RiveRuntime
 
 struct ResultView: View {
     
@@ -19,6 +20,8 @@ struct ResultView: View {
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
     
+    let rive = RiveViewModel(fileName: "12079-22976-confetti")
+
     var body: some View {
         ZStack {
             // Background color
@@ -33,12 +36,18 @@ struct ResultView: View {
                 // Top bar with profile and score
                 TopBar(path: $path)
                 
-                // Result illustration
-                Image(resultModel.resultImage(score: quizModel.correctAnswerCount))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 300)
-                    .padding(.top, 90)
+                Spacer()
+                
+                ZStack {
+                    // Result illustration
+                    Image(resultModel.resultImage(score: quizModel.correctAnswerCount))
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 300)
+                        .padding(.top, 90)
+                    
+                    
+                }
                 
                 // Result message
                 Text(resultModel.text)
@@ -87,6 +96,16 @@ struct ResultView: View {
             }
             .padding(.horizontal, 20)
         }
+        .overlay(content: {
+            
+            // Confetti animation
+            if resultModel.showConfetti {
+                rive.view()
+                    .frame(height: 400)
+                    .offset(y: -270)
+                    .ignoresSafeArea()
+            }
+        })
         .navigationBarBackButtonHidden(true)
         .onDisappear {
             quizModel.correctAnswerCount = 0
@@ -99,7 +118,29 @@ struct ResultView: View {
                     await resultModel.increaseScore(scores: scores, correctAnswer: quizModel.correctAnswerCount, context: context)
                 }
             }
+                
+            confetti()
         }
     }
+    
+    func confetti() {
+        if quizModel.correctAnswerCount > 7  {
+            
+            resultModel.animationConfetti = Task {
+
+                await MainActor.run {
+                    resultModel.showConfetti = true
+                }
+                
+                try? await Task.sleep(nanoseconds: 1_700_000_000)
+                
+                await MainActor.run {
+                    resultModel.showConfetti = false
+                }
+                
+            }
+        }
+    }
+    
 }
 

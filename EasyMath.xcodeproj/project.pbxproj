@@ -39,6 +39,8 @@
 		1871073C2FDB7833005BC5A6 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073B2FDB7833005BC5A6 /* Checkmark.swift */; };
 		1871073E2FDB7872005BC5A6 /* CheckmarkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */; };
 		187107402FDB7904005BC5A6 /* FireworkBurst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073F2FDB7904005BC5A6 /* FireworkBurst.swift */; };
+		187B8B922FE4537B00DDF0EB /* 12079-22976-confetti.riv in Resources */ = {isa = PBXBuildFile; fileRef = 187B8B912FE4537B00DDF0EB /* 12079-22976-confetti.riv */; };
+		187B8B952FE453E600DDF0EB /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 187B8B942FE453E600DDF0EB /* RiveRuntime */; };
 		187ECEDF2FBE521F0084E8F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */; };
 		187ECEE12FBE54190084E8F6 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187ECEE02FBE54190084E8F6 /* ProfileCard.swift */; };
 		1880DBB12FC6074F00315A1E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880DBB02FC6074F00315A1E /* Profile.swift */; };
@@ -83,6 +85,7 @@
 		1871073B2FDB7833005BC5A6 /* Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
 		1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkItem.swift; sourceTree = "<group>"; };
 		1871073F2FDB7904005BC5A6 /* FireworkBurst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkBurst.swift; sourceTree = "<group>"; };
+		187B8B912FE4537B00DDF0EB /* 12079-22976-confetti.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "12079-22976-confetti.riv"; sourceTree = "<group>"; };
 		187ECEDE2FBE521F0084E8F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		187ECEE02FBE54190084E8F6 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		1880DBB02FC6074F00315A1E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187B8B952FE453E600DDF0EB /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +127,7 @@
 		180B03272F9921E8006A5B3E /* EasyMath */ = {
 			isa = PBXGroup;
 			children = (
+				187B8B912FE4537B00DDF0EB /* 12079-22976-confetti.riv */,
 				180B03242F9921E8006A5B3E /* Assets.xcassets */,
 				180B03262F9921E8006A5B3E /* EasyMathApp.swift */,
 				186CB2052FCE558900E6777B /* Onboarding */,
@@ -256,6 +261,7 @@
 			);
 			name = EasyMath;
 			packageProductDependencies = (
+				187B8B942FE453E600DDF0EB /* RiveRuntime */,
 			);
 			productName = EasyMath;
 			productReference = 180B03162F9921D9006A5B3E /* EasyMath.app */;
@@ -285,6 +291,9 @@
 			);
 			mainGroup = 180B030D2F9921D9006A5B3E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				187B8B932FE453E600DDF0EB /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 180B03172F9921D9006A5B3E /* Products */;
 			projectDirPath = "";
@@ -300,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				187B8B922FE4537B00DDF0EB /* 12079-22976-confetti.riv in Resources */,
 				180B032A2F9921E8006A5B3E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,6 +573,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		187B8B932FE453E600DDF0EB /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.20.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		187B8B942FE453E600DDF0EB /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 187B8B932FE453E600DDF0EB /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 180B030E2F9921D9006A5B3E /* Project object */;
 }

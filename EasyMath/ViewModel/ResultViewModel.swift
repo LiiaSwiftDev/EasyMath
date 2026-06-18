@@ -57,6 +57,10 @@ class ResultViewModel {
         "You Did It!"
     ]
     
+    var animationConfetti: Task <Void, Never>?
+    
+    var showConfetti = false
+    
     // Update user score in SwiftData
     func increaseScore(scores: [Score], correctAnswer: Int, context: ModelContext) async {
         
