@@ -46,6 +46,7 @@ struct ScoreBadge: View {
                 
                 // Score value
                 Text(model.compactNumber(score: score.first?.score ?? 0))
+                    .contentTransition(.numericText())
                     .foregroundStyle(Color.white)
                     .font(Font.system(size: 20, design: .rounded))
                     .bold()

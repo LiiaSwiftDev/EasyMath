@@ -18,6 +18,8 @@ class ResultViewModel {
     // Current result message shown in UI
     var text = ""
     
+    var scoreAnimation = false
+    
     let lowScoreMessages = [
         "Try Again!",
         "Don’t Give Up!",
@@ -61,17 +63,22 @@ class ResultViewModel {
     
     var showConfetti = false
     
+    var triggerScore = false
+    
     // Update user score in SwiftData
     func increaseScore(scores: [Score], correctAnswer: Int, context: ModelContext) async {
         
         // Cancel previous task if exists
         animationTask?.cancel()
         
-        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        try? await Task.sleep(nanoseconds: 1_100_000_000)
         
         await MainActor.run {
             if let existingScore = scores.first {
-                existingScore.score += correctAnswer
+                
+                withAnimation(.snappy) {
+                    existingScore.score += correctAnswer
+                }
                 
                 try? context.save()
                 

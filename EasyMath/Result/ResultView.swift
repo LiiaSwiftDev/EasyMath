@@ -46,7 +46,17 @@ struct ResultView: View {
                         .frame(height: 300)
                         .padding(.top, 90)
                     
-                    
+                    // Show earned points animation
+                    if resultModel.triggerScore {
+                        ScoreAnimation()
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                                    withAnimation {
+                                        resultModel.triggerScore = false
+                                    }
+                                }
+                            }
+                    }
                 }
                 
                 // Result message
@@ -61,10 +71,11 @@ struct ResultView: View {
                         .frame(width: 96, height: 42)
                         .foregroundStyle(Color(red: 252/255, green: 237/255, blue: 216/255))
                     
-                    Text("\(quizModel.correctAnswerCount)/10")
-                        .foregroundStyle(Color.black)
-                        .font(.system(.title, design: .rounded, weight: .bold))
-                        .kerning(2)
+                        Text("\(quizModel.correctAnswerCount)/10")
+                            .foregroundStyle(Color.black)
+                            .font(.system(.title, design: .rounded, weight: .bold))
+                            .kerning(2)
+
                 }
                 
                 // Restart button
@@ -120,6 +131,7 @@ struct ResultView: View {
             }
                 
             confetti()
+            resultModel.triggerScore = true
         }
     }
     

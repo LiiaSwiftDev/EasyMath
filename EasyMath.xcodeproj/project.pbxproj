@@ -49,6 +49,7 @@
 		188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318202FBCD6470004A9B2 /* StartOverButton.swift */; };
 		188318232FBCE34A0004A9B2 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318222FBCE34A0004A9B2 /* Score.swift */; };
 		188318252FBD375F0004A9B2 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318242FBD375F0004A9B2 /* ResultViewModel.swift */; };
+		18A063362FE49DCB00D71DAF /* ScoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A063352FE49DCB00D71DAF /* ScoreAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		188318202FBCD6470004A9B2 /* StartOverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOverButton.swift; sourceTree = "<group>"; };
 		188318222FBCE34A0004A9B2 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		188318242FBD375F0004A9B2 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		18A063352FE49DCB00D71DAF /* ScoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				181237D62FB111EC00BC7AB0 /* HomeButton.swift */,
 				181237DC2FB1858E00BC7AB0 /* Buble.swift */,
 				188318202FBCD6470004A9B2 /* StartOverButton.swift */,
+				18A063352FE49DCB00D71DAF /* ScoreAnimation.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				1857A7092FAD0DAE00557813 /* QuizView.swift in Sources */,
 				1871073E2FDB7872005BC5A6 /* CheckmarkItem.swift in Sources */,
 				1831D64E2FA179510033AE89 /* MainViewModel.swift in Sources */,
+				18A063362FE49DCB00D71DAF /* ScoreAnimation.swift in Sources */,
 				181237D72FB111EC00BC7AB0 /* HomeButton.swift in Sources */,
 				1831D6522FA1ACE90033AE89 /* ProfileBadge.swift in Sources */,
 				188318232FBCE34A0004A9B2 /* Score.swift in Sources */,
