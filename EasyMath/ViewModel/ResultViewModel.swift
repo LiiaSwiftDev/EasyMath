@@ -65,6 +65,9 @@ class ResultViewModel {
     
     var triggerScore = false
     
+    // Prevent score from being saved multiple times when returning to ResultView
+    var scoreAlreadySaved = false
+    
     // Update user score in SwiftData
     func increaseScore(scores: [Score], correctAnswer: Int, context: ModelContext) async {
         

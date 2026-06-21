@@ -20,8 +20,8 @@ struct ResultView: View {
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
     
-    let rive = RiveViewModel(fileName: "12079-22976-confetti")
-
+    let rive = RiveViewModel(fileName: "12079-22976-confetti")    
+    
     var body: some View {
         ZStack {
             // Background color
@@ -119,19 +119,26 @@ struct ResultView: View {
         })
         .navigationBarBackButtonHidden(true)
         .onDisappear {
-            quizModel.correctAnswerCount = 0
+            if !path.contains(3) {
+                quizModel.correctAnswerCount = 0
+                scoreAlreadySaved = false
+            }
         }
         .onAppear {
             resultModel.feedbackText(correct: quizModel.correctAnswerCount)
-            if path.contains(2) {
+            
+            if !scoreAlreadySaved {
+                
+                scoreAlreadySaved = true
+                
                 Task {
                     // Update or create user score in SwiftData
                     await resultModel.increaseScore(scores: scores, correctAnswer: quizModel.correctAnswerCount, context: context)
                 }
-            }
                 
-            confetti()
-            resultModel.triggerScore = true
+                confetti()
+                resultModel.triggerScore = true
+            }
         }
     }
     

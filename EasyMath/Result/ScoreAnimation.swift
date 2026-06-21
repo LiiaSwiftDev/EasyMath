@@ -27,6 +27,9 @@ struct ScoreAnimation: View {
         .onAppear {
             resultModel.scoreAnimation = true
         }
+        .onDisappear {
+            resultModel.scoreAnimation = false
+        }
     }
 }
 

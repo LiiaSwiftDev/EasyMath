@@ -45,7 +45,9 @@ struct QuizView: View {
                 .foregroundStyle(Color.gray)
                 .padding(.horizontal, 30)
                 .padding(.bottom, 60)
-                .padding(.top, 52)
+                .padding(.top, 10)
+                
+                Spacer()
                 
                 // Math board
                 TaskBoard()
@@ -71,7 +73,7 @@ struct QuizView: View {
                             answer: option, selected: quizModel.selectedAnswer == option)
                         
                         // Haptic feedback
-                        .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: quizModel.selectedAnswer)
+                        .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: quizModel.selectedAnswer == option)
                     }
                 }.padding(.bottom, 40)
                 
