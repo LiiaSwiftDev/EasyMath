@@ -24,7 +24,8 @@ struct ProfileView: View {
         
         @Bindable var model = model
         
-        ZStack {
+        ZStack(alignment: .top) {
+            
             // Background color
             Color(red: 251/255, green: 255/255, blue: 255/255)
                 .ignoresSafeArea()
@@ -43,7 +44,6 @@ struct ProfileView: View {
                     }.frame(maxWidth: .infinity, alignment: .center)
                     
                     HStack {
-                        
                         // Back button
                         Button {
                             dismiss()

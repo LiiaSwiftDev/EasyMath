@@ -49,7 +49,9 @@ struct TaskBoard: View {
             // If user choose wrong answer
             if quizModel.answerIsCorrect == false {
                 // Feedback banner
-                AnswerBanner()
+                withAnimation {
+                    AnswerBanner()
+                }
             }
             
             ZStack {

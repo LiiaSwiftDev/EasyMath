@@ -20,7 +20,7 @@ struct EasyMathApp: App {
     
     // Controls onboarding presentation
     // @AppStorage("onboarding")
-    @AppStorage("onboarding") var needsOnboarding = true
+    @State var needsOnboarding = true
     
     var body: some Scene {
         WindowGroup {

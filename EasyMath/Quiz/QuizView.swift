@@ -20,13 +20,13 @@ struct QuizView: View {
         
         @Bindable var quizModel = quizModel
         
-        ZStack {
+        ZStack(alignment: .top) {
             
             // Background
-            Color(red: 255/255, green: 243/255, blue: 220/255) 
+            Color(red: 255/255, green: 243/255, blue: 220/255)
                 .ignoresSafeArea()
+            
             VStack(spacing: 0) {
-                
                 // Quiz progress
                 HStack {
                     Button {
@@ -40,14 +40,12 @@ struct QuizView: View {
                     Spacer()
                     
                     Text("\(quizModel.progressIndicator)/10")
-                        .font(.system(.title, design: .rounded, weight: .semibold))
+                        .font(.system(.title2, design: .rounded, weight: .bold))
                 }
                 .foregroundStyle(Color.gray)
-                .padding(.horizontal, 30)
+                .padding(.horizontal, 20)
                 .padding(.bottom, 60)
                 .padding(.top, 10)
-                
-                Spacer()
                 
                 // Math board
                 TaskBoard()
@@ -75,12 +73,15 @@ struct QuizView: View {
                         // Haptic feedback
                         .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: quizModel.selectedAnswer == option)
                     }
-                }.padding(.bottom, 40)
+                }
+                
+                Spacer(minLength: 30)
                 
                 // Next button
                 NextButton(path: $path)
-                    .padding(.bottom, 70)
                     .padding(.horizontal, 40)
+                
+                Spacer(minLength: 40)
             }
         }
         .navigationBarBackButtonHidden(true)
