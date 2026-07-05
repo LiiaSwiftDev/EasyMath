@@ -29,7 +29,6 @@ struct OnboardingView: View {
             TabView(selection: $onboardingModel.selectedIndex) {
                 
                 Onboarding1(actionButton: {
-                    
                     // Move to next onboarding step
                     onboardingModel.goNext()
                     
@@ -67,7 +66,6 @@ struct OnboardingView: View {
                     onboardingModel.goNext()
                     
                 }, skipButton: {
-                    
                     // Skip onboarding
                     dismiss()
                     

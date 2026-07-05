@@ -29,8 +29,7 @@ class ResultViewModel {
         "So Close!",
         "Let’s Try Again!",
         "Keep Going!",
-        "You’re Learning!",
-        "Practice Makes Perfect!"
+        "Don't Stop!"
     ]
     
     let mediumScoreMessages = [
@@ -43,7 +42,6 @@ class ResultViewModel {
         "Keep It Up!",
         "Awesome!",
         "Wonderful!",
-        "You Rock!"
     ]
     
     let highScoreMessages = [
@@ -52,7 +50,6 @@ class ResultViewModel {
         "Amazing Work!",
         "Fantastic!",
         "Brilliant!",
-        "Outstanding!",
         "Super Smart!",
         "Math Master!",
         "Mission Complete!",

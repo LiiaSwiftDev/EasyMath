@@ -51,6 +51,9 @@ struct ProfileBadge: View {
                     .foregroundStyle(Color.white)
                     .font(Font.system(size: 18, design: .rounded))
                     .bold()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.55)
+                    .frame(maxWidth: 65)
                     .padding(.trailing)
                 
                 Spacer(minLength: 0)

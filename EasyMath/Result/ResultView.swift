@@ -20,10 +20,11 @@ struct ResultView: View {
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
     
-    let rive = RiveViewModel(fileName: "12079-22976-confetti")    
+    let rive = RiveViewModel(fileName: "12079-22976-confetti")
     
     var body: some View {
         
+        GeometryReader { proxy in
             ZStack(alignment: .top) {
                 
                 // Background color
@@ -37,7 +38,6 @@ struct ResultView: View {
                 VStack(spacing: 0) {
                     // Top bar with profile and score
                     TopBar(path: $path)
-                        //.border(.red)
                     
                     ZStack {
                         // Result illustration
@@ -45,7 +45,7 @@ struct ResultView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 300)
-                            .padding(.top, 90)
+                            .padding(.top, proxy.size.height * 0.11)
                         
                         // Show earned points animation
                         if resultModel.triggerScore && quizModel.correctAnswerCount > 0 {
@@ -72,18 +72,18 @@ struct ResultView: View {
                             .frame(width: 96, height: 42)
                             .foregroundStyle(Color(red: 252/255, green: 237/255, blue: 216/255))
                         
-                            Text("\(quizModel.correctAnswerCount)/10")
-                                .foregroundStyle(Color.black)
-                                .font(.system(.title, design: .rounded, weight: .bold))
-                                .kerning(2)
-
+                        Text("\(quizModel.correctAnswerCount)/10")
+                            .foregroundStyle(Color.black)
+                            .font(.system(.title, design: .rounded, weight: .bold))
+                            .kerning(2)
+                        
                     }
                     
                     Spacer(minLength: 0)
                     
                     // Restart button
                     StartOverButton()
-                        .padding(.top, 82)
+                        .padding(.top, proxy.size.height * 0.1)
                         .padding(.horizontal, 20)
                     
                     // Home button
@@ -142,13 +142,14 @@ struct ResultView: View {
                     resultModel.triggerScore = true
                 }
             }
+        }
     }
     
     func confetti() {
         if quizModel.correctAnswerCount > 7  {
             
             resultModel.animationConfetti = Task {
-
+                
                 await MainActor.run {
                     resultModel.showConfetti = true
                 }

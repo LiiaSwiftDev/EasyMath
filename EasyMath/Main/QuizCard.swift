@@ -21,7 +21,7 @@ struct QuizCard: View {
                 .foregroundColor(card.bg)
                 .shadow(color: card.shadowBg, radius: 5, x: 4, y: 6)
             
-            // Main math expression (e.g. 9 + 3)3
+            // Main math expression (e.g. 9 + 3)
             VStack(spacing: 0) {
                 HStack {
                     Spacer()
@@ -114,6 +114,8 @@ struct QuizCard: View {
                             .foregroundStyle(Color.white)
                             .bold()
                             .font(Font.system(.title2, design: .rounded))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                         
                         Spacer(minLength: 0)
                         
