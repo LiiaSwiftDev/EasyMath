@@ -119,6 +119,9 @@ struct ResultView: View {
                         .ignoresSafeArea()
                 }
             })
+            .sensoryFeedback(trigger: resultModel.showConfetti, { oldValue, newValue in
+                newValue ? .success : nil
+            })
             .navigationBarBackButtonHidden(true)
             .onDisappear {
                 if !path.contains(3) {
@@ -127,11 +130,11 @@ struct ResultView: View {
                 }
             }
             .onAppear {
-                resultModel.feedbackText(correct: quizModel.correctAnswerCount)
-                
                 if !resultModel.scoreAlreadySaved {
                     
                     resultModel.scoreAlreadySaved = true
+                    
+                    resultModel.feedbackText(correct: quizModel.correctAnswerCount)
                     
                     Task {
                         // Update or create user score in SwiftData
@@ -159,7 +162,6 @@ struct ResultView: View {
                 await MainActor.run {
                     resultModel.showConfetti = false
                 }
-                
             }
         }
     }
