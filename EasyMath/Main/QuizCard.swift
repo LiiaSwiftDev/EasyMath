@@ -9,6 +9,8 @@ import SwiftUI
 
 struct QuizCard: View {
     
+    @Environment(MainViewModel.self) var model
+    
     // Card data model
     var card: QuizCardModel
     
@@ -27,7 +29,7 @@ struct QuizCard: View {
                     Spacer()
                     
                     Text(card.number1)
-                        .font(Font.system(size: 60, design: .rounded))
+                        .font(Font.system(size: model.isIPad ? 50 : 60, design: .rounded))
                         .bold()
                         .foregroundStyle(Color.white)
                         .padding(.top, 90)
@@ -60,7 +62,7 @@ struct QuizCard: View {
                     Spacer()
                     
                     Text(card.number2)
-                        .font(Font.system(size: 60, design: .rounded))
+                        .font(Font.system(size: 50, design: .rounded))
                         .bold()
                         .foregroundStyle(Color.white)
                         .padding(.bottom, 90)
@@ -90,6 +92,7 @@ struct QuizCard: View {
                 .frame(height: 60)
                 .padding(.trailing, 80)
                 .padding(.top, 20)
+                .scaleEffect(model.isIPad ? 0.9 : 1)
                 
                 Spacer(minLength: 0)
                 
@@ -99,6 +102,8 @@ struct QuizCard: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50, height: card.scalePlace)
                     .padding(.leading, card.padding)
+                    .scaleEffect(model.isIPad ? 0.9 : 1)
+                    .offset(y: model.isIPad ? 3 : 0)
                 
                 // Bottom strip of the card
                 ZStack {
@@ -115,7 +120,7 @@ struct QuizCard: View {
                             .bold()
                             .font(Font.system(.title2, design: .rounded))
                             .lineLimit(1)
-                            .minimumScaleFactor(0.8)
+                            .minimumScaleFactor(0.7)
                         
                         Spacer(minLength: 0)
                         
@@ -124,7 +129,9 @@ struct QuizCard: View {
                     }.padding(.horizontal, 10)
                 }
             }
-        } .frame(height: 222)
+
+        }
+        .frame(height: 222)
     }
 }
 

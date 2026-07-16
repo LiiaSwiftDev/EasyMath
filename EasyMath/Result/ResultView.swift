@@ -14,6 +14,7 @@ struct ResultView: View {
     @Environment(\.modelContext) private var context
     @Environment(QuizViewModel.self) private var quizModel
     @Environment(ResultViewModel.self) private var resultModel
+    @Environment(MainViewModel.self) var model
     
     @Query var scores: [Score]
     
@@ -38,6 +39,7 @@ struct ResultView: View {
                 VStack(spacing: 0) {
                     // Top bar with profile and score
                     TopBar(path: $path)
+                        .offset(y: model.isIPad ? 10 : 0)
                     
                     ZStack {
                         // Result illustration
@@ -109,7 +111,16 @@ struct ResultView: View {
                     
                 }
                 .padding(.horizontal, 20)
+                .scaleEffect(model.isIPad ? 0.9 : 1)
+                .offset(y: model.isIPad ? -50 : 0)
             }
+            .onAppear(perform: {
+                DispatchQueue.main.async {
+                    if proxy.size.height < 650 {
+                        model.isIPad = true
+                    }
+                }
+            })
             .overlay(content: {
                 // Confetti animation
                 if resultModel.showConfetti {
@@ -130,6 +141,11 @@ struct ResultView: View {
                 }
             }
             .onAppear {
+                DispatchQueue.main.async {
+                    print(proxy.size)
+                    print(model.isIPad)
+                }
+                
                 if !resultModel.scoreAlreadySaved {
                     
                     resultModel.scoreAlreadySaved = true

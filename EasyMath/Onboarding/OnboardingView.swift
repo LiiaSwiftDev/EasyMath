@@ -24,122 +24,133 @@ struct OnboardingView: View {
         
         @Bindable var onboardingModel = onboardingModel
         
-        ZStack {
-            
-            TabView(selection: $onboardingModel.selectedIndex) {
+        GeometryReader { proxy in
+            ZStack {
                 
-                Onboarding1(actionButton: {
-                    // Move to next onboarding step
-                    onboardingModel.goNext()
+                TabView(selection: $onboardingModel.selectedIndex) {
                     
-                })
-                .tag(0)
-                .ignoresSafeArea()
-                
-                Onboarding2(nextButton: {
+                    Onboarding1(actionButton: {
+                        // Move to next onboarding step
+                        onboardingModel.goNext()
+                        
+                    })
+                    .tag(0)
+                    .ignoresSafeArea()
                     
-                    let name = model.name
-                        .trimmingCharacters(in: .whitespacesAndNewlines)
-                    let finalName = name.isEmpty ? "Name" : name
-                    
-                    // Create or update profile with onboarding name
-                    if profiles.first != nil {
-                        let profile = profiles.first!
-                        profile.name = finalName
+                    Onboarding2(nextButton: {
+                        
+                        let name = model.name
                             .trimmingCharacters(in: .whitespacesAndNewlines)
-                    }
-                    else {
-                        // Create new profile
-                        let newProfile = Profile()
-                        newProfile.name = finalName
-                            .trimmingCharacters(in: .whitespacesAndNewlines)
-                        context.insert(newProfile)
-                    }
+                        let finalName = name.isEmpty ? "Name" : name
+                        
+                        // Create or update profile with onboarding name
+                        if profiles.first != nil {
+                            let profile = profiles.first!
+                            profile.name = finalName
+                                .trimmingCharacters(in: .whitespacesAndNewlines)
+                        }
+                        else {
+                            // Create new profile
+                            let newProfile = Profile()
+                            newProfile.name = finalName
+                                .trimmingCharacters(in: .whitespacesAndNewlines)
+                            context.insert(newProfile)
+                        }
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Save error Onboarding2:", error)
+                        }
+                        
+                        // Move to next onboarding step
+                        onboardingModel.goNext()
+                        
+                    }, skipButton: {
+                        // Skip onboarding
+                        dismiss()
+                        
+                    })
+                    .tag(1)
+                    .ignoresSafeArea()
                     
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Save error Onboarding2:", error)
-                    }
+                    Onboarding3(nextButton: {
+                        
+                        // Save selected onboarding avatar to profile
+                        let profile = profiles.first ?? Profile()
+                        profile.image = String(onboardingModel.images[onboardingModel.selected ?? 2])
+                        
+                        if profiles.first == nil {
+                            context.insert(profile)
+                        }
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Save error Onboarding3:", error)
+                        }
+                        
+                        // Move to final onboarding screen
+                        dismiss()
+                        
+                    }, skipButton: {
+                        
+                        // Skip onboarding
+                        dismiss()
+                        
+                    })
+                    .tag(2)
+                    .ignoresSafeArea()
                     
-                    // Move to next onboarding step
-                    onboardingModel.goNext()
-                    
-                }, skipButton: {
-                    // Skip onboarding
-                    dismiss()
-                    
-                })
-                .tag(1)
-                .ignoresSafeArea()
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                Onboarding3(nextButton: {
+                // Page indicator for first onboarding
+                VStack {
+                    Spacer()
                     
-                    // Save selected onboarding avatar to profile
-                    let profile = profiles.first ?? Profile()
-                    profile.image = String(onboardingModel.images[onboardingModel.selected ?? 2])
-                    
-                    if profiles.first == nil {
-                        context.insert(profile)
+                    HStack(spacing: 21) {
+                        Circle()
+                            .frame(width: 12)
+                            .foregroundStyle(
+                                onboardingModel.selectedIndex == 0
+                                ? Color(red: 241/255, green: 1/255, blue: 111/255)
+                                : .clear
+                            )
+                        
+                        Circle()
+                            .frame(width: 12)
+                            .foregroundStyle(
+                                onboardingModel.selectedIndex == 0
+                                ? Color(red: 249/255, green: 193/255, blue: 214/255)
+                                : .clear
+                            )
+                        
+                        Circle()
+                            .frame(width: 12)
+                            .foregroundStyle(
+                                onboardingModel.selectedIndex == 0
+                                ? Color(red: 249/255, green: 193/255, blue: 214/255)
+                                : .clear
+                            )
                     }
-                    
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Save error Onboarding3:", error)
-                    }
-                    
-                    // Move to final onboarding screen
-                    dismiss()
-                    
-                }, skipButton: {
-                    
-                    // Skip onboarding
-                    dismiss()
-                    
-                })
-                .tag(2)
-                .ignoresSafeArea()
+                }
+                .opacity(onboardingModel.selectedIndex == 0 ? 1 : 0)
+                .animation(.easeOut(duration: 0.15), value: onboardingModel.selectedIndex)
+                .padding(.bottom, 210)
+                .offset(y: model.isIPad ? 90 : 0)
+                .scaleEffect(model.isIPad ? 0.9 : 1)
                 
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            
-            // Page indicator for first onboarding
-            VStack {
-                Spacer()
-                
-                HStack(spacing: 21) {
-                    Circle()
-                        .frame(width: 12)
-                        .foregroundStyle(
-                            onboardingModel.selectedIndex == 0
-                            ? Color(red: 241/255, green: 1/255, blue: 111/255)
-                            : .clear
-                        )
-                    
-                    Circle()
-                        .frame(width: 12)
-                        .foregroundStyle(
-                            onboardingModel.selectedIndex == 0
-                            ? Color(red: 249/255, green: 193/255, blue: 214/255)
-                            : .clear
-                        )
-                    
-                    Circle()
-                        .frame(width: 12)
-                        .foregroundStyle(
-                            onboardingModel.selectedIndex == 0
-                            ? Color(red: 249/255, green: 193/255, blue: 214/255)
-                            : .clear
-                        )
+            .ignoresSafeArea()
+            .onAppear {
+                DispatchQueue.main.async {
+                    if proxy.size.height < 650 {
+                        model.isIPad = true
+                    }
                 }
             }
-            .opacity(onboardingModel.selectedIndex == 0 ? 1 : 0)
-            .animation(.easeOut(duration: 0.15), value: onboardingModel.selectedIndex)
-            .padding(.bottom, 210)
-            
         }
-        .ignoresSafeArea()
     }
 }
 

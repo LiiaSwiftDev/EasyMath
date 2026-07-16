@@ -120,72 +120,77 @@ struct ProfileView: View {
                         .clipShape(Circle())
                         .padding(.top, 10)
                     }.frame(maxWidth: .infinity, alignment: .center)
+                        .scaleEffect(model.isIPad ? 0.7 : 1)
+                        .offset(y: model.isIPad ? -40 : 0)
                     
-                    VStack(alignment: .leading, spacing: 15) {
+                    Group {
+                        VStack(alignment: .leading, spacing: 15) {
+                            
+                            // Name section title
+                            Text("Name")
+                                .foregroundStyle(Color.black)
+                                .font(Font.system(size: 18, weight: .bold, design: .rounded))
+                                .padding(.leading, 10)
+                            
+                            // Name input field
+                            TextFieldName()
+                            
+                        }
+                        .padding(.top, 30)
+                        .padding(.bottom, 15)
                         
-                        // Name section title
-                        Text("Name")
-                            .foregroundStyle(Color.black)
-                            .font(Font.system(size: 18, weight: .bold, design: .rounded))
-                            .padding(.leading, 10)
-                        
-                        // Name input field
-                        TextFieldName()
-                        
+                        GeometryReader { proxy in
+                            
+                            let spacing: CGFloat = 15
+                            let count: CGFloat = 4
+                            let pad: CGFloat = 5
+                            
+                            let availableWidth = proxy.size.width - ( 3 * spacing ) - ( 2 * pad )
+                            let itemWidth = ( availableWidth / count )
+                            
+                            VStack(spacing: 20) {
+                                
+                                HStack(spacing: 15) {
+                                    
+                                    // Profile avatar cards
+                                    ForEach(0..<4, id: \.self) { index in
+                                        ProfileCard(
+                                            image: model.images1Row[index],
+                                            width: itemWidth,
+                                            background: model.color1Row[index],
+                                            selected: model.selectedImage == model.images1Row[index],
+                                            onTap: {
+                                                
+                                                model.selectedImage = model.images1Row[index]
+                                                
+                                            })
+                                    }
+                                }
+                                
+                                HStack(spacing: 15) {
+                                    
+                                    // Profile avatar cards
+                                    // model.images2Row
+                                    ForEach(0..<4, id: \.self) { index in
+                                        ProfileCard(
+                                            image: model.images2Row[index],
+                                            width: itemWidth, background: model.color2Row[index],
+                                            selected: model.selectedImage == model.images2Row[index],
+                                            onTap: {
+                                                
+                                                model.selectedImage = model.images2Row[index]
+                                                
+                                            })
+                                    }
+                                }
+                            }.padding(.horizontal, 5)
+                                .frame(maxWidth: .infinity)
+                            // Haptic feedback
+                                .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: model.selectedImage)
+                            
+                        }.padding(.top, 20)
                     }
-                    .padding(.top, 30)
-                    .padding(.bottom, 15)
-                    
-                    GeometryReader { proxy in
-                        
-                        let spacing: CGFloat = 15
-                        let count: CGFloat = 4
-                        let pad: CGFloat = 5
-                        
-                        let availableWidth = proxy.size.width - ( 3 * spacing ) - ( 2 * pad )
-                        let itemWidth = ( availableWidth / count )
-                        
-                        VStack(spacing: 20) {
-                            
-                            HStack(spacing: 15) {
-                                
-                                // Profile avatar cards
-                                ForEach(0..<4, id: \.self) { index in
-                                    ProfileCard(
-                                        image: model.images1Row[index],
-                                        width: itemWidth,
-                                        background: model.color1Row[index],
-                                        selected: model.selectedImage == model.images1Row[index],
-                                        onTap: {
-                                            
-                                            model.selectedImage = model.images1Row[index]
-                                            
-                                        })
-                                }
-                            }
-                            
-                            HStack(spacing: 15) {
-                                
-                                // Profile avatar cards
-                                // model.images2Row
-                                ForEach(0..<4, id: \.self) { index in
-                                    ProfileCard(
-                                        image: model.images2Row[index],
-                                        width: itemWidth, background: model.color2Row[index],
-                                        selected: model.selectedImage == model.images2Row[index],
-                                        onTap: {
-                                            
-                                            model.selectedImage = model.images2Row[index]
-                                            
-                                        })
-                                }
-                            }
-                        }.padding(.horizontal, 5)
-                            .frame(maxWidth: .infinity)
-                        // Haptic feedback
-                            .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: model.selectedImage)
-                        
-                    }.padding(.top, 20)
+                    .offset(y: model.isIPad ? -100 : 0)
                     
                     Spacer()
                     

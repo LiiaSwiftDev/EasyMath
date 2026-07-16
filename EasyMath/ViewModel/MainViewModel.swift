@@ -11,6 +11,9 @@ import SwiftUI
 @Observable
 class MainViewModel {
     
+    // True if running on iPad
+    var isIPad = false
+    
     // Phrases for typing animation in content view
     var phrases = [
         "Ready?",

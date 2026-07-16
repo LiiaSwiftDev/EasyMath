@@ -88,6 +88,7 @@ struct Onboarding2: View {
         .onTapGesture {
             model.outsideTap = true
         }
+        .scaleEffect(model.isIPad ? 0.8 : 1)
     }
 }
 

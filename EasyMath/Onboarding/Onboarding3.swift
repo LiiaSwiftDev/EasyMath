@@ -10,6 +10,7 @@ import SwiftUI
 struct Onboarding3: View {
     
     @Environment(OnboardingModel.self) var onboardingModel
+    @Environment(MainViewModel.self) private var model
     
     var nextButton: () -> Void
     var skipButton: () -> Void
@@ -68,6 +69,7 @@ struct Onboarding3: View {
             }
             .padding(.horizontal, 20)
         }
+        .scaleEffect(model.isIPad ? 0.8 : 1)
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Onboarding1: View {
     
+    @Environment(MainViewModel.self) private var model
     var actionButton: () -> Void
     
     var body: some View {
@@ -21,7 +22,7 @@ struct Onboarding1: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading, spacing: 0) {
-                    
+
                     // Title
                     Text("Welcome to\nEasy Math!")
                         .font(.system(size: 28, weight: .bold, design: .rounded))
@@ -30,6 +31,7 @@ struct Onboarding1: View {
                         .lineSpacing(6)
                         .padding(.leading, 45)
                         .padding(.bottom, 17)
+                        .offset(y: model.isIPad ? -40 : 0)
                     
                     // Subtitle
                     Text("Let’s learn, play and\nhave fun with math!")
@@ -39,14 +41,17 @@ struct Onboarding1: View {
                         .lineSpacing(4)
                         .padding(.leading, 45)
                         .padding(.bottom, 52)
+                        .offset(y: model.isIPad ? -40 : 0)
                     
-                    VStack(spacing: 0) {
-                        
-                        // Illustration image
-                        Image("calculator")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 317, height: 317)
+                        VStack(spacing: 0) {
+                            
+                            // Illustration image
+                            Image("calculator")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 317, height: 317)
+                                .scaleEffect(model.isIPad ? 0.9 : 1)
+                                .offset(y: model.isIPad ? -60 : 0)
                         
                         Spacer(minLength: 40)
                         
@@ -78,6 +83,7 @@ struct Onboarding1: View {
                 .padding(.bottom, geo.size.height * 0.08)
                 .padding(.top, geo.size.height * 0.11)
             }
+            .scaleEffect(model.isIPad ? 0.9 : 1)
         }
     }
 }

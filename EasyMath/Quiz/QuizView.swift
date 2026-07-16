@@ -83,6 +83,7 @@ struct QuizView: View {
                     
                     Spacer(minLength: 30)
                 }
+                .scaleEffect(model.isIPad ? 0.8 : 1)
             }
             .navigationBarBackButtonHidden(true)
             .onAppear {
