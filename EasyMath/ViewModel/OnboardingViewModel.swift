@@ -1,5 +1,5 @@
 //
-//  OnboardingModel.swift
+//  OnboardingViewModel.swift
 //  EasyMath
 //
 //  Created by Лия Кошеленко on 2026-06-05.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @Observable
-class OnboardingModel {
+class OnboardingViewModel {
     
     // Avatar images
     var images = ["girl1", "girl4", "boy4", "girl3", "boy2", "boy3", "boy1", "girl2"]

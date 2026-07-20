@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "C029BA87-F182-455E-9C56-C2816563656C",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EasyMath.xcodeproj",
+          "identifier" : "180B03152F9921D9006A5B3E",
+          "name" : "EasyMath"
+        }
+      ]
+    },
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:EasyMath.xcodeproj",
+      "identifier" : "180B03152F9921D9006A5B3E",
+      "name" : "EasyMath"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:EasyMath.xcodeproj",
+        "identifier" : "18DAD689300C21A500120CF1",
+        "name" : "EasyMathTests"
+      }
+    }
+  ],
+  "version" : 1
+}
