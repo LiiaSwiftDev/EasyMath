@@ -38,9 +38,6 @@ class OnboardingViewModel {
     // Avatar scale animation
     var scale: CGFloat = 1.0
     
-    // Haptic feedback trigger
-    var tapped = false
-    
     init() {
         
     }

@@ -19,6 +19,8 @@ struct ProfileCard: View {
     // Action when card is tapped
     let onTap: () -> Void
     
+    @State private var scaleAvatar: CGFloat = 1
+    
     var body: some View {
         
         // Prevent crashes if width is 0 or negative.
@@ -33,17 +35,17 @@ struct ProfileCard: View {
             
             // Shrink avatar
             withAnimation(.easeIn(duration: 0.2)) {
-                model.scale = 0.85
+                scaleAvatar = 0.85
             }
             
             // Expand avatar
             withAnimation(.easeOut(duration: 0.3).delay(0.12)) {
-                model.scale = 1.1
+                scaleAvatar = 1.1
             }
             
             // Return to normal size
             withAnimation(.easeIn(duration: 0.35).delay(0.17)) {
-                model.scale = 1.0
+                scaleAvatar = 1.0
             }
             
             onTap()
@@ -81,7 +83,7 @@ struct ProfileCard: View {
         .buttonStyle(.plain)
         
         // Tap animation
-        .scaleEffect(model.scale)
+        .scaleEffect(scaleAvatar)
     }
 }
 

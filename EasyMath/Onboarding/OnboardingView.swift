@@ -48,6 +48,7 @@ struct OnboardingView: View {
                             let profile = profiles.first!
                             profile.name = finalName
                                 .trimmingCharacters(in: .whitespacesAndNewlines)
+                            profile.image = "boy4"
                         }
                         else {
                             // Create new profile
@@ -55,6 +56,7 @@ struct OnboardingView: View {
                             newProfile.name = finalName
                                 .trimmingCharacters(in: .whitespacesAndNewlines)
                             context.insert(newProfile)
+                            newProfile.image = "boy4"
                         }
                         
                         do {
@@ -78,6 +80,7 @@ struct OnboardingView: View {
                         
                         // Save selected onboarding avatar to profile
                         let profile = profiles.first ?? Profile()
+                        
                         profile.image = String(onboardingModel.images[onboardingModel.selected ?? 2])
                         
                         if profiles.first == nil {

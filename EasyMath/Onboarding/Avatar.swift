@@ -18,27 +18,31 @@ struct Avatar: View {
     
     // Action when avatar is tapped
     var onTap: () -> Void
+    @State private var scaleAvatar: CGFloat = 1
+    
+    // Haptic feedback trigger
+    @State private var tapped = false
     
     var body: some View {
         
         Button {
             
             // Trigger haptic feedback
-            onboardingModel.tapped.toggle()
+            tapped.toggle()
             
             // Shrink avatar
             withAnimation(.easeIn(duration: 0.2)) {
-                onboardingModel.scale = 0.85
+                scaleAvatar.self = 0.85
             }
             
             // Expand avatar
             withAnimation(.easeOut(duration: 0.3).delay(0.12)) {
-                onboardingModel.scale = 1.1
+                scaleAvatar.self = 1.1
             }
             
             // Return to normal size
             withAnimation(.easeOut(duration: 0.35).delay(0.17)) {
-                onboardingModel.scale = 1.0
+                scaleAvatar.self = 1.0
             }
             
             onTap()
@@ -74,10 +78,10 @@ struct Avatar: View {
         .buttonStyle(.plain)
         
         // Tap animation
-        .scaleEffect(onboardingModel.scale)
+        .scaleEffect(scaleAvatar)
         
         // Haptic feedback
-        .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: onboardingModel.tapped)
+        .sensoryFeedback(.impact(weight: .light, intensity: 0.8), trigger: tapped)
     }
 }
 
