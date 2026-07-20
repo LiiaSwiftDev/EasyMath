@@ -6,30 +6,335 @@
 //
 
 import XCTest
+@testable import EasyMath
 
 final class QuizViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testMultiplyExampleHasCorrectAnswer() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.multiplyExample()
+        
+        // 3. Assert
+        // "Does the list of answers contain the correct answer?"
+        XCTAssertTrue(viewModel.quizOptions.contains(viewModel.correctAnswer))
+        
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testMultiplyExampleHasFourAnswers() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.multiplyExample()
+        
+        // 3. Assert
+        XCTAssertEqual(viewModel.quizOptions.count, 4)
+        
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testMultiplyExamplesIsUnique() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.multiplyExample()
+        
+        // 3. Assert
+        XCTAssertEqual(Set(viewModel.quizOptions).count, 4)
+        
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testMultiplSavedUsedExample() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.multiplyExample()
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.usedExamples.contains(viewModel.example))
+        
+    }
+    
+    func testAdditionExampleHasCorrectAnswer() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.additionExample()
+        
+        // 3. Assert
+        // "Does the list of answers contain the correct answer?"
+        XCTAssertTrue(viewModel.quizOptions.contains(viewModel.correctAnswer))
+        
+    }
+    
+    func testAdditionExampleHasFourAnswers() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.additionExample()
+        
+        // 3. Assert
+        XCTAssertEqual(viewModel.quizOptions.count, 4)
+        
+    }
+    
+    func testAdditionExamplesIsUnique() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.additionExample()
+        
+        // 3. Assert
+        XCTAssertEqual(Set(viewModel.quizOptions).count, 4)
+        
+    }
+    
+    func testAdditionSavedUsedExample() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.additionExample()
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.usedExamples.contains(viewModel.example))
+        
+    }
+    
+    func testSubtractExampleHasCorrectAnswer() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.subtractExample()
+        
+        // 3. Assert
+        // "Does the list of answers contain the correct answer?"
+        XCTAssertTrue(viewModel.quizOptions.contains(viewModel.correctAnswer))
+        
+    }
+    
+    func testSubtractExampleHasFourAnswers() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.subtractExample()
+        
+        // 3. Assert
+        XCTAssertEqual(viewModel.quizOptions.count, 4)
+        
+    }
+    
+    func testSubtractExamplesIsUnique() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.subtractExample()
+        
+        // 3. Assert
+        XCTAssertEqual(Set(viewModel.quizOptions).count, 4)
+        
+    }
+    
+    func testSubtractSavedUsedExample() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.subtractExample()
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.usedExamples.contains(viewModel.example))
+        
+    }
+    
+    func testDivideExampleHasCorrectAnswer() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.divideExample()
+        
+        // 3. Assert
+        // "Does the list of answers contain the correct answer?"
+        XCTAssertTrue(viewModel.quizOptions.contains(viewModel.correctAnswer))
+        
+    }
+    
+    func testDivideExampleHasFourAnswers() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.divideExample()
+        
+        // 3. Assert
+        XCTAssertEqual(viewModel.quizOptions.count, 4)
+        
+    }
+    
+    func testDivideExamplesIsUnique() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.divideExample()
+        
+        // 3. Assert
+        XCTAssertEqual(Set(viewModel.quizOptions).count, 4)
+        
+    }
+    
+    func testDivideSavedUsedExample() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        
+        // 2. Act
+        viewModel.divideExample()
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.usedExamples.contains(viewModel.example))
+        
+    }
+    
+    func testCheckIfSelectedAnswerIsCorrect() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        viewModel.selectedAnswer = "100"
+        viewModel.correctAnswer = "100"
+        viewModel.correctAnswerCount = 0
+        
+        // 2. Act
+        viewModel.checkAnswer()
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.answerIsCorrect)
+        XCTAssertEqual(viewModel.correctAnswerCount, 1)
+        XCTAssertTrue(viewModel.showAnimation)
+        XCTAssertTrue(viewModel.showBanner)
+        
+    }
+    
+    func testCheckIfSelectedAnswerIsWrong() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        viewModel.selectedAnswer = "50"
+        viewModel.correctAnswer = "60"
+        viewModel.correctAnswerCount = 0
+        
+        // 2. Act
+        viewModel.checkAnswer()
+        
+        // 3. Assert
+        XCTAssertFalse(viewModel.answerIsCorrect)
+        XCTAssertEqual(viewModel.correctAnswerCount, 0)
+        XCTAssertTrue(viewModel.showBanner)
+        
+    }
+    
+    func testReset() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        viewModel.selectedAnswer = "26"
+        viewModel.showBanner = true
+        viewModel.answerIsCorrect = false
+        
+        // 2. Act
+        viewModel.reset()
+        
+        // 3. Assert
+        XCTAssertNil(viewModel.selectedAnswer)
+        XCTAssertFalse(viewModel.showBanner)
+        XCTAssertTrue(viewModel.answerIsCorrect)
+        
+    }
+    
+    func testQuizExampleAddition() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        let sign = QuizCardModel.Signs.add
+        
+        // 2. Act
+        viewModel.quizExample(sign: sign)
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.example.contains("+"))
+        XCTAssertFalse(viewModel.correctAnswer.isEmpty)
+        
+    }
+    
+    func testQuizExampleSubtract() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        let sign = QuizCardModel.Signs.subtrack
+        
+        // 2. Act
+        viewModel.quizExample(sign: sign)
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.example.contains("-"))
+        XCTAssertFalse(viewModel.correctAnswer.isEmpty)
+        
+    }
+    
+    func testQuizExampleMultiply() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        let sign = QuizCardModel.Signs.multiply
+        
+        // 2. Act
+        viewModel.quizExample(sign: sign)
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.example.contains("x"))
+        XCTAssertFalse(viewModel.correctAnswer.isEmpty)
+        
+    }
+    
+    func testQuizExampleDivide() {
+        
+        // 1. Arrange
+        let viewModel = QuizViewModel()
+        let sign = QuizCardModel.Signs.divide
+        
+        // 2. Act
+        viewModel.quizExample(sign: sign)
+        
+        // 3. Assert
+        XCTAssertTrue(viewModel.example.contains("÷"))
+        XCTAssertFalse(viewModel.correctAnswer.isEmpty)
+        
     }
 
 }

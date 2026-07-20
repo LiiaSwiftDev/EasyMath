@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Avatar: View {
     
-    @Environment(OnboardingModel.self) var onboardingModel
+    @Environment(OnboardingViewModel.self) var onboardingModel
     
     var imageName: String
     var color: Color

@@ -11,7 +11,7 @@ import SwiftData
 struct OnboardingView: View {
     
     @Environment(\.dismiss) var dismiss
-    @Environment(OnboardingModel.self) var onboardingModel
+    @Environment(OnboardingViewModel.self) var onboardingModel
     @Environment(MainViewModel.self) private var model
     
     // SwiftData: create, update and persist Profile

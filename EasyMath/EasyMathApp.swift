@@ -16,7 +16,7 @@ struct EasyMathApp: App {
     @State var quizModel = QuizViewModel()
     @State var resultModel = ResultViewModel()
     
-    @State var onboardingModel = OnboardingModel()
+    @State var onboardingModel = OnboardingViewModel()
     
     // Controls onboarding presentation
     @AppStorage("onboarding") var needsOnboarding = true

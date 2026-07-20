@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Onboarding3: View {
     
-    @Environment(OnboardingModel.self) var onboardingModel
+    @Environment(OnboardingViewModel.self) var onboardingModel
     @Environment(MainViewModel.self) private var model
     
     var nextButton: () -> Void

@@ -184,7 +184,7 @@ class MainViewModel {
     // Convert score to short format
     func compactNumber(score: Int) -> String {
         
-        if score > 1000 {
+        if score >= 1000 {
             return "\(score / 1000)k"
         } else {
             return String(score)

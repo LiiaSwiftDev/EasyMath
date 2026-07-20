@@ -193,7 +193,7 @@ class QuizViewModel {
             a = b * Int.random(in: 1...10)
             
             // Generate division example
-            example = "\(a) : \(b) = ?"
+            example = "\(a) ÷ \(b) = ?"
             
             // Calculate correct answer
             correctAnswer = "\(a / b)"

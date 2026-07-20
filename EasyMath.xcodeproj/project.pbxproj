@@ -34,7 +34,7 @@
 		187106D52FD1E1B2005BC5A6 /* Next.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187106D42FD1E1B2005BC5A6 /* Next.swift */; };
 		187106D72FD1E1BC005BC5A6 /* Skip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187106D62FD1E1BC005BC5A6 /* Skip.swift */; };
 		187107132FD24727005BC5A6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107122FD24727005BC5A6 /* OnboardingView.swift */; };
-		187107152FD335FF005BC5A6 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107142FD335FF005BC5A6 /* OnboardingModel.swift */; };
+		187107152FD335FF005BC5A6 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107142FD335FF005BC5A6 /* OnboardingViewModel.swift */; };
 		1871072A2FD65084005BC5A6 /* TextFieldName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187107292FD65084005BC5A6 /* TextFieldName.swift */; };
 		1871073C2FDB7833005BC5A6 /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073B2FDB7833005BC5A6 /* Checkmark.swift */; };
 		1871073E2FDB7872005BC5A6 /* CheckmarkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */; };
@@ -50,7 +50,21 @@
 		188318232FBCE34A0004A9B2 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318222FBCE34A0004A9B2 /* Score.swift */; };
 		188318252FBD375F0004A9B2 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188318242FBD375F0004A9B2 /* ResultViewModel.swift */; };
 		18A063362FE49DCB00D71DAF /* ScoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A063352FE49DCB00D71DAF /* ScoreAnimation.swift */; };
+		18DAD69B300C41CD00120CF1 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD698300C41CD00120CF1 /* OnboardingViewModelTests.swift */; };
+		18DAD69C300C41CD00120CF1 /* ResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD699300C41CD00120CF1 /* ResultViewModelTests.swift */; };
+		18DAD69E300C41ED00120CF1 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD69D300C41ED00120CF1 /* MainViewModelTests.swift */; };
+		18DAD6A0300C41FE00120CF1 /* QuizViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD69F300C41FE00120CF1 /* QuizViewModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18DAD68E300C21A500120CF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 180B030E2F9921D9006A5B3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 180B03152F9921D9006A5B3E;
+			remoteInfo = EasyMath;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		180B03162F9921D9006A5B3E /* EasyMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +95,7 @@
 		187106D42FD1E1B2005BC5A6 /* Next.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Next.swift; sourceTree = "<group>"; };
 		187106D62FD1E1BC005BC5A6 /* Skip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skip.swift; sourceTree = "<group>"; };
 		187107122FD24727005BC5A6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		187107142FD335FF005BC5A6 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		187107142FD335FF005BC5A6 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		187107292FD65084005BC5A6 /* TextFieldName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldName.swift; sourceTree = "<group>"; };
 		1871073B2FDB7833005BC5A6 /* Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
 		1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkItem.swift; sourceTree = "<group>"; };
@@ -96,6 +110,12 @@
 		188318222FBCE34A0004A9B2 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		188318242FBD375F0004A9B2 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		18A063352FE49DCB00D71DAF /* ScoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAnimation.swift; sourceTree = "<group>"; };
+		18DAD68A300C21A500120CF1 /* EasyMathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyMathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DAD697300C3A0E00120CF1 /* EasyMath.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyMath.xctestplan; sourceTree = "<group>"; };
+		18DAD698300C41CD00120CF1 /* OnboardingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModelTests.swift; sourceTree = "<group>"; };
+		18DAD699300C41CD00120CF1 /* ResultViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModelTests.swift; sourceTree = "<group>"; };
+		18DAD69D300C41ED00120CF1 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		18DAD69F300C41FE00120CF1 /* QuizViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +127,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18DAD687300C21A500120CF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		180B030D2F9921D9006A5B3E = {
 			isa = PBXGroup;
 			children = (
+				18DAD697300C3A0E00120CF1 /* EasyMath.xctestplan */,
 				180B03272F9921E8006A5B3E /* EasyMath */,
+				18DAD69A300C41CD00120CF1 /* EasyMathTests */,
 				180B03172F9921D9006A5B3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				180B03162F9921D9006A5B3E /* EasyMath.app */,
+				18DAD68A300C21A500120CF1 /* EasyMathTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,7 +192,7 @@
 				1831D64D2FA179510033AE89 /* MainViewModel.swift */,
 				188317D72FB2780B0004A9B2 /* QuizViewModel.swift */,
 				188318242FBD375F0004A9B2 /* ResultViewModel.swift */,
-				187107142FD335FF005BC5A6 /* OnboardingModel.swift */,
+				187107142FD335FF005BC5A6 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,6 +277,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		18DAD69A300C41CD00120CF1 /* EasyMathTests */ = {
+			isa = PBXGroup;
+			children = (
+				18DAD69D300C41ED00120CF1 /* MainViewModelTests.swift */,
+				18DAD69F300C41FE00120CF1 /* QuizViewModelTests.swift */,
+				18DAD699300C41CD00120CF1 /* ResultViewModelTests.swift */,
+				18DAD698300C41CD00120CF1 /* OnboardingViewModelTests.swift */,
+			);
+			path = EasyMathTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,6 +311,26 @@
 			productReference = 180B03162F9921D9006A5B3E /* EasyMath.app */;
 			productType = "com.apple.product-type.application";
 		};
+		18DAD689300C21A500120CF1 /* EasyMathTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DAD692300C21A500120CF1 /* Build configuration list for PBXNativeTarget "EasyMathTests" */;
+			buildPhases = (
+				18DAD686300C21A500120CF1 /* Sources */,
+				18DAD687300C21A500120CF1 /* Frameworks */,
+				18DAD688300C21A500120CF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18DAD68F300C21A500120CF1 /* PBXTargetDependency */,
+			);
+			name = EasyMathTests;
+			packageProductDependencies = (
+			);
+			productName = EasyMathTests;
+			productReference = 18DAD68A300C21A500120CF1 /* EasyMathTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -277,11 +338,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2630;
+				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					180B03152F9921D9006A5B3E = {
 						CreatedOnToolsVersion = 26.3;
+					};
+					18DAD689300C21A500120CF1 = {
+						CreatedOnToolsVersion = 26.5;
+						TestTargetID = 180B03152F9921D9006A5B3E;
 					};
 				};
 			};
@@ -303,6 +368,7 @@
 			projectRoot = "";
 			targets = (
 				180B03152F9921D9006A5B3E /* EasyMath */,
+				18DAD689300C21A500120CF1 /* EasyMathTests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,6 +380,13 @@
 			files = (
 				187B8B922FE4537B00DDF0EB /* 12079-22976-confetti.riv in Resources */,
 				180B032A2F9921E8006A5B3E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DAD688300C21A500120CF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +410,7 @@
 				186CB21D2FD1329C00E6777B /* Avatar.swift in Sources */,
 				188317D82FB2780B0004A9B2 /* QuizViewModel.swift in Sources */,
 				1831D6502FA17BB90033AE89 /* MathSign.swift in Sources */,
-				187107152FD335FF005BC5A6 /* OnboardingModel.swift in Sources */,
+				187107152FD335FF005BC5A6 /* OnboardingViewModel.swift in Sources */,
 				181237DB2FB14A1300BC7AB0 /* FeedbackBanner.swift in Sources */,
 				1853B85E2F9AD38B009503DE /* QuizCardModel.swift in Sources */,
 				181237D52FB1086400BC7AB0 /* ResultView.swift in Sources */,
@@ -367,7 +440,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		18DAD686300C21A500120CF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DAD69E300C41ED00120CF1 /* MainViewModelTests.swift in Sources */,
+				18DAD69B300C41CD00120CF1 /* OnboardingViewModelTests.swift in Sources */,
+				18DAD69C300C41CD00120CF1 /* ResultViewModelTests.swift in Sources */,
+				18DAD6A0300C41FE00120CF1 /* QuizViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18DAD68F300C21A500120CF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 180B03152F9921D9006A5B3E /* EasyMath */;
+			targetProxy = 18DAD68E300C21A500120CF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		180B031F2F9921DC006A5B3E /* Debug */ = {
@@ -495,7 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3S53HGH48M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -510,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codewithliya.EasyMath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -533,7 +625,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3S53HGH48M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -548,7 +640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.codewithliya.EasyMath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -562,6 +654,50 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		18DAD690300C21A500120CF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S53HGH48M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codewithliya.EasyMathTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyMath.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyMath";
+			};
+			name = Debug;
+		};
+		18DAD691300C21A500120CF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3S53HGH48M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codewithliya.EasyMathTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyMath.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EasyMath";
 			};
 			name = Release;
 		};
@@ -582,6 +718,15 @@
 			buildConfigurations = (
 				180B03222F9921DC006A5B3E /* Debug */,
 				180B03232F9921DC006A5B3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DAD692300C21A500120CF1 /* Build configuration list for PBXNativeTarget "EasyMathTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DAD690300C21A500120CF1 /* Debug */,
+				18DAD691300C21A500120CF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
