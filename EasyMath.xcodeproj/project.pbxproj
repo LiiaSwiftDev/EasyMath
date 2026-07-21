@@ -54,6 +54,8 @@
 		18DAD69C300C41CD00120CF1 /* ResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD699300C41CD00120CF1 /* ResultViewModelTests.swift */; };
 		18DAD69E300C41ED00120CF1 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD69D300C41ED00120CF1 /* MainViewModelTests.swift */; };
 		18DAD6A0300C41FE00120CF1 /* QuizViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD69F300C41FE00120CF1 /* QuizViewModelTests.swift */; };
+		18DAD6A4300EF22E00120CF1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 18DAD6A3300EF22E00120CF1 /* FirebaseMessaging */; };
+		18DAD6A8300F050000120CF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18DAD6A7300F050000120CF1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		18DAD699300C41CD00120CF1 /* ResultViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModelTests.swift; sourceTree = "<group>"; };
 		18DAD69D300C41ED00120CF1 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		18DAD69F300C41FE00120CF1 /* QuizViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModelTests.swift; sourceTree = "<group>"; };
+		18DAD6A1300EF07B00120CF1 /* EasyMath.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EasyMath.entitlements; sourceTree = "<group>"; };
+		18DAD6A7300F050000120CF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DAD6A4300EF22E00120CF1 /* FirebaseMessaging in Frameworks */,
 				187B8B952FE453E600DDF0EB /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,8 +164,10 @@
 		180B03272F9921E8006A5B3E /* EasyMath */ = {
 			isa = PBXGroup;
 			children = (
+				18DAD6A1300EF07B00120CF1 /* EasyMath.entitlements */,
 				187B8B912FE4537B00DDF0EB /* 12079-22976-confetti.riv */,
 				180B03242F9921E8006A5B3E /* Assets.xcassets */,
+				18DAD6A7300F050000120CF1 /* GoogleService-Info.plist */,
 				180B03262F9921E8006A5B3E /* EasyMathApp.swift */,
 				186CB2052FCE558900E6777B /* Onboarding */,
 				1853B85F2F9AEC4A009503DE /* Main */,
@@ -306,6 +313,7 @@
 			name = EasyMath;
 			packageProductDependencies = (
 				187B8B942FE453E600DDF0EB /* RiveRuntime */,
+				18DAD6A3300EF22E00120CF1 /* FirebaseMessaging */,
 			);
 			productName = EasyMath;
 			productReference = 180B03162F9921D9006A5B3E /* EasyMath.app */;
@@ -361,6 +369,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				187B8B932FE453E600DDF0EB /* XCRemoteSwiftPackageReference "rive-ios" */,
+				18DAD6A2300EF22E00120CF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 180B03172F9921D9006A5B3E /* Products */;
@@ -380,6 +389,7 @@
 			files = (
 				187B8B922FE4537B00DDF0EB /* 12079-22976-confetti.riv in Resources */,
 				180B032A2F9921E8006A5B3E /* Assets.xcassets in Resources */,
+				18DAD6A8300F050000120CF1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EasyMath/EasyMath.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3S53HGH48M;
@@ -624,6 +635,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EasyMath/EasyMath.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3S53HGH48M;
@@ -742,6 +754,14 @@
 				minimumVersion = 6.20.6;
 			};
 		};
+		18DAD6A2300EF22E00120CF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.16.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -749,6 +769,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 187B8B932FE453E600DDF0EB /* XCRemoteSwiftPackageReference "rive-ios" */;
 			productName = RiveRuntime;
+		};
+		18DAD6A3300EF22E00120CF1 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18DAD6A2300EF22E00120CF1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
