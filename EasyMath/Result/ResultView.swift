@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import RiveRuntime
+import AVFoundation
 
 struct ResultView: View {
     
@@ -17,6 +18,8 @@ struct ResultView: View {
     @Environment(MainViewModel.self) var model
     
     @Query var scores: [Score]
+    
+    @State private var audioPlayer: AVAudioPlayer?
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
@@ -167,6 +170,8 @@ struct ResultView: View {
     func confetti() {
         if quizModel.correctAnswerCount > 7  {
             
+            playSoundForResult()
+            
             resultModel.animationConfetti = Task {
                 
                 await MainActor.run {
@@ -180,6 +185,17 @@ struct ResultView: View {
                 }
             }
         }
+    }
+    
+    func playSoundForResult() {
+        
+        guard let url = Bundle.main.url(forResource: "freesound_community-yay-6120", withExtension: "mp3") else {
+            return
+        }
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+        
     }
     
 }

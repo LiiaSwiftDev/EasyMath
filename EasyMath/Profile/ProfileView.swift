@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import AVFoundation
 
 struct ProfileView: View {
     
@@ -16,6 +17,8 @@ struct ProfileView: View {
     
     // Fetch all saved profiles from SwiftData
     @Query private var profiles: [Profile]
+    
+    @State private var audioPlayer: AVAudioPlayer?
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
@@ -162,6 +165,7 @@ struct ProfileView: View {
                                             onTap: {
                                                 
                                                 model.selectedImage = model.images1Row[index]
+                                                playSoundClick()
                                                 
                                             })
                                     }
@@ -179,6 +183,7 @@ struct ProfileView: View {
                                             onTap: {
                                                 
                                                 model.selectedImage = model.images2Row[index]
+                                                playSoundClick()
                                                 
                                             })
                                     }
@@ -216,6 +221,18 @@ struct ProfileView: View {
             model.outsideTap = true
         }
     }
+    
+    func playSoundClick() {
+        
+        guard let url = Bundle.main.url(forResource: "universfield-bubble-pop-04-323580", withExtension: "mp3") else {
+            return
+        }
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+        
+    }
+    
 }
 
 #Preview {

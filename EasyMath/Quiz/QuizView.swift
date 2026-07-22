@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct QuizView: View {
     
     @Environment(\.dismiss) var dismiss
     @Environment(MainViewModel.self) private var model
     @Environment(QuizViewModel.self) private var quizModel
+    
+    @State private var audioPlayer: AVAudioPlayer?
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
@@ -67,6 +70,7 @@ struct QuizView: View {
                             AnswerButton(
                                 onTab: {
                                     quizModel.selectedAnswer = option
+                                    playSoundClick()
                                 },
                                 answer: option, selected: quizModel.selectedAnswer == option)
                             
@@ -105,5 +109,17 @@ struct QuizView: View {
                 quizModel.resetCheckmarkState()
             }
     }
+    
+    func playSoundClick() {
+        
+        guard let url = Bundle.main.url(forResource: "universfield-bubble-pop-04-323580", withExtension: "mp3") else {
+            return
+        }
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+        
+    }
+    
 }
 

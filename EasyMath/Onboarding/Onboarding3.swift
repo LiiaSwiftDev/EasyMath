@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct Onboarding3: View {
     
     @Environment(OnboardingViewModel.self) var onboardingModel
     @Environment(MainViewModel.self) private var model
+    
+    @State private var audioPlayer: AVAudioPlayer?
     
     var nextButton: () -> Void
     var skipButton: () -> Void
@@ -46,6 +49,8 @@ struct Onboarding3: View {
                             
                             // Select avatar
                             onboardingModel.selected = index
+                            
+                            playSoundClick()
                         })
                     }
                 }
@@ -71,6 +76,20 @@ struct Onboarding3: View {
         }
         .scaleEffect(model.isIPad ? 0.8 : 1)
     }
+    
+    func playSoundClick() {
+        
+            guard let url = Bundle.main.url(
+                forResource: "universfield-bubble-pop-04-323580",
+                withExtension: "mp3"
+            ) else {
+                return
+            }
+            
+            audioPlayer = try? AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        }
+    
 }
 
 #Preview {

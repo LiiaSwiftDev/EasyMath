@@ -26,6 +26,10 @@
 		1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70A2FAD1E1800557813 /* TaskBoard.swift */; };
 		1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70C2FAD22BB00557813 /* AnswerButton.swift */; };
 		1857A70F2FAD68B100557813 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70E2FAD68B100557813 /* NextButton.swift */; };
+		1869B768301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */; };
+		1869B76A301054BA00263BB6 /* dragon-studio-correct-472358.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */; };
+		1869B76B301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */; };
+		1869B76D30106CBB00263BB6 /* freesound_community-yay-6120.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B76C30106CBB00263BB6 /* freesound_community-yay-6120.mp3 */; };
 		186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */; };
 		186CB2072FCE559D00E6777B /* Onboarding1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB2062FCE559D00E6777B /* Onboarding1.swift */; };
 		186CB2092FCE55A500E6777B /* Onboarding2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB2082FCE55A500E6777B /* Onboarding2.swift */; };
@@ -89,6 +93,10 @@
 		1857A70A2FAD1E1800557813 /* TaskBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBoard.swift; sourceTree = "<group>"; };
 		1857A70C2FAD22BB00557813 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		1857A70E2FAD68B100557813 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dragon-studio-correct-472358.mp3"; sourceTree = "<group>"; };
+		1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-bubble-pop-04-323580.mp3"; sourceTree = "<group>"; };
+		1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-wrong-answer-129254.mp3"; sourceTree = "<group>"; };
+		1869B76C30106CBB00263BB6 /* freesound_community-yay-6120.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "freesound_community-yay-6120.mp3"; sourceTree = "<group>"; };
 		186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
 		186CB2062FCE559D00E6777B /* Onboarding1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1.swift; sourceTree = "<group>"; };
 		186CB2082FCE55A500E6777B /* Onboarding2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2.swift; sourceTree = "<group>"; };
@@ -164,6 +172,7 @@
 		180B03272F9921E8006A5B3E /* EasyMath */ = {
 			isa = PBXGroup;
 			children = (
+				1869B763301054A700263BB6 /* Sounds */,
 				18DAD6A1300EF07B00120CF1 /* EasyMath.entitlements */,
 				187B8B912FE4537B00DDF0EB /* 12079-22976-confetti.riv */,
 				180B03242F9921E8006A5B3E /* Assets.xcassets */,
@@ -240,6 +249,17 @@
 				1871073A2FDB7810005BC5A6 /* Animation */,
 			);
 			path = Quiz;
+			sourceTree = "<group>";
+		};
+		1869B763301054A700263BB6 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */,
+				1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */,
+				1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */,
+				1869B76C30106CBB00263BB6 /* freesound_community-yay-6120.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		186CB2052FCE558900E6777B /* Onboarding */ = {
@@ -390,6 +410,10 @@
 				187B8B922FE4537B00DDF0EB /* 12079-22976-confetti.riv in Resources */,
 				180B032A2F9921E8006A5B3E /* Assets.xcassets in Resources */,
 				18DAD6A8300F050000120CF1 /* GoogleService-Info.plist in Resources */,
+				1869B768301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 in Resources */,
+				1869B76A301054BA00263BB6 /* dragon-studio-correct-472358.mp3 in Resources */,
+				1869B76D30106CBB00263BB6 /* freesound_community-yay-6120.mp3 in Resources */,
+				1869B76B301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,9 +7,12 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
 
 @Observable
 class QuizViewModel {
+    
+   var audioPlayer: AVAudioPlayer?
     
     // Current math example
     var example = ""
@@ -83,6 +86,28 @@ class QuizViewModel {
         (x: -90, y: -20),
         (x: -30, y: -45)
     ]
+    
+    func playSoundCorrect() {
+        
+        guard let url = Bundle.main.url(forResource: "dragon-studio-correct-472358", withExtension: "mp3") else {
+            return
+        }
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+        
+    }
+    
+    func playSoundWrong() {
+        
+        guard let url = Bundle.main.url(forResource: "universfield-wrong-answer-129254", withExtension: "mp3") else {
+            return
+        }
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+        
+    }
     
     func multiplyExample() {
         repeat {
@@ -228,9 +253,11 @@ class QuizViewModel {
             answerIsCorrect = true
             correctAnswerCount += 1
             showAnimation.toggle()
+            playSoundCorrect()
         }
         else {
             answerIsCorrect = false
+            playSoundWrong()
         }
         showBanner = true
     }
