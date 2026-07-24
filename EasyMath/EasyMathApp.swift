@@ -64,8 +64,8 @@ struct EasyMathApp: App {
     
     @State var onboardingModel = OnboardingViewModel()
     
-    // Controls onboarding presentation @AppStorage("onboarding")
-    @State var needsOnboarding = true
+    // Controls onboarding presentation
+    @AppStorage("onboarding") var needsOnboarding = true
     @AppStorage("showNotificationPermission") var showNotificationPermission = false
     
     var body: some Scene {
