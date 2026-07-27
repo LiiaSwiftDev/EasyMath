@@ -77,17 +77,15 @@ struct EasyMathApp: App {
                 .environment(resultModel)
                 .modelContainer(for: [Score.self, Profile.self])
                 .onAppear(perform: {
-                    guard !showNotificationPermission else {
-                        return
-                    }
-                    
-                    // “сделай что-то через 1 секунду”
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        // запрос на отправку уведомлений
-                        requestNotificationPermission()
-                        showNotificationPermission = true
-                    }
-                })
+                                    if !needsOnboarding {
+                                        askForNotificationIfNeeded()
+                                    }
+                                })
+                                .onChange(of: needsOnboarding) { oldValue, newValue in
+                                    if !newValue {
+                                        askForNotificationIfNeeded()
+                                    }
+                                }
                 .fullScreenCover(isPresented: $needsOnboarding) {
                     // on dismiss
                     needsOnboarding = false
@@ -113,4 +111,17 @@ struct EasyMathApp: App {
             }
         }
     }
+    
+    func askForNotificationIfNeeded() {
+            guard !showNotificationPermission else {
+                return
+            }
+            
+            // “сделай что-то через 1 секунду”
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                // запрос на отправку уведомлений
+                requestNotificationPermission()
+                showNotificationPermission = true
+            }
+        }
 }
