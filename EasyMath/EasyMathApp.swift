@@ -24,23 +24,23 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
         return true
     }
-                     
-                     // добавтла этот код чтобы сообщение приходило даже когда мое приложение открыто
-                     // 🔥 Здесь ты получаешь FCM token
-                        func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-                            
-                            guard let token = fcmToken else { return }
-                            
-                            print("FCM token: \(token)")
-                        }
-                        
-                        // 🔥 Push показывается когда приложение открыто
-                        func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                                    willPresent notification: UNNotification,
-                                                    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-                            
-                            completionHandler([.banner, .sound, .badge])
-                        }
+    
+    // добавтла этот код чтобы сообщение приходило даже когда мое приложение открыто
+    // Здесь ты получаешь FCM token
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        
+        guard let token = fcmToken else { return }
+        
+        print("FCM token: \(token)")
+    }
+    
+    // Push показывается когда приложение открыто
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.banner, .sound, .badge])
+    }
     
     // Привязываем APNs токен к FCM
     func application(_ application: UIApplication,
@@ -61,6 +61,7 @@ struct EasyMathApp: App {
     @State var model = MainViewModel()
     @State var quizModel = QuizViewModel()
     @State var resultModel = ResultViewModel()
+    @State var rewardsModel = RewardsViewModel()
     
     @State var onboardingModel = OnboardingViewModel()
     
@@ -75,17 +76,18 @@ struct EasyMathApp: App {
                 .environment(model)
                 .environment(quizModel)
                 .environment(resultModel)
+                .environment(rewardsModel)
                 .modelContainer(for: [Score.self, Profile.self])
                 .onAppear(perform: {
-                                    if !needsOnboarding {
-                                        askForNotificationIfNeeded()
-                                    }
-                                })
-                                .onChange(of: needsOnboarding) { oldValue, newValue in
-                                    if !newValue {
-                                        askForNotificationIfNeeded()
-                                    }
-                                }
+                    if !needsOnboarding {
+                        askForNotificationIfNeeded()
+                    }
+                })
+                .onChange(of: needsOnboarding) { oldValue, newValue in
+                    if !newValue {
+                        askForNotificationIfNeeded()
+                    }
+                }
                 .fullScreenCover(isPresented: $needsOnboarding) {
                     // on dismiss
                     needsOnboarding = false
@@ -113,15 +115,15 @@ struct EasyMathApp: App {
     }
     
     func askForNotificationIfNeeded() {
-            guard !showNotificationPermission else {
-                return
-            }
-            
-            // “сделай что-то через 1 секунду”
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                // запрос на отправку уведомлений
-                requestNotificationPermission()
-                showNotificationPermission = true
-            }
+        guard !showNotificationPermission else {
+            return
         }
+        
+        // “сделай что-то через 1 секунду”
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            // запрос на отправку уведомлений
+            requestNotificationPermission()
+            showNotificationPermission = true
+        }
+    }
 }

@@ -9,19 +9,21 @@ import SwiftUI
 
 struct EarnStarsBanner: View {
     var body: some View {
-        // Redeem Rewards
+        // Banner explaining how to earn stars and unlock rewards
         ZStack {
-            // Background rectangle
+            // Background
             RoundedRectangle(cornerRadius: 15)
                 .frame(height: 130)
                 .foregroundStyle(Color(red: 243/255, green: 243/255, blue: 254/255))
             HStack {
+                // Reward illustration
                 Image("gift")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100)
                     .padding(.trailing, 20)
                 
+                // Banner text
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Need more stars?")
                         .foregroundStyle(Color(red: 39/255, green: 38/255, blue: 71/255))
