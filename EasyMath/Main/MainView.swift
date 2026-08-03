@@ -108,6 +108,8 @@ struct MainView: View {
                         ResultView(path: $path)
                     case 3:
                         ProfileView(path: $path)
+                    case 4:
+                        RewardsView(path: $path)
                     default:
                         EmptyView()
                     }

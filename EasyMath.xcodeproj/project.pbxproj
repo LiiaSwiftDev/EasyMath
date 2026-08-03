@@ -32,7 +32,7 @@
 		1869B76B301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */; };
 		1869B76D30106CBB00263BB6 /* freesound_community-yay-6120.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B76C30106CBB00263BB6 /* freesound_community-yay-6120.mp3 */; };
 		186A632C301BB172004E69CD /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186A632B301BB172004E69CD /* RewardsView.swift */; };
-		186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */; };
+		186AF8532FA51C6E0037CDB4 /* ScoreBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AF8522FA51C6E0037CDB4 /* ScoreBadgeButton.swift */; };
 		186CB2072FCE559D00E6777B /* Onboarding1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB2062FCE559D00E6777B /* Onboarding1.swift */; };
 		186CB2092FCE55A500E6777B /* Onboarding2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB2082FCE55A500E6777B /* Onboarding2.swift */; };
 		186CB20B2FCE55AF00E6777B /* Onboarding3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186CB20A2FCE55AF00E6777B /* Onboarding3.swift */; };
@@ -61,6 +61,7 @@
 		18898539301D503F001D7759 /* StarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18898538301D503F001D7759 /* StarIcon.swift */; };
 		1889853B301E8381001D7759 /* ItemCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889853A301E8381001D7759 /* ItemCardModel.swift */; };
 		1889853D301EBD38001D7759 /* RewardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889853C301EBD38001D7759 /* RewardsViewModel.swift */; };
+		1889853F301ECCA2001D7759 /* ScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1889853E301ECCA2001D7759 /* ScoreBadge.swift */; };
 		18A063362FE49DCB00D71DAF /* ScoreAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A063352FE49DCB00D71DAF /* ScoreAnimation.swift */; };
 		18DAD69B300C41CD00120CF1 /* OnboardingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD698300C41CD00120CF1 /* OnboardingViewModelTests.swift */; };
 		18DAD69C300C41CD00120CF1 /* ResultViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DAD699300C41CD00120CF1 /* ResultViewModelTests.swift */; };
@@ -107,7 +108,7 @@
 		1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-wrong-answer-129254.mp3"; sourceTree = "<group>"; };
 		1869B76C30106CBB00263BB6 /* freesound_community-yay-6120.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "freesound_community-yay-6120.mp3"; sourceTree = "<group>"; };
 		186A632B301BB172004E69CD /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
-		186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
+		186AF8522FA51C6E0037CDB4 /* ScoreBadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadgeButton.swift; sourceTree = "<group>"; };
 		186CB2062FCE559D00E6777B /* Onboarding1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1.swift; sourceTree = "<group>"; };
 		186CB2082FCE55A500E6777B /* Onboarding2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2.swift; sourceTree = "<group>"; };
 		186CB20A2FCE55AF00E6777B /* Onboarding3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3.swift; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		18898538301D503F001D7759 /* StarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarIcon.swift; sourceTree = "<group>"; };
 		1889853A301E8381001D7759 /* ItemCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardModel.swift; sourceTree = "<group>"; };
 		1889853C301EBD38001D7759 /* RewardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsViewModel.swift; sourceTree = "<group>"; };
+		1889853E301ECCA2001D7759 /* ScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBadge.swift; sourceTree = "<group>"; };
 		18A063352FE49DCB00D71DAF /* ScoreAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreAnimation.swift; sourceTree = "<group>"; };
 		18DAD68A300C21A500120CF1 /* EasyMathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyMathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DAD697300C3A0E00120CF1 /* EasyMath.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyMath.xctestplan; sourceTree = "<group>"; };
@@ -250,7 +252,8 @@
 				180B032B2F9933DF006A5B3E /* QuizCard.swift */,
 				180B032D2F993B31006A5B3E /* ButtonStart.swift */,
 				1831D64F2FA17BB90033AE89 /* MathSign.swift */,
-				186AF8522FA51C6E0037CDB4 /* ScoreBadge.swift */,
+				186AF8522FA51C6E0037CDB4 /* ScoreBadgeButton.swift */,
+				1889853E301ECCA2001D7759 /* ScoreBadge.swift */,
 				181237D82FB146D500BC7AB0 /* TopBar.swift */,
 				18898538301D503F001D7759 /* StarIcon.swift */,
 			);
@@ -475,6 +478,7 @@
 				187106D52FD1E1B2005BC5A6 /* Next.swift in Sources */,
 				1880DBB12FC6074F00315A1E /* Profile.swift in Sources */,
 				18898533301C1CEB001D7759 /* ItemCard.swift in Sources */,
+				1889853F301ECCA2001D7759 /* ScoreBadge.swift in Sources */,
 				1880DBB42FC7A85400315A1E /* TextHelper.swift in Sources */,
 				1871072A2FD65084005BC5A6 /* TextFieldName.swift in Sources */,
 				186CB21D2FD1329C00E6777B /* Avatar.swift in Sources */,
@@ -495,7 +499,7 @@
 				181237DF2FB190B900BC7AB0 /* AnswerBanner.swift in Sources */,
 				188318212FBCD6470004A9B2 /* StartOverButton.swift in Sources */,
 				187107132FD24727005BC5A6 /* OnboardingView.swift in Sources */,
-				186AF8532FA51C6E0037CDB4 /* ScoreBadge.swift in Sources */,
+				186AF8532FA51C6E0037CDB4 /* ScoreBadgeButton.swift in Sources */,
 				180B032E2F993B31006A5B3E /* ButtonStart.swift in Sources */,
 				186A632C301BB172004E69CD /* RewardsView.swift in Sources */,
 				180B032C2F9933DF006A5B3E /* QuizCard.swift in Sources */,

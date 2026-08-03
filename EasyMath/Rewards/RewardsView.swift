@@ -14,6 +14,9 @@ struct RewardsView: View {
     @Environment(RewardsViewModel.self) private var rewardsModel
     @Query var score: [Score]
     
+    // Connection to the navigation path from MainView.
+    @Binding var path: [Int]
+    
     var body: some View {
         ZStack(alignment: .top) {
             
@@ -37,7 +40,8 @@ struct RewardsView: View {
                     HStack {
                         // Back navigation button
                         Button {
-                            // TODO
+                            // Navigate back to Profile View
+                            path.append(3)
                         } label: {
                             Image(systemName: "chevron.left")
                                 .font(.title)
@@ -55,6 +59,7 @@ struct RewardsView: View {
                 
                 // User profile avatar
                 ProfileAvatar()
+                    .scaleEffect(0.8)
                 
                 // Rewards selection title
                 Text("Choose an item")
@@ -116,9 +121,10 @@ struct RewardsView: View {
             }
             .padding(.horizontal, 20)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    RewardsView()
+    RewardsView(path: .constant([4]))
 }

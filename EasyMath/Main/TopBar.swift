@@ -24,7 +24,7 @@ struct TopBar: View {
             
             Spacer()
             
-            ScoreBadge()
+            ScoreBadgeButton(path: $path)
         }
     }
 }

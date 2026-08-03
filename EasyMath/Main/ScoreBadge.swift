@@ -2,14 +2,13 @@
 //  ScoreBadge.swift
 //  EasyMath
 //
-//  Created by Лия Кошеленко on 2026-05-01.
+//  Created by Лия Кошеленко on 2026-08-01.
 //
 
 import SwiftUI
 import SwiftData
 
 struct ScoreBadge: View {
-    
     @Environment(MainViewModel.self) var model
     @Query var score: [Score]
     

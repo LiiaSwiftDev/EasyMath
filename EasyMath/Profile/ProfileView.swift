@@ -49,7 +49,13 @@ struct ProfileView: View {
                     HStack {
                         // Back button
                         Button {
-                            dismiss()
+                            // Check if the user was previously on the Result View and navigate back to it
+                            if path.contains(2) {
+                                path.append(2)
+                            }
+                            else {
+                                path.removeAll()
+                            }
                         } label: {
                             Image(systemName: "chevron.left")
                                 .font(.title)
@@ -85,7 +91,12 @@ struct ProfileView: View {
                                 print("Save error:", error)
                             }
                             
-                            dismiss()
+                            // Check if the user was previously on the Result View and navigate back to it
+                            if path.contains(2) {
+                                path.removeLast(2)
+                            } else {
+                                path.removeAll()
+                            }
                         }
                         .font(.system(.title2, design: .rounded, weight: .bold))
                         
@@ -117,7 +128,7 @@ struct ProfileView: View {
                         .padding(.bottom, 15)
                         
                         // Reddem Reward
-                        RedeemRewardsBanner()
+                        RedeemRewardsBanner(path: $path)
                         
                         GeometryReader { proxy in
                             

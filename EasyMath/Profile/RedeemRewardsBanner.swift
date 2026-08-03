@@ -13,6 +13,9 @@ struct RedeemRewardsBanner: View {
     @Environment(MainViewModel.self) private var model
     @Query var score: [Score]
     
+    // Connection to the navigation path from MainView.
+    @Binding var path: [Int]
+    
     var body: some View {
         ZStack {
             // Banner background
@@ -66,7 +69,8 @@ struct RedeemRewardsBanner: View {
                 
                 // Rewards button
                 Button {
-                    // TODO
+                    // Open Rewards View
+                    path.append(4)
                 } label: {
                     VStack(alignment: .leading, spacing: 5) {
                         Spacer()
@@ -96,8 +100,7 @@ struct RedeemRewardsBanner: View {
                         Spacer()
                     }
                     .padding(.trailing, 30)
-                }
-                
+                }  
             }
         }
         .padding(.horizontal, 10)
@@ -106,5 +109,5 @@ struct RedeemRewardsBanner: View {
 }
 
 #Preview {
-    RedeemRewardsBanner()
+    RedeemRewardsBanner(path: .constant([4]))
 }
