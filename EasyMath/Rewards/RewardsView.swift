@@ -55,7 +55,6 @@ struct RewardsView: View {
                     .foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
                 }
                 .padding(.top, 10)
-                .padding(.bottom, 20)
                 
                 // User profile avatar
                 ProfileAvatar()
@@ -71,7 +70,13 @@ struct RewardsView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(rewardsModel.cardItems) { item in
-                            ItemCard(card: item)
+                            ItemCard(card: item, buttonAction: {
+                                if model.selectedImage == "boy4" && item.image == "ski-glasses" {
+                                    rewardsModel.selectedItem = "ski-glasses2"
+                                } else {
+                                    rewardsModel.selectedItem = item.image
+                                }
+                            })
                         }
                     }
                 }.padding(.bottom, 30)

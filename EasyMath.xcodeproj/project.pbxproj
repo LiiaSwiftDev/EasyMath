@@ -27,6 +27,7 @@
 		1857A70B2FAD1E1800557813 /* TaskBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70A2FAD1E1800557813 /* TaskBoard.swift */; };
 		1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70C2FAD22BB00557813 /* AnswerButton.swift */; };
 		1857A70F2FAD68B100557813 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70E2FAD68B100557813 /* NextButton.swift */; };
+		1859733530216EFA00C8C7A6 /* ItemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859733430216EFA00C8C7A6 /* ItemSettings.swift */; };
 		1869B768301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */; };
 		1869B76A301054BA00263BB6 /* dragon-studio-correct-472358.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */; };
 		1869B76B301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */; };
@@ -103,6 +104,7 @@
 		1857A70A2FAD1E1800557813 /* TaskBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBoard.swift; sourceTree = "<group>"; };
 		1857A70C2FAD22BB00557813 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		1857A70E2FAD68B100557813 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		1859733430216EFA00C8C7A6 /* ItemSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSettings.swift; sourceTree = "<group>"; };
 		1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dragon-studio-correct-472358.mp3"; sourceTree = "<group>"; };
 		1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-bubble-pop-04-323580.mp3"; sourceTree = "<group>"; };
 		1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-wrong-answer-129254.mp3"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				1853B85D2F9AD38B009503DE /* QuizCardModel.swift */,
 				1889853A301E8381001D7759 /* ItemCardModel.swift */,
+				1859733430216EFA00C8C7A6 /* ItemSettings.swift */,
 				188318222FBCE34A0004A9B2 /* Score.swift */,
 				1880DBB02FC6074F00315A1E /* Profile.swift */,
 				1871073D2FDB7872005BC5A6 /* CheckmarkItem.swift */,
@@ -473,6 +476,7 @@
 				180B03282F9921E8006A5B3E /* MainView.swift in Sources */,
 				180B03292F9921E8006A5B3E /* EasyMathApp.swift in Sources */,
 				18084C6F301AE13900751FAD /* RedeemRewardsBanner.swift in Sources */,
+				1859733530216EFA00C8C7A6 /* ItemSettings.swift in Sources */,
 				18898531301C189C001D7759 /* EarnStarsBanner.swift in Sources */,
 				18898539301D503F001D7759 /* StarIcon.swift in Sources */,
 				187106D52FD1E1B2005BC5A6 /* Next.swift in Sources */,

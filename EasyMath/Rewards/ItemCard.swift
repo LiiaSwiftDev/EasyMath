@@ -10,10 +10,12 @@ import SwiftUI
 struct ItemCard: View {
     
     var card: ItemCardModel
+    var buttonAction: () -> Void
     
     var body: some View {
+        // Reward item button
         Button {
-            // TODO
+            buttonAction()
         } label: {
             ZStack {
                 
@@ -76,5 +78,5 @@ struct ItemCard: View {
 }
 
 #Preview {
-    ItemCard(card: ItemCardModel(image: "crown", widthImage: 70, colorItemBg: Color(red: 223/255, green: 220/255, blue: 245/255), price: "80"))
+    ItemCard(card: ItemCardModel(image: "crown", widthImage: 70, colorItemBg: Color(red: 223/255, green: 220/255, blue: 245/255), price: "80"), buttonAction: {},)
 }

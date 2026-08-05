@@ -199,8 +199,6 @@ struct ProfileView: View {
                 } else {
                     model.name = ""
                 }
-                
-                model.selectedImage = profile.image
             }
         })
         .navigationBarBackButtonHidden(true)
