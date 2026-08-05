@@ -76,7 +76,7 @@ struct RewardsView: View {
                                 } else {
                                     rewardsModel.selectedItem = item.image
                                 }
-                            })
+                            }, selectedItem: rewardsModel.selectedItem == item.image)
                         }
                     }
                 }.padding(.bottom, 30)

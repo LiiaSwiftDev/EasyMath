@@ -12,6 +12,8 @@ struct ItemCard: View {
     var card: ItemCardModel
     var buttonAction: () -> Void
     
+    var selectedItem: Bool
+    
     var body: some View {
         // Reward item button
         Button {
@@ -26,9 +28,10 @@ struct ItemCard: View {
                     .overlay {
                         // Card border
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(lineWidth: 3)
-                            .foregroundStyle(Color.white)
-                            .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 0)
+                            .stroke(lineWidth: 2)
+                            .frame(width: 114, height: 164)
+                            .foregroundStyle(selectedItem ? .pink : .clear)
+                            .shadow(color: selectedItem ? .clear : .black.opacity(0.2), radius: selectedItem ? 0 : 2, x: 0, y: 0)
                     }
                 VStack {
                     Spacer()
@@ -46,7 +49,7 @@ struct ItemCard: View {
                     ZStack {
                         Rectangle()
                             .fill(Color.white)
-                            .frame(height: 50)
+                            .frame(width: 110, height: 50)
                             .clipShape(UnevenRoundedRectangle(
                                 bottomLeadingRadius: 15,
                                 bottomTrailingRadius: 15
@@ -68,8 +71,10 @@ struct ItemCard: View {
                         .padding(.trailing, 4)
                     }
                 }
+                .frame(width: 110, height: 160)
                 
-            }.frame(width: 110, height: 160)
+            }
+                .frame(width: 114, height: 164)
                 .padding(.vertical, 3)
                 .padding(.horizontal, 3)
         }
@@ -78,5 +83,5 @@ struct ItemCard: View {
 }
 
 #Preview {
-    ItemCard(card: ItemCardModel(image: "crown", widthImage: 70, colorItemBg: Color(red: 223/255, green: 220/255, blue: 245/255), price: "80"), buttonAction: {},)
+    ItemCard(card: ItemCardModel(image: "crown", widthImage: 70, colorItemBg: Color(red: 223/255, green: 220/255, blue: 245/255), price: "80"), buttonAction: {}, selectedItem: true)
 }
