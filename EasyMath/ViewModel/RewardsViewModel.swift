@@ -11,8 +11,61 @@ import SwiftUI
 @Observable
 class RewardsViewModel {
     
+    // Image displayed in the purchase confirmation window
+    var selectedImageInWindow: String?
+    
+    // Indicates whether the selected item is a graduation cap
+    var educationHatInWindow = false
+    
+    // Controls the visibility of the purchase confirmation window
+    var confirmBuyItemWindow = false
+    
+    // Price of the selected reward item
+    var amountOfStars: String?
+    
     // Currently selected reward item
     var selectedItem: String?
+    
+    var returnFromRewards = false
+    
+    // Return the appropriate button text based on the selected item's price
+    func textOnTheButton(text: String?) -> String {
+        if text == nil {
+            return "Unlock"
+        } else {
+            return "Unlock for \(text!)"
+        }
+    }
+    
+    // Get the display name of the selected reward item
+    func getNameOfItem() -> String {
+        if let selected = selectedItem {
+            switch selected {
+            case "bow-tie-purple":
+                return "Purple Bow Tie"
+            case "crown":
+                return "Crown"
+            case "sunglasses":
+                return "Blue Sunglasses"
+            case "cap":
+                return "Graduation Cap"
+            case "ski-glasses":
+                return "Orange Ski Goggles"
+            case "ski-glasses2":
+                return "Orange Ski Goggles"
+            case "bow-tie-red":
+                return "Red Bow Tie"
+            case "hat":
+                return "Brown Hat"
+            case "rounded-glasses":
+                return "Rounded Glasses"
+            default:
+                return "This Item"
+            }
+        }
+        
+        return ""
+    }
     
     // Data for reward item cards
     var cardItems = [
@@ -20,42 +73,42 @@ class RewardsViewModel {
             image: "bow-tie-purple",
             widthImage: 70,
             colorItemBg: Color(red: 249/255, green: 237/255, blue: 175/255),
-            price: "100"),
+            price: "1"),
         ItemCardModel(
             image: "crown",
             widthImage: 70,
             colorItemBg: Color(red: 236/255, green: 85/255, blue: 100/255),
-            price: "120"),
+            price: "1"),
         ItemCardModel(
             image: "sunglasses",
             widthImage: 80,
             colorItemBg: Color(red: 201/255, green: 220/255, blue: 162/255),
-            price: "80"),
+            price: "1"),
         ItemCardModel(
             image: "cap",
             widthImage: 130,
             colorItemBg: Color(red: 185/255, green: 175/255, blue: 236/255),
-            price: "100"),
+            price: "1"),
         ItemCardModel(
             image: "ski-glasses",
             widthImage: 140,
             colorItemBg: Color(red: 249/255, green: 237/255, blue: 175/255),
-            price: "120"),
+            price: "1"),
         ItemCardModel(
             image: "bow-tie-red",
             widthImage: 60,
             colorItemBg: Color(red: 183/255, green: 204/255, blue: 255/255),
-            price: "100"),
+            price: "1"),
         ItemCardModel(
             image: "hat",
             widthImage: 80,
             colorItemBg: Color(red: 201/255, green: 220/255, blue: 162/255),
-            price: "80"),
+            price: "1"),
         ItemCardModel(
             image: "rounded-glasses",
             widthImage: 110,
             colorItemBg: Color(red: 255/255, green: 236/255, blue: 207/255),
-            price: "80")
+            price: "1")
     ]
     
     // Display settings for each avatar and reward item combination

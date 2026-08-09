@@ -65,11 +65,6 @@ struct ProfileAvatar: View {
             .clipShape(Circle())
             .padding(.top, 10)
         }
-        .onAppear(perform: {
-            if let profile = profiles.first {
-                model.selectedImage = profile.image
-            }
-        })
         .frame(maxWidth: .infinity, alignment: .center)
         .scaleEffect(model.isIPad ? 0.7 : 1)
         .offset(y: model.isIPad ? -40 : 0)

@@ -28,6 +28,7 @@
 		1857A70D2FAD22BB00557813 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70C2FAD22BB00557813 /* AnswerButton.swift */; };
 		1857A70F2FAD68B100557813 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A70E2FAD68B100557813 /* NextButton.swift */; };
 		1859733530216EFA00C8C7A6 /* ItemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859733430216EFA00C8C7A6 /* ItemSettings.swift */; };
+		185973373024332400C8C7A6 /* UnlockRewardsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185973363024332400C8C7A6 /* UnlockRewardsButton.swift */; };
 		1869B768301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */; };
 		1869B76A301054BA00263BB6 /* dragon-studio-correct-472358.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */; };
 		1869B76B301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */; };
@@ -105,6 +106,7 @@
 		1857A70C2FAD22BB00557813 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		1857A70E2FAD68B100557813 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		1859733430216EFA00C8C7A6 /* ItemSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSettings.swift; sourceTree = "<group>"; };
+		185973363024332400C8C7A6 /* UnlockRewardsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockRewardsButton.swift; sourceTree = "<group>"; };
 		1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dragon-studio-correct-472358.mp3"; sourceTree = "<group>"; };
 		1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-bubble-pop-04-323580.mp3"; sourceTree = "<group>"; };
 		1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-wrong-answer-129254.mp3"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				186A632B301BB172004E69CD /* RewardsView.swift */,
 				18898532301C1CEB001D7759 /* ItemCard.swift */,
 				18898530301C189C001D7759 /* EarnStarsBanner.swift */,
+				185973363024332400C8C7A6 /* UnlockRewardsButton.swift */,
 			);
 			path = Rewards;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				1871073C2FDB7833005BC5A6 /* Checkmark.swift in Sources */,
 				187106D72FD1E1BC005BC5A6 /* Skip.swift in Sources */,
 				180B03282F9921E8006A5B3E /* MainView.swift in Sources */,
+				185973373024332400C8C7A6 /* UnlockRewardsButton.swift in Sources */,
 				180B03292F9921E8006A5B3E /* EasyMathApp.swift in Sources */,
 				18084C6F301AE13900751FAD /* RedeemRewardsBanner.swift in Sources */,
 				1859733530216EFA00C8C7A6 /* ItemSettings.swift in Sources */,

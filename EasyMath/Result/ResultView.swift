@@ -87,7 +87,7 @@ struct ResultView: View {
                     Spacer(minLength: 0)
                     
                     // Restart button
-                    StartOverButton()
+                    StartOverButton(path: $path)
                         .padding(.top, proxy.size.height * 0.1)
                         .padding(.horizontal, 20)
                     

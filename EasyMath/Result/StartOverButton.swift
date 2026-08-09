@@ -13,11 +13,14 @@ struct StartOverButton: View {
     @Environment(QuizViewModel.self) private var quizModel
     @Environment(\.dismiss) private var dismiss
     
+    // Connection to the navigation path from MainView.
+    @Binding var path: [Int]
+    
     var body: some View {
         Button {
             
             // Closes the current screen and restarts the quiz with a new question.
-            dismiss()
+            path.append(1)
             quizModel.quizExample(sign: quizModel.currentSign)
             
         } label: {
@@ -60,5 +63,5 @@ struct StartOverButton: View {
 }
 
 #Preview {
-    StartOverButton()
+    StartOverButton(path: .constant([1]))
 }

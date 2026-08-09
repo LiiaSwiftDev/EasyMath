@@ -25,13 +25,13 @@ struct ItemCard: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 110, height: 160)
                     .foregroundStyle(card.colorItemBg)
+                    .shadow(color: selectedItem ? .clear : .black.opacity(0.2), radius: selectedItem ? 0 : 2, x: 0, y: 0)
                     .overlay {
                         // Card border
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(lineWidth: 2)
                             .frame(width: 114, height: 164)
-                            .foregroundStyle(selectedItem ? .pink : .clear)
-                            .shadow(color: selectedItem ? .clear : .black.opacity(0.2), radius: selectedItem ? 0 : 2, x: 0, y: 0)
+                            .foregroundStyle(selectedItem ? Color(red: 241/255, green: 1/255, blue: 111/255) : .clear)
                     }
                 VStack {
                     Spacer()
@@ -74,9 +74,9 @@ struct ItemCard: View {
                 .frame(width: 110, height: 160)
                 
             }
-                .frame(width: 114, height: 164)
-                .padding(.vertical, 3)
-                .padding(.horizontal, 3)
+            .frame(width: 114, height: 164)
+            .padding(.vertical, 3)
+            .padding(.horizontal, 3)
         }
         
     }

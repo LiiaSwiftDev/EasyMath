@@ -13,6 +13,7 @@ struct ProfileView: View {
     
     @Environment(\.modelContext) private var context
     @Environment(MainViewModel.self) private var model
+    @Environment(RewardsViewModel.self) private var rewardsModel
     @Environment(\.dismiss) private var dismiss
     
     // Fetch all saved profiles from SwiftData
@@ -56,6 +57,8 @@ struct ProfileView: View {
                             else {
                                 path.removeAll()
                             }
+                            
+                            rewardsModel.returnFromRewards = false
                         } label: {
                             Image(systemName: "chevron.left")
                                 .font(.title)
@@ -93,7 +96,7 @@ struct ProfileView: View {
                             
                             // Check if the user was previously on the Result View and navigate back to it
                             if path.contains(2) {
-                                path.removeLast(2)
+                                path.append(2)
                             } else {
                                 path.removeAll()
                             }
@@ -192,6 +195,14 @@ struct ProfileView: View {
             .padding(.horizontal, 15)
         }
         .onAppear(perform: {
+
+            if rewardsModel.returnFromRewards != true {
+                if let profile = profiles.first {
+                    model.selectedImage = profile.image
+                }
+            }
+            
+            rewardsModel.selectedItem = nil
             
             if let profile = profiles.first {
                 if profiles.first!.name != "Name" {

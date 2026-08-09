@@ -11,6 +11,7 @@ import SwiftData
 struct RedeemRewardsBanner: View {
     
     @Environment(MainViewModel.self) private var model
+    @Environment(RewardsViewModel.self) private var rewardsModel
     @Query var score: [Score]
     
     // Connection to the navigation path from MainView.
@@ -71,6 +72,7 @@ struct RedeemRewardsBanner: View {
                 Button {
                     // Open Rewards View
                     path.append(4)
+                    rewardsModel.returnFromRewards = true
                 } label: {
                     VStack(alignment: .leading, spacing: 5) {
                         Spacer()
