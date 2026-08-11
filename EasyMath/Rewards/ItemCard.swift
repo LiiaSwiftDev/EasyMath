@@ -6,18 +6,26 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ItemCard: View {
+
+    @Environment(RewardsViewModel.self) private var rewardsModel
     
     var card: ItemCardModel
     var buttonAction: () -> Void
     
     var selectedItem: Bool
+    var soldItem: Bool
     
     var body: some View {
         // Reward item button
         Button {
             buttonAction()
+
+            if soldItem {
+                 rewardsModel.amountOfStars = nil
+            }
         } label: {
             ZStack {
                 
@@ -55,20 +63,32 @@ struct ItemCard: View {
                                 bottomTrailingRadius: 15
                             ))
                         
-                        HStack(spacing: 2) {
-                            Spacer(minLength: 0)
-                            
-                            StarIcon(starShadow: 0)
-                                .scaleEffect(0.65)
-                            
-                            
-                            Text(card.price)
-                                .foregroundStyle(Color.brown)
-                                .font(Font.system(size: 21, weight: .bold, design: .rounded))
-                            
-                            Spacer(minLength: 0)
+                        if soldItem {
+                            HStack(spacing: 3) {
+                                Image(systemName: "checkmark")
+                                
+                                Text("Owned")
+                                
+                            }
+                            .foregroundStyle(Color.gray)
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+
+                        } else {
+                            HStack(spacing: 2) {
+                                Spacer(minLength: 0)
+                                
+                                StarIcon(starShadow: 0)
+                                    .scaleEffect(0.65)
+                                
+                                
+                                Text(card.price)
+                                    .foregroundStyle(Color.brown)
+                                    .font(Font.system(size: 21, weight: .bold, design: .rounded))
+                                
+                                Spacer(minLength: 0)
+                            }
+                            .padding(.trailing, 4)
                         }
-                        .padding(.trailing, 4)
                     }
                 }
                 .frame(width: 110, height: 160)
@@ -83,5 +103,5 @@ struct ItemCard: View {
 }
 
 #Preview {
-    ItemCard(card: ItemCardModel(image: "crown", widthImage: 70, colorItemBg: Color(red: 223/255, green: 220/255, blue: 245/255), price: "80"), buttonAction: {}, selectedItem: true)
+    ItemCard(card: ItemCardModel(image: "crown", widthImage: 70, colorItemBg: Color(red: 223/255, green: 220/255, blue: 245/255), price: "80"), buttonAction: {}, selectedItem: true, soldItem: true)
 }

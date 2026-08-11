@@ -77,7 +77,7 @@ struct EasyMathApp: App {
                 .environment(quizModel)
                 .environment(resultModel)
                 .environment(rewardsModel)
-                .modelContainer(for: [Score.self, Profile.self])
+                .modelContainer(for: [Score.self, Profile.self, OwnedItem.self])
                 .onAppear(perform: {
                     if !needsOnboarding {
                         askForNotificationIfNeeded()
@@ -95,7 +95,7 @@ struct EasyMathApp: App {
                     OnboardingView()
                         .environment(onboardingModel)
                         .environment(model)
-                        .modelContainer(for: [Score.self, Profile.self])
+                        .modelContainer(for: [Score.self, Profile.self, OwnedItem.self])
                 }
         }
     }

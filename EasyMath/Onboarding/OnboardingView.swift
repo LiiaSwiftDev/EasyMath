@@ -69,6 +69,32 @@ struct OnboardingView: View {
                         onboardingModel.goNext()
                         
                     }, skipButton: {
+                        
+                        // Default profile name when onboarding is skipped
+                        let name = "Name"
+                        
+                        // Update existing profile or create a new one
+                        if profiles.first != nil {
+                            let profile = profiles.first!
+                            profile.name = name
+                                .trimmingCharacters(in: .whitespacesAndNewlines)
+                            profile.image = "boy4"
+                        }
+                        else {
+                            // Create new profile
+                            let newProfile = Profile()
+                            newProfile.name = name
+                                .trimmingCharacters(in: .whitespacesAndNewlines)
+                            context.insert(newProfile)
+                            newProfile.image = "boy4"
+                        }
+                        
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Skip error Onboarding2:", error)
+                        }
+                        
                         // Skip onboarding
                         dismiss()
                         

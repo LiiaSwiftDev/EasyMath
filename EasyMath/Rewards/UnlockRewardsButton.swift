@@ -22,6 +22,7 @@ struct UnlockRewardsButton: View {
         // Unlock reward button
         Button {
             buySelectedItem()
+
         } label: {
             ZStack {
                 // Background

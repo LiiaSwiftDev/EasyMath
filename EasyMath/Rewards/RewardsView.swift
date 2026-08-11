@@ -17,6 +17,9 @@ struct RewardsView: View {
     @Query var score: [Score]
     // Fetch all saved profiles from SwiftData
     @Query private var profiles: [Profile]
+    
+    @Query var soldItems: [OwnedItem]
+    
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
     
@@ -79,6 +82,11 @@ struct RewardsView: View {
                             // Special case for boy4 ski glasses
                             let currentItem = model.selectedImage == "boy4" && item.image == "ski-glasses" ? "ski-glasses2" : item.image
                             
+                            let isOwned = soldItems.contains { soldItem in
+                                soldItem.soldItem == currentItem
+                            }
+                            
+                            
                             ItemCard(card: item, buttonAction: {
                                 rewardsModel.amountOfStars = item.price
                                 
@@ -94,7 +102,7 @@ struct RewardsView: View {
                                     rewardsModel.educationHatInWindow = false
                                 }
                                 
-                            }, selectedItem: rewardsModel.selectedItem == currentItem)
+                            }, selectedItem: rewardsModel.selectedItem == currentItem, soldItem: isOwned)
                         }
                     }
                 }.padding(.bottom, 30)
@@ -158,16 +166,29 @@ struct RewardsView: View {
                         
                         // Buy item button
                         Button {
-                            if let price = Int(rewardsModel.amountOfStars ?? "0") {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    withAnimation(.snappy) {
-                                        score.first?.score -= price
-                                    }
+                            if let price = Int(rewardsModel.amountOfStars ?? "0"),
+                               let currentScore = score.first,
+                               let selectedItem = rewardsModel.selectedItem {
+                                
+                                // Deduct the item price from the current score
+                                withAnimation(.snappy) {
+                                    currentScore.score -= price
                                 }
-                                try? context.save()
+                                
+                                // Add the purchased item to SwiftData
+                                let newItem = OwnedItem(soldItem: selectedItem)
+                                context.insert(newItem)
+                                
+                                do {
+                                    try context.save()
+                                } catch {
+                                    print("Save error: \(error)")
+                                }
                             }
                             
-                            rewardsModel.confirmBuyItemWindow  = false
+                            rewardsModel.confirmBuyItemWindow = false
+                            rewardsModel.amountOfStars = nil
+                            
                         } label: {
                             ZStack {
                                 Capsule()
@@ -202,6 +223,9 @@ struct RewardsView: View {
                     model.selectedImage = profile.image
                 }
             }
+        })
+        .onDisappear(perform: {
+            rewardsModel.amountOfStars = nil
         })
         .navigationBarBackButtonHidden(true)
     }
