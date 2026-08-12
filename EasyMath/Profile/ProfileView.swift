@@ -18,11 +18,15 @@ struct ProfileView: View {
     
     // Fetch all saved profiles from SwiftData
     @Query private var profiles: [Profile]
+    @Query var soldItems: [OwnedItem]
+    @Query var avatarItems: [ItemsOnAvatar]
     
     @State private var audioPlayer: AVAudioPlayer?
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
+    
+    @State var showItemOnAvatar = [String]()
     
     var body: some View {
         
@@ -58,6 +62,7 @@ struct ProfileView: View {
                                 path.removeAll()
                             }
                             
+                            rewardsModel.selectedItem = nil
                             rewardsModel.returnFromRewards = false
                         } label: {
                             Image(systemName: "chevron.left")
@@ -69,6 +74,28 @@ struct ProfileView: View {
                         // Save profile button
                         Button("Save") {
                             
+                            // Save the selected item for the current avatar
+                            if let item = rewardsModel.selectedItem, let profile = profiles.first {
+                                
+                                // Remove previously saved avatar items
+                                for itemStorage in avatarItems {
+                                    context.delete(itemStorage)
+                                }
+                                
+                                // Create a new item storage
+                                let newItemStorage = ItemsOnAvatar()
+                                newItemStorage.items.append(item)
+                                newItemStorage.nameAvatar = model.selectedImage ?? profile.image
+                                context.insert(newItemStorage)
+                                
+                                try? context.save()
+                            } else {
+                                // No item selected — remove the previously saved item
+                                for itemStorage in avatarItems {
+                                    context.delete(itemStorage)
+                                }
+                            }
+
                             let name = model.name
                                 .trimmingCharacters(in: .whitespacesAndNewlines)
                             let finalName = name.isEmpty ? "Name" : name
@@ -154,7 +181,7 @@ struct ProfileView: View {
                                             background: model.color1Row[index],
                                             selected: model.selectedImage == model.images1Row[index],
                                             onTap: {
-                                                
+                                                rewardsModel.selectedItem = nil
                                                 model.selectedImage = model.images1Row[index]
                                                 playSoundClick()
                                                 
@@ -165,14 +192,13 @@ struct ProfileView: View {
                                 HStack(spacing: 15) {
                                     
                                     // Profile avatar cards
-                                    // model.images2Row
                                     ForEach(0..<4, id: \.self) { index in
                                         ProfileCard(
                                             image: model.images2Row[index],
                                             width: itemWidth, background: model.color2Row[index],
                                             selected: model.selectedImage == model.images2Row[index],
                                             onTap: {
-                                                
+                                                rewardsModel.selectedItem = nil
                                                 model.selectedImage = model.images2Row[index]
                                                 playSoundClick()
                                                 
@@ -196,14 +222,35 @@ struct ProfileView: View {
         }
         .onAppear(perform: {
 
+            // Get selected item
+            if let item = avatarItems.first {
+                rewardsModel.selectedItem = item.items.first
+            }
+            
+            // Restore profile image
             if rewardsModel.returnFromRewards != true {
                 if let profile = profiles.first {
                     model.selectedImage = profile.image
                 }
             }
             
-            rewardsModel.selectedItem = nil
-            
+            // // Check if user selected item
+            if rewardsModel.selectedItem != nil {
+                let item = rewardsModel.selectedItem
+                
+                // Check if item was purchased
+                let sold = soldItems.contains { soldItem in
+                    soldItem.soldItem == item
+                }
+                
+                // Reset item if it is not owned
+                if !sold {
+                    rewardsModel.selectedItem = nil
+                }
+
+            }
+    
+            // Restore profile name
             if let profile = profiles.first {
                 if profiles.first!.name != "Name" {
                     model.name = profile.name
@@ -219,6 +266,7 @@ struct ProfileView: View {
         }
     }
     
+    // Play click sound
     func playSoundClick() {
         
         guard let url = Bundle.main.url(forResource: "universfield-bubble-pop-04-323580", withExtension: "mp3") else {

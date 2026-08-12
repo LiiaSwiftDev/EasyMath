@@ -11,6 +11,7 @@ import SwiftData
 @Model
 class OwnedItem {
     
+    var id = UUID()
     var soldItem: String
     
     init(soldItem: String) {
