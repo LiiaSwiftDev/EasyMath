@@ -12,9 +12,11 @@ struct ProfileAvatar: View {
     
     @Environment(MainViewModel.self) private var model
     @Environment(RewardsViewModel.self) private var rewardsModel
+    @Environment(\.modelContext) private var context
     
     // Fetch all saved profiles from SwiftData
     @Query private var profiles: [Profile]
+    @Query var avatarItems: [ItemsOnAvatar]
     
     // Settings for the selected avatar item
     var selectedItemSettings: ItemSettings? {
@@ -27,6 +29,8 @@ struct ProfileAvatar: View {
             $0.avatar == avatar && $0.item == item
         }
     }
+    
+    @State var tapOnItem = false
     
     var body: some View {
         // Selected image profile
@@ -58,6 +62,9 @@ struct ProfileAvatar: View {
                         .scaledToFit()
                         .frame(width: setting.widthItem)
                         .offset(setting.offsetItem)
+                        .onTapGesture {
+                            removeItem()
+                        }
                 }
                 
             }
@@ -68,6 +75,16 @@ struct ProfileAvatar: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .scaleEffect(model.isIPad ? 0.7 : 1)
         .offset(y: model.isIPad ? -40 : 0)
+    }
+    
+    func removeItem() {
+        rewardsModel.selectedItem = nil
+        rewardsModel.amountOfStars = nil
+        
+        // Remove previously saved avatar items
+        for itemStorage in avatarItems {
+            context.delete(itemStorage)
+        }
     }
 }
 

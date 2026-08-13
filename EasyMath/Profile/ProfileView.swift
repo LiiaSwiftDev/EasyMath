@@ -25,9 +25,7 @@ struct ProfileView: View {
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
-    
-    @State var showItemOnAvatar = [String]()
-    
+
     var body: some View {
         
         @Bindable var model = model

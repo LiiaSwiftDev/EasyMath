@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import AVFoundation
 
 struct RewardsView: View {
     
@@ -22,6 +23,8 @@ struct RewardsView: View {
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
+    
+    @State private var audioPlayer: AVAudioPlayer?
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -63,16 +66,19 @@ struct RewardsView: View {
                     .foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
                 }
                 .padding(.top, 10)
+                .padding(.horizontal, 20)
                 
                 // User profile avatar
                 ProfileAvatar()
                     .scaleEffect(0.8)
+                    .padding(.horizontal, 20)
                 
                 // Rewards selection title
                 Text("Choose an item")
                     .foregroundStyle(Color.black)
                     .font(Font.system(size: 18, weight: .bold, design: .rounded))
                     .padding(.top, 20)
+                    .padding(.leading, 20)
                 
                 // Available reward items
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -88,17 +94,13 @@ struct RewardsView: View {
                             
                             
                             ItemCard(card: item, buttonAction: {
+                                playSoundClick()
+                                
                                 rewardsModel.amountOfStars = item.price
                                 
                                 // If the item is already selected, deselect it
                                 if rewardsModel.selectedItem == currentItem {
-                                    rewardsModel.selectedItem = nil
-                                    rewardsModel.amountOfStars = nil
-                                    
-                                    // Remove previously saved avatar items
-                                    for itemStorage in avatarItems {
-                                        context.delete(itemStorage)
-                                    }
+                                    removeItem()
                                 } else {
                                     // Otherwise, select the item
                                     rewardsModel.selectedItem = currentItem
@@ -117,18 +119,20 @@ struct RewardsView: View {
                             }, selectedItem: rewardsModel.selectedItem == currentItem, soldItem: isOwned)
                         }
                     }
+                    .padding(.horizontal, 20)
                 }.padding(.bottom, 30)
                 
                 // Unlock reward button
                 UnlockRewardsButton()
                     .disabled(rewardsModel.amountOfStars == nil)
+                    .padding(.horizontal, 20)
                 
                 // Banner explaining how to earn stars
                 EarnStarsBanner()
                     .padding(.top, 10)
+                    .padding(.horizontal, 20)
                 
             }
-            .padding(.horizontal, 20)
             
             if rewardsModel.confirmBuyItemWindow {
                 ZStack {
@@ -225,7 +229,6 @@ struct RewardsView: View {
                     .background(Color(red: 251/255, green: 255/255, blue: 255/255))
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .padding(.horizontal, 20)
-                    
                 }
             }
         }
@@ -245,6 +248,27 @@ struct RewardsView: View {
         })
         .navigationBarBackButtonHidden(true)
     }
+    
+    func removeItem() {
+        rewardsModel.selectedItem = nil
+        rewardsModel.amountOfStars = nil
+        
+        // Remove previously saved avatar items
+        for itemStorage in avatarItems {
+            context.delete(itemStorage)
+        }
+    }
+    
+    func playSoundClick() {
+        
+        guard let url = Bundle.main.url(forResource: "universfield-bubble-pop-04-323580", withExtension: "mp3") else {
+            return
+        }
+        
+        audioPlayer = try? AVAudioPlayer(contentsOf: url)
+        audioPlayer?.play()
+    }
+    
 }
 
 #Preview {
