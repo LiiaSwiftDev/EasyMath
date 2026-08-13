@@ -84,7 +84,7 @@ struct ProfileView: View {
                                 
                                 // Create a new item storage
                                 let newItemStorage = ItemsOnAvatar()
-                                newItemStorage.items.append(item)
+                                newItemStorage.item = item
                                 newItemStorage.nameAvatar = model.selectedImage ?? profile.image
                                 context.insert(newItemStorage)
                                 
@@ -222,9 +222,11 @@ struct ProfileView: View {
         }
         .onAppear(perform: {
 
-            // Get selected item
-            if let item = avatarItems.first {
-                rewardsModel.selectedItem = item.items.first
+            if rewardsModel.selectedItem == nil {
+                // Get selected item
+                if let item = avatarItems.first {
+                    rewardsModel.selectedItem = item.item
+                }
             }
             
             // Restore profile image
@@ -234,7 +236,7 @@ struct ProfileView: View {
                 }
             }
             
-            // // Check if user selected item
+            // Check if user selected item
             if rewardsModel.selectedItem != nil {
                 let item = rewardsModel.selectedItem
                 

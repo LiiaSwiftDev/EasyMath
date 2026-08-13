@@ -13,7 +13,7 @@ class ItemsOnAvatar {
     
     var id = UUID()
     var nameAvatar = ""
-    var items = [String]()
+    var item = ""
     
     init() {
         

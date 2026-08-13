@@ -17,7 +17,7 @@ struct RewardsView: View {
     @Query var score: [Score]
     // Fetch all saved profiles from SwiftData
     @Query private var profiles: [Profile]
-    
+    @Query var avatarItems: [ItemsOnAvatar]
     @Query var soldItems: [OwnedItem]
     
     // Connection to the navigation path from MainView.
@@ -90,7 +90,19 @@ struct RewardsView: View {
                             ItemCard(card: item, buttonAction: {
                                 rewardsModel.amountOfStars = item.price
                                 
-                                rewardsModel.selectedItem = currentItem
+                                // If the item is already selected, deselect it
+                                if rewardsModel.selectedItem == currentItem {
+                                    rewardsModel.selectedItem = nil
+                                    rewardsModel.amountOfStars = nil
+                                    
+                                    // Remove previously saved avatar items
+                                    for itemStorage in avatarItems {
+                                        context.delete(itemStorage)
+                                    }
+                                } else {
+                                    // Otherwise, select the item
+                                    rewardsModel.selectedItem = currentItem
+                                }
                                 
                                 // Save the image that will be displayed in the purchase window
                                 rewardsModel.selectedImageInWindow = item.image
@@ -221,6 +233,10 @@ struct RewardsView: View {
             if rewardsModel.returnFromRewards == false {
                 if let profile = profiles.first {
                     model.selectedImage = profile.image
+                }
+                // Get selected item
+                if let item = avatarItems.first {
+                    rewardsModel.selectedItem = item.item
                 }
             }
         })
