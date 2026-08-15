@@ -18,7 +18,6 @@ struct RewardsView: View {
     // Fetch all saved profiles from SwiftData
     @Query private var profiles: [Profile]
     @Query var avatarItems: [ItemsOnAvatar]
-    @Query var soldItems: [OwnedItem]
     
     // Connection to the navigation path from MainView.
     @Binding var path: [Int]
@@ -82,7 +81,7 @@ struct RewardsView: View {
                     .padding(.leading, 20)
                 
                 // Available reward items
-                RewardsCardsView()
+                RewardsCardsScroll()
                     .scrollTargetBehavior(.viewAligned)
                     .scrollPosition(id: $scrollPosition)
                 // Update the current page indicator when the scroll position changes

@@ -11,6 +11,7 @@ struct StartOverButton: View {
     
     @Environment(MainViewModel.self) private var model
     @Environment(QuizViewModel.self) private var quizModel
+    @Environment(ResultViewModel.self) private var resultModel
     @Environment(\.dismiss) private var dismiss
     
     // Connection to the navigation path from MainView.
@@ -22,6 +23,9 @@ struct StartOverButton: View {
             // Closes the current screen and restarts the quiz with a new question.
             path.append(1)
             quizModel.quizExample(sign: quizModel.currentSign)
+            resultModel.scoreAlreadySaved = false
+            // Reset correct answers
+            quizModel.correctAnswerCount = 0
             
         } label: {
             ZStack {

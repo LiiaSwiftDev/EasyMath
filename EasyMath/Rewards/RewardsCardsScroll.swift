@@ -1,5 +1,5 @@
 //
-//  RewardsCardsView.swift
+//  RewardsCardsScroll.swift
 //  EasyMath
 //
 //  Created by Лия Кошеленко on 2026-08-14.
@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 import AVFoundation
 
-struct RewardsCardsView: View {
+struct RewardsCardsScroll: View {
     
     @Environment(MainViewModel.self) private var model
     @Environment(RewardsViewModel.self) private var rewardsModel
@@ -87,5 +87,5 @@ struct RewardsCardsView: View {
 }
 
 #Preview {
-    RewardsCardsView()
+    RewardsCardsScroll()
 }
