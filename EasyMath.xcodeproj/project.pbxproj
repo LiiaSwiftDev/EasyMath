@@ -31,6 +31,9 @@
 		185973373024332400C8C7A6 /* UnlockRewardsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185973363024332400C8C7A6 /* UnlockRewardsButton.swift */; };
 		18645E04302AAB1F00765259 /* OwnedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18645E03302AAB1F00765259 /* OwnedItem.swift */; };
 		18645E08302D007700765259 /* ItemsOnAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18645E07302D007700765259 /* ItemsOnAvatar.swift */; };
+		18645E23302FFEA900765259 /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18645E22302FFEA900765259 /* PageIndicator.swift */; };
+		18645E25302FFF0B00765259 /* ConfirmationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18645E24302FFF0B00765259 /* ConfirmationWindow.swift */; };
+		18645E27303001DB00765259 /* RewardsCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18645E26303001DB00765259 /* RewardsCardsView.swift */; };
 		1869B768301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */; };
 		1869B76A301054BA00263BB6 /* dragon-studio-correct-472358.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */; };
 		1869B76B301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */; };
@@ -111,6 +114,9 @@
 		185973363024332400C8C7A6 /* UnlockRewardsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockRewardsButton.swift; sourceTree = "<group>"; };
 		18645E03302AAB1F00765259 /* OwnedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedItem.swift; sourceTree = "<group>"; };
 		18645E07302D007700765259 /* ItemsOnAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsOnAvatar.swift; sourceTree = "<group>"; };
+		18645E22302FFEA900765259 /* PageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
+		18645E24302FFF0B00765259 /* ConfirmationWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationWindow.swift; sourceTree = "<group>"; };
+		18645E26303001DB00765259 /* RewardsCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsCardsView.swift; sourceTree = "<group>"; };
 		1869B764301054BA00263BB6 /* dragon-studio-correct-472358.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dragon-studio-correct-472358.mp3"; sourceTree = "<group>"; };
 		1869B766301054BA00263BB6 /* universfield-bubble-pop-04-323580.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-bubble-pop-04-323580.mp3"; sourceTree = "<group>"; };
 		1869B767301054BA00263BB6 /* universfield-wrong-answer-129254.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "universfield-wrong-answer-129254.mp3"; sourceTree = "<group>"; };
@@ -303,6 +309,9 @@
 				18898532301C1CEB001D7759 /* ItemCard.swift */,
 				18898530301C189C001D7759 /* EarnStarsBanner.swift */,
 				185973363024332400C8C7A6 /* UnlockRewardsButton.swift */,
+				18645E22302FFEA900765259 /* PageIndicator.swift */,
+				18645E24302FFF0B00765259 /* ConfirmationWindow.swift */,
+				18645E26303001DB00765259 /* RewardsCardsView.swift */,
 			);
 			path = Rewards;
 			sourceTree = "<group>";
@@ -487,6 +496,7 @@
 				180B03292F9921E8006A5B3E /* EasyMathApp.swift in Sources */,
 				18084C6F301AE13900751FAD /* RedeemRewardsBanner.swift in Sources */,
 				1859733530216EFA00C8C7A6 /* ItemSettings.swift in Sources */,
+				18645E27303001DB00765259 /* RewardsCardsView.swift in Sources */,
 				18898531301C189C001D7759 /* EarnStarsBanner.swift in Sources */,
 				18898539301D503F001D7759 /* StarIcon.swift in Sources */,
 				187106D52FD1E1B2005BC5A6 /* Next.swift in Sources */,
@@ -494,6 +504,7 @@
 				18898533301C1CEB001D7759 /* ItemCard.swift in Sources */,
 				1889853F301ECCA2001D7759 /* ScoreBadge.swift in Sources */,
 				18645E08302D007700765259 /* ItemsOnAvatar.swift in Sources */,
+				18645E23302FFEA900765259 /* PageIndicator.swift in Sources */,
 				1880DBB42FC7A85400315A1E /* TextHelper.swift in Sources */,
 				1871072A2FD65084005BC5A6 /* TextFieldName.swift in Sources */,
 				186CB21D2FD1329C00E6777B /* Avatar.swift in Sources */,
@@ -531,6 +542,7 @@
 				1831D6522FA1ACE90033AE89 /* ProfileBadge.swift in Sources */,
 				188318232FBCE34A0004A9B2 /* Score.swift in Sources */,
 				181237D92FB146D500BC7AB0 /* TopBar.swift in Sources */,
+				18645E25302FFF0B00765259 /* ConfirmationWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

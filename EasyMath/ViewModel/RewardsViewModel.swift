@@ -11,6 +11,8 @@ import SwiftUI
 @Observable
 class RewardsViewModel {
     
+    // Track the currently visible reward card
+    var currentIndex = 0
     // Image displayed in the purchase confirmation window
     var selectedImageInWindow: String?
     
