@@ -75,7 +75,18 @@ struct ConfirmationWindow: View {
                         
                         // Add the purchased item to SwiftData
                         let newItem = OwnedItem(soldItem: selectedItem)
+                        
+                        // Add the other ski glasses variant
+                        if selectedItem == "ski-glasses" {
+                            let secondItem = OwnedItem(soldItem: "ski-glasses2")
+                            context.insert(secondItem)
+                        } else if selectedItem == "ski-glasses2" {
+                            let secondItem = OwnedItem(soldItem: "ski-glasses")
+                            context.insert(secondItem)
+                        }
+                                    
                         context.insert(newItem)
+                        
                         
                         do {
                             try context.save()
