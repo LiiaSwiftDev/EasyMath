@@ -80,22 +80,22 @@ class RewardsViewModel {
             image: "crown",
             widthImage: 70,
             colorItemBg: Color(red: 236/255, green: 85/255, blue: 100/255),
-            price: "1"),
+            price: "2"),
         ItemCardModel(
             image: "sunglasses",
             widthImage: 80,
             colorItemBg: Color(red: 201/255, green: 220/255, blue: 162/255),
-            price: "1"),
+            price: "3"),
         ItemCardModel(
             image: "cap",
             widthImage: 130,
             colorItemBg: Color(red: 185/255, green: 175/255, blue: 236/255),
-            price: "1"),
+            price: "4"),
         ItemCardModel(
             image: "ski-glasses",
             widthImage: 140,
             colorItemBg: Color(red: 249/255, green: 237/255, blue: 175/255),
-            price: "1"),
+            price: "3"),
         ItemCardModel(
             image: "bow-tie-red",
             widthImage: 60,
@@ -105,12 +105,12 @@ class RewardsViewModel {
             image: "hat",
             widthImage: 80,
             colorItemBg: Color(red: 201/255, green: 220/255, blue: 162/255),
-            price: "1"),
+            price: "2"),
         ItemCardModel(
             image: "rounded-glasses",
             widthImage: 110,
             colorItemBg: Color(red: 255/255, green: 236/255, blue: 207/255),
-            price: "1")
+            price: "4")
     ]
     
     // Display settings for each avatar and reward item combination

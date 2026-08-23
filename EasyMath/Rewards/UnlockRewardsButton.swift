@@ -16,6 +16,7 @@ struct UnlockRewardsButton: View {
     @Query var scores: [Score]
     
     @State var showAlert = false
+    var isSmallScreen: Bool
     
     var body: some View {
         
@@ -48,12 +49,12 @@ struct UnlockRewardsButton: View {
                 
                 HStack {
                     StarIcon(starShadow: 4)
-                        .scaleEffect(0.8)
+                        .scaleEffect(isSmallScreen ? 0.7 : 0.8)
                     
                     // Display the unlock price
                     Text(rewardsModel.textOnTheButton(text: rewardsModel.amountOfStars))
                         .foregroundStyle(Color.white)
-                        .font(Font.system(size: 20, weight: .bold, design: .rounded))
+                        .font(Font.system(size: isSmallScreen ? 18 : 20, weight: .bold, design: .rounded))
                 }
             }
         }
@@ -87,5 +88,5 @@ struct UnlockRewardsButton: View {
 }
 
 #Preview {
-    UnlockRewardsButton()
+    UnlockRewardsButton(isSmallScreen: true)
 }

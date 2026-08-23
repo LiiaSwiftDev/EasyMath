@@ -27,107 +27,119 @@ struct RewardsView: View {
     
     var body: some View {
 
-        ZStack(alignment: .top) {
+        GeometryReader { proxy in
             
-            // Screen background
-            Color(red: 251/255, green: 255/255, blue: 255/255)
-                .ignoresSafeArea()
+            let smallScreen = proxy.size.height < 800
             
-            VStack(alignment: .leading, spacing: 10) {
+            ZStack(alignment: .top) {
                 
-                // Top navigation bar
-                ZStack {
-                    HStack {
-                        
-                        // Page title
-                        Text("Rewards")
-                            .foregroundStyle(Color.black)
-                            .font(.system(.title2, design: .rounded, weight: .bold))
-                        
-                    }.frame(maxWidth: .infinity, alignment: .center)
+                // Screen background
+                Color(red: 251/255, green: 255/255, blue: 255/255)
+                    .ignoresSafeArea()
+                
+                VStack(alignment: .leading, spacing: 10) {
                     
-                    HStack {
-                        // Back navigation button
-                        Button {
-                            // Navigate back to Profile View
-                            path.append(3)
-                            rewardsModel.returnFromRewards = true
+                    // Top navigation bar
+                    ZStack {
+                        
+                        HStack {
+                            // Page title
+                            Text("Rewards")
+                                .foregroundStyle(Color.black)
+                                .font(.system(.title2, design: .rounded, weight: .bold))
                             
-                        } label: {
-                            Image(systemName: "chevron.left")
-                                .font(.title)
+                        }.frame(maxWidth: .infinity, alignment: .center)
+                        
+                        HStack {
+                            // Back navigation button
+                            Button {
+                                // Navigate back to Profile View
+                                path.append(3)
+                                rewardsModel.returnFromRewards = true
+                                
+                            } label: {
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
+                            }
+                            
+                            Spacer()
+                            
+                            // Current score display
+                            ScoreBadge()
                         }
-                        
-                        Spacer()
-                        
-                        // Current score display
-                        ScoreBadge()
+                        .foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
                     }
-                    .foregroundStyle(Color(red: 241/255, green: 1/255, blue: 111/255))
-                }
-                .padding(.top, 10)
-                .padding(.horizontal, 20)
-                
-                // User profile avatar
-                ProfileAvatar()
-                    .scaleEffect(0.8)
-                    .padding(.horizontal, 20)
-                
-                // Rewards selection title
-                Text("Choose an item")
-                    .foregroundStyle(Color.black)
-                    .font(Font.system(size: 18, weight: .bold, design: .rounded))
-                    .padding(.top, 20)
-                    .padding(.leading, 20)
-                
-                // Available reward items
-                RewardsCardsScroll()
-                    .scrollTargetBehavior(.viewAligned)
-                    .scrollPosition(id: $scrollPosition)
-                // Update the current page indicator when the scroll position changes
-                    .onChange(of: scrollPosition, { _, newValue in
-                        if let newValue {
-                            rewardsModel.currentIndex = newValue
-                        }
-                    })
-                    .padding(.bottom, 10)
-                
-                // Page indicators
-                PageIndicator()
-                    .padding(.bottom, 20)
-                
-                // Unlock reward button
-                UnlockRewardsButton()
-                    .disabled(rewardsModel.amountOfStars == nil)
-                    .padding(.horizontal, 20)
-                
-                // Banner explaining how to earn stars
-                EarnStarsBanner()
                     .padding(.top, 10)
                     .padding(.horizontal, 20)
+                    
+                    // User profile avatar
+                    ProfileAvatar()
+                        .scaleEffect(smallScreen ? 0.65 : 0.8)
+                        .offset(y: smallScreen ? -40 : 0)
+                        .padding(.horizontal, 20)
+                    
+                    Group {
+                        // Rewards selection title
+                        Text("Choose an item")
+                            .foregroundStyle(Color.black)
+                            .font(Font.system(size: smallScreen ? 17 : 18, weight: .bold, design: .rounded))
+                            .padding(.top, 20)
+                            .padding(.leading, 20)
+                        
+                        // Available reward items
+                        RewardsCardsScroll()
+                            .scrollTargetBehavior(.viewAligned)
+                            .scrollPosition(id: $scrollPosition)
+                        // Update the current page indicator when the scroll position changes
+                            .onChange(of: scrollPosition, { _, newValue in
+                                if let newValue {
+                                    rewardsModel.currentIndex = newValue
+                                }
+                            })
+                            .padding(.bottom, 10)
+                        
+                        // Page indicators
+                        PageIndicator()
+                            .padding(.bottom, 20)
+                    }
+                    .offset(y: smallScreen ? -75 : 0)
+
+                    // Unlock reward button
+                    UnlockRewardsButton(isSmallScreen: smallScreen)
+                        .offset(y: smallScreen ? -75 : 0)
+                        .disabled(rewardsModel.amountOfStars == nil)
+                        .padding(.horizontal, 20)
+                    
+                    // Banner explaining how to earn stars
+                    EarnStarsBanner(isSmallScreen: smallScreen)
+                        .offset(y: smallScreen ? -75 : 0)
+                        .padding(.top, 10)
+                        .padding(.horizontal, 20)
+                    
+                }
                 
+                // Purchase confirmation overlay
+                if rewardsModel.confirmBuyItemWindow {
+                    ConfirmationWindow()
+                }
             }
+            .onAppear(perform: {
+                if rewardsModel.returnFromRewards == false {
+                    if let profile = profiles.first {
+                        model.selectedImage = profile.image
+                    }
+                    // Get selected item
+                    if let item = avatarItems.first {
+                        rewardsModel.selectedItem = item.item
+                    }
+                }
+            })
+            .onDisappear(perform: {
+                rewardsModel.amountOfStars = nil
+            })
+            .navigationBarBackButtonHidden(true)
             
-            // Purchase confirmation overlay
-            if rewardsModel.confirmBuyItemWindow {
-                ConfirmationWindow()
-            }
         }
-        .onAppear(perform: {
-            if rewardsModel.returnFromRewards == false {
-                if let profile = profiles.first {
-                    model.selectedImage = profile.image
-                }
-                // Get selected item
-                if let item = avatarItems.first {
-                    rewardsModel.selectedItem = item.item
-                }
-            }
-        })
-        .onDisappear(perform: {
-            rewardsModel.amountOfStars = nil
-        })
-        .navigationBarBackButtonHidden(true)
     }
 }
 
