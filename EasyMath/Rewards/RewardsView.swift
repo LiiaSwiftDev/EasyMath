@@ -100,21 +100,26 @@ struct RewardsView: View {
                         
                         // Page indicators
                         PageIndicator()
+                            .offset(y: model.isIPad ? -20 : 0)
                             .padding(.bottom, 20)
                     }
-                    .offset(y: smallScreen ? -75 : 0)
+                    .offset(y: model.isIPad ? -150 : smallScreen ? -75 : 0)
+                    .scaleEffect(model.isIPad ? 0.9 : 1)
 
-                    // Unlock reward button
-                    UnlockRewardsButton(isSmallScreen: smallScreen)
-                        .offset(y: smallScreen ? -75 : 0)
-                        .disabled(rewardsModel.amountOfStars == nil)
-                        .padding(.horizontal, 20)
-                    
-                    // Banner explaining how to earn stars
-                    EarnStarsBanner(isSmallScreen: smallScreen)
-                        .offset(y: smallScreen ? -75 : 0)
-                        .padding(.top, 10)
-                        .padding(.horizontal, 20)
+                    Group {
+                        // Unlock reward button
+                        UnlockRewardsButton(isSmallScreen: smallScreen)
+                            .offset(y: model.isIPad ? -185 : smallScreen ? -75 : 0)
+                            .disabled(rewardsModel.amountOfStars == nil)
+                            .padding(.horizontal, 20)
+                        
+                        // Banner explaining how to earn stars
+                        EarnStarsBanner(isSmallScreen: smallScreen)
+                            .offset(y: model.isIPad ? -195 : smallScreen ? -75 : 0)
+                            .padding(.top, 10)
+                            .padding(.horizontal, 20)
+                    }
+                    .scaleEffect(model.isIPad ? 0.9 : 1)
                     
                 }
                 
@@ -124,6 +129,11 @@ struct RewardsView: View {
                 }
             }
             .onAppear(perform: {
+                
+                DispatchQueue.main.async {
+                    print(proxy.size.height)
+                }
+                
                 if rewardsModel.returnFromRewards == false {
                     if let profile = profiles.first {
                         model.selectedImage = profile.image
@@ -138,6 +148,12 @@ struct RewardsView: View {
                 rewardsModel.amountOfStars = nil
             })
             .navigationBarBackButtonHidden(true)
+            
+        }
+    }
+    
+    func offsetScroll() {
+        if model.isIPad {
             
         }
     }
